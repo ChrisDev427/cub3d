@@ -1,30 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_str_rchr.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chmassa <chrisdev427@gmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/21 17:32:54 by chmassa           #+#    #+#             */
-/*   Updated: 2022/11/21 15:22:53 by chmassa          ###   ########.fr       */
+/*   Created: 2023/02/08 18:44:09 by chmassa           #+#    #+#             */
+/*   Updated: 2023/02/08 19:01:11 by chmassa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+int	ft_str_rchr(const char *s, int c)
 {
-	int	i;
+	int	s_len;
 
-	i = 0;
-	while (s[i])
+	s_len = ft_strlen(s);
+	while (s_len >= 0)
 	{
-		if (s[i] == (char) c)
-			return ((char *)(s + i));
-		else
-			i++;
+		if (s[s_len] == (char) c)
+			return (s_len);
+		s_len--;
 	}
-	if (s[i] == (char) c)
-		return ((char *)(s + i));
-	return (NULL);
+	return (0);
 }

@@ -1,30 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_lstadd_position.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chmassa <chrisdev427@gmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/21 17:32:54 by chmassa           #+#    #+#             */
-/*   Updated: 2022/11/21 15:22:53 by chmassa          ###   ########.fr       */
+/*   Created: 2022/12/23 12:16:19 by chmassa           #+#    #+#             */
+/*   Updated: 2023/03/22 11:06:32 by chmassa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+void	ft_lstadd_position(t_list **lst, t_list *new, int position)
 {
-	int	i;
+	int		i;
+	t_list	*tmp;
 
-	i = 0;
-	while (s[i])
+	if (!(*lst))
+		return ;
+	if (position < 2 || position > ft_lstsize(*lst))
+		return ;
+	i = 2;
+	tmp = *lst;
+	while (tmp)
 	{
-		if (s[i] == (char) c)
-			return ((char *)(s + i));
-		else
-			i++;
+		if (i == position)
+		{
+			new->next = tmp->next;
+			tmp->next = new;
+			new->prev = tmp;
+			tmp->next->next->prev = tmp->next;
+		}
+		tmp = tmp->next;
+		i++;
 	}
-	if (s[i] == (char) c)
-		return ((char *)(s + i));
-	return (NULL);
 }

@@ -1,30 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   lstprint.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chmassa <chrisdev427@gmail.com>            +#+  +:+       +#+        */
+/*   By: chmassa <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/21 17:32:54 by chmassa           #+#    #+#             */
-/*   Updated: 2022/11/21 15:22:53 by chmassa          ###   ########.fr       */
+/*   Created: 2022/12/23 12:12:15 by chmassa           #+#    #+#             */
+/*   Updated: 2023/01/05 15:20:08 by chmassa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+void	ft_lstprint(t_list *lst)
 {
-	int	i;
+	t_list	*tmp;
 
-	i = 0;
-	while (s[i])
+	if (!lst)
 	{
-		if (s[i] == (char) c)
-			return ((char *)(s + i));
-		else
-			i++;
+		ft_putstr("Empty list\n");
+		return ;
 	}
-	if (s[i] == (char) c)
-		return ((char *)(s + i));
-	return (NULL);
+	tmp = lst;
+	while (tmp)
+	{
+		ft_printf("%s\n", tmp->str);
+		tmp = tmp->next;
+	}
 }

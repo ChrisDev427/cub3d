@@ -1,30 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_lst_strcmp.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chmassa <chrisdev427@gmail.com>            +#+  +:+       +#+        */
+/*   By: axfernan <axfernan@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/21 17:32:54 by chmassa           #+#    #+#             */
-/*   Updated: 2022/11/21 15:22:53 by chmassa          ###   ########.fr       */
+/*   Created: 2023/04/14 10:20:03 by chmassa           #+#    #+#             */
+/*   Updated: 2023/04/20 11:36:34 by axfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+int	ft_lst_strcmp(t_list *lst, char *s)
 {
-	int	i;
+	t_list	*tmp;
 
-	i = 0;
-	while (s[i])
+	if (!lst || !s)
+		return (0);
+	tmp = lst;
+	while (tmp)
 	{
-		if (s[i] == (char) c)
-			return ((char *)(s + i));
-		else
-			i++;
+		if (ft_strcmp(tmp->str, s) == 0)
+			return (1);
+		tmp = tmp->next;
 	}
-	if (s[i] == (char) c)
-		return ((char *)(s + i));
-	return (NULL);
+	return (0);
 }

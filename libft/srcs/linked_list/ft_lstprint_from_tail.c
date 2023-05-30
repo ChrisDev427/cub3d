@@ -1,30 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_lstprint_from_tail.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chmassa <chrisdev427@gmail.com>            +#+  +:+       +#+        */
+/*   By: axfernan <axfernan@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/21 17:32:54 by chmassa           #+#    #+#             */
-/*   Updated: 2022/11/21 15:22:53 by chmassa          ###   ########.fr       */
+/*   Created: 2022/12/23 12:12:15 by chmassa           #+#    #+#             */
+/*   Updated: 2023/04/21 10:11:52 by axfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+void	ft_lstprint_from_tail(t_list *lst)
 {
-	int	i;
+	t_list	*tmp;
+	int		node;
 
-	i = 0;
-	while (s[i])
+	node = ft_lstsize(lst);
+	if (!lst)
 	{
-		if (s[i] == (char) c)
-			return ((char *)(s + i));
-		else
-			i++;
+		ft_printf("Empty list\n");
+		return ;
 	}
-	if (s[i] == (char) c)
-		return ((char *)(s + i));
-	return (NULL);
+	tmp = ft_lstlast(lst);
+	while (tmp)
+	{
+		ft_printf("node[%d] value|%s|\n", node, tmp->str);
+		tmp = tmp->prev;
+		node--;
+	}
 }

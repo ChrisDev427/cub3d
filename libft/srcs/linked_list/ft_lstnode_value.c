@@ -1,30 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_lstnode_value.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chmassa <chrisdev427@gmail.com>            +#+  +:+       +#+        */
+/*   By: axfernan <axfernan@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/21 17:32:54 by chmassa           #+#    #+#             */
-/*   Updated: 2022/11/21 15:22:53 by chmassa          ###   ########.fr       */
+/*   Created: 2023/01/06 13:01:48 by chmassa           #+#    #+#             */
+/*   Updated: 2023/04/20 11:37:35 by axfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+int	ft_lstnode_value(t_list **lst, int node)
 {
-	int	i;
+	int	value;
+	int	position;
 
-	i = 0;
-	while (s[i])
+	position = 1;
+	while (*lst)
 	{
-		if (s[i] == (char) c)
-			return ((char *)(s + i));
-		else
-			i++;
+		if (position == node)
+		{
+			value = (*lst)->str;
+		}
+		*lst = (*lst)->next;
+		position ++;
 	}
-	if (s[i] == (char) c)
-		return ((char *)(s + i));
-	return (NULL);
+	return (value);
 }

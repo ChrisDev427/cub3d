@@ -1,30 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_lst_to_char_tab.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chmassa <chrisdev427@gmail.com>            +#+  +:+       +#+        */
+/*   By: chmassa <chmassa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/21 17:32:54 by chmassa           #+#    #+#             */
-/*   Updated: 2022/11/21 15:22:53 by chmassa          ###   ########.fr       */
+/*   Created: 2023/04/12 18:14:32 by chmassa           #+#    #+#             */
+/*   Updated: 2023/04/12 18:18:39 by chmassa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+char	**ft_lst_to_char_tab(t_list *lst)
 {
-	int	i;
+	t_list	*tmp;
+	char	**array;
+	int		i;
 
+	if (!lst)
+		return (NULL);
 	i = 0;
-	while (s[i])
+	tmp = lst;
+	array = malloc(sizeof (char *) * (ft_lstsize(lst) + 1));
+	while (tmp)
 	{
-		if (s[i] == (char) c)
-			return ((char *)(s + i));
-		else
-			i++;
+		array[i] = ft_strdup(tmp->str);
+		i++;
+		tmp = tmp->next;
 	}
-	if (s[i] == (char) c)
-		return ((char *)(s + i));
-	return (NULL);
+	array[i] = NULL;
+	return (array);
 }

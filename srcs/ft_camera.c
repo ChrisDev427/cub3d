@@ -1,37 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_open.c                                          :+:      :+:    :+:   */
+/*   ft_camera.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chmassa <chmassa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/12 08:36:41 by chris             #+#    #+#             */
-/*   Updated: 2023/05/29 15:17:41 by chmassa          ###   ########.fr       */
+/*   Created: 2023/05/30 17:19:10 by chmassa           #+#    #+#             */
+/*   Updated: 2023/05/30 18:49:43 by chmassa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-static int	ft_check_ext(char *file)
+void    ft_camera(t_game *game)
 {
-	if (!ft_found_char(file, '.'))
-		return (0);
-	if (ft_strcmp(".cub", ft_strrchr(file, '.')) != 0)
-		return (0);
-	return (1);
-}
-
-void	ft_open(char *file, int *fd)
-{
-	if (!ft_check_ext(file))
-	{
-		ft_putstr_fd("error: extension map must be '.cub'\n", 2);
-		exit(EXIT_FAILURE);
-	}
-	*fd = open(file, O_RDONLY);
-	if (*fd == -1)
-	{
-		perror(file);
-		exit(EXIT_FAILURE);
-	}
+    if (game->mov.degrees > 359)
+        game->mov.degrees = 0;
+    if (game->mov.degrees < 0)
+        game->mov.degrees = 359;
+    
+    if (game->mov.camera[0] == 'l')
+        game->mov.degrees -= 0.001;
+    if (game->mov.camera[1] == 'r')
+        game->mov.degrees += 0.001;
+        
+    
 }

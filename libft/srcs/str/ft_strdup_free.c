@@ -1,30 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_strdup_free.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chmassa <chrisdev427@gmail.com>            +#+  +:+       +#+        */
+/*   By: axfernan <axfernan@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/21 17:32:54 by chmassa           #+#    #+#             */
-/*   Updated: 2022/11/21 15:22:53 by chmassa          ###   ########.fr       */
+/*   Created: 2023/04/06 14:44:34 by chmassa           #+#    #+#             */
+/*   Updated: 2023/04/20 11:57:28 by axfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+char	*ft_strdup_free(const char *s1)
 {
-	int	i;
+	char	*str;
+	int		i;
+	int		s1len;
 
 	i = 0;
-	while (s[i])
+	s1len = 0;
+	while (s1[s1len])
+		s1len++;
+	str = malloc(sizeof(char) * s1len + 1);
+	if (str == NULL)
+		return (NULL);
+	else
 	{
-		if (s[i] == (char) c)
-			return ((char *)(s + i));
-		else
+		while (s1[i])
+		{
+			str[i] = s1[i];
 			i++;
+		}
+		str[i] = '\0';
 	}
-	if (s[i] == (char) c)
-		return ((char *)(s + i));
-	return (NULL);
+	free((char *)s1);
+	return (str);
 }

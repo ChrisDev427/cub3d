@@ -1,30 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_lstcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chmassa <chrisdev427@gmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/21 17:32:54 by chmassa           #+#    #+#             */
-/*   Updated: 2022/11/21 15:22:53 by chmassa          ###   ########.fr       */
+/*   Created: 2022/12/30 14:08:25 by chmassa           #+#    #+#             */
+/*   Updated: 2023/03/22 15:05:14 by chmassa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+t_list	*ft_lstcpy(t_list **lst)
 {
-	int	i;
+	t_list	*lstcpy;
+	t_list	*tmp;
+	t_list	*new;
 
-	i = 0;
-	while (s[i])
+	tmp = *lst;
+	lstcpy = NULL;
+	while (tmp)
 	{
-		if (s[i] == (char) c)
-			return ((char *)(s + i));
-		else
-			i++;
+		new = ft_lstnew(tmp->str);
+		ft_lstadd_back(&lstcpy, new);
+		tmp = tmp->next;
 	}
-	if (s[i] == (char) c)
-		return ((char *)(s + i));
-	return (NULL);
+	return (lstcpy);
 }

@@ -1,30 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_lstdel_front.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chmassa <chrisdev427@gmail.com>            +#+  +:+       +#+        */
+/*   By: axfernan <axfernan@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/21 17:32:54 by chmassa           #+#    #+#             */
-/*   Updated: 2022/11/21 15:22:53 by chmassa          ###   ########.fr       */
+/*   Created: 2022/12/23 12:11:01 by chmassa           #+#    #+#             */
+/*   Updated: 2023/04/20 11:37:04 by axfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+void	ft_lstdel_front(t_list **lst)
 {
-	int	i;
+	t_list	*temp;
 
-	i = 0;
-	while (s[i])
+	if (!(*lst))
+		return ;
+	if ((*lst)->next)
 	{
-		if (s[i] == (char) c)
-			return ((char *)(s + i));
-		else
-			i++;
+		temp = (*lst)->next;
+		free((*lst)->str);
+		free((*lst));
+		*lst = temp;
+		(*lst)->prev = NULL;
 	}
-	if (s[i] == (char) c)
-		return ((char *)(s + i));
-	return (NULL);
+	else
+	{
+		free((*lst)->str);
+		free((*lst));
+		*lst = NULL;
+	}
 }

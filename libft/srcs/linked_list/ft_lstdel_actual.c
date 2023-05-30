@@ -1,30 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_lstdel_actual.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chmassa <chrisdev427@gmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/21 17:32:54 by chmassa           #+#    #+#             */
-/*   Updated: 2022/11/21 15:22:53 by chmassa          ###   ########.fr       */
+/*   Created: 2023/03/27 10:20:55 by chmassa           #+#    #+#             */
+/*   Updated: 2023/03/27 11:11:07 by chmassa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+void	ft_lstdel_actual(t_list **lst, t_list *tmp)
 {
-	int	i;
+	t_list	*tmp2;
 
-	i = 0;
-	while (s[i])
+	if (!(*lst))
+		return ;
+	if (!tmp)
+		return ;
+	if (tmp->next == NULL)
+		ft_lstdel_back(lst);
+	else if (tmp->prev == NULL)
+		ft_lstdel_front(lst);
+	else
 	{
-		if (s[i] == (char) c)
-			return ((char *)(s + i));
-		else
-			i++;
+		free(tmp->str);
+		tmp2 = tmp;
+		tmp = tmp->prev;
+		tmp->next = tmp->next->next;
+		tmp->next->prev = tmp;
+		free(tmp2);
 	}
-	if (s[i] == (char) c)
-		return ((char *)(s + i));
-	return (NULL);
 }

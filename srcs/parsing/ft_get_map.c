@@ -6,7 +6,7 @@
 /*   By: chmassa <chmassa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 17:19:20 by chmassa           #+#    #+#             */
-/*   Updated: 2023/05/26 11:48:49 by chmassa          ###   ########.fr       */
+/*   Updated: 2023/05/29 16:31:29 by chmassa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,5 +75,4 @@ void	ft_get_map(char *file, t_game *game)
 	game->parse.map = malloc(sizeof(char *) * (map_lines + 1));
 	ft_open(file, &game->parse.fd);
 	ft_get(game);
-
 }
