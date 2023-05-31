@@ -12,6 +12,7 @@ APPKIT = -framework AppKit
 SRCS =  srcs/cub3d.c \
 		srcs/ft_quit.c \
 		srcs/parsing/ft_init.c \
+		srcs/parsing/ft_init_minimap.c \
 		srcs/parsing/ft_get_colors.c \
 		srcs/parsing/ft_get_map.c \
 		srcs/parsing/ft_split_map_elem.c \
@@ -23,7 +24,8 @@ SRCS =  srcs/cub3d.c \
 		srcs/ft_player_position.c \
 		srcs/ft_run.c \
 		srcs/ft_camera.c \
-		srcs/ft_mini_map.c 
+		srcs/ft_mini_map.c \
+		srcs/ft_mini_map_utils.c 
 
 
 OBJECT_FILES = $(SRCS:.c=.o)

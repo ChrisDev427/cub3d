@@ -6,7 +6,7 @@
 /*   By: chmassa <chmassa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 11:50:57 by chmassa           #+#    #+#             */
-/*   Updated: 2023/05/30 13:23:39 by chmassa          ###   ########.fr       */
+/*   Updated: 2023/05/31 11:30:39 by chmassa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,14 +46,14 @@ void	ft_split_map_elem(t_game *game)
     {
         if (ft_token_match(game->parse.map[i]))
         {
-            game->parse.elements[elem_nb] = ft_strdup(game->parse.map[i]);
+            game->data.elements[elem_nb] = ft_strdup(game->parse.map[i]);
             elem_nb++;
         }
         if (elem_nb == 6)
             break ;
         i++;
     }
-    game->parse.elements[elem_nb] = NULL;
+    game->data.elements[elem_nb] = NULL;
     if (elem_nb != 6)
         ft_error(game, "map: invalid elements\n", NULL);
     ft_trim_map(game, i + 1);

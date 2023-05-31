@@ -6,7 +6,7 @@
 /*   By: chmassa <chmassa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 15:00:12 by chmassa           #+#    #+#             */
-/*   Updated: 2023/05/30 19:34:16 by chmassa          ###   ########.fr       */
+/*   Updated: 2023/05/31 16:08:10 by chmassa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@
 //-----------------------------------------------------------------------------
 typedef struct s_window
 {
-	void	*mlx_ptr;
-	void	*win_ptr;
+	void	*mlx;
+	void	*win;
 	int		x;
 	int		y;
 	int		size_x;
@@ -41,16 +41,37 @@ typedef struct s_parsing
 {
 	int		fd;
 	char	**map;
-	char	**elements;
 	char	*elem_token[7];
 	char	**mapcpy;
 
-	int		ceiling[4];
-	int		floor[4];
 }				t_parsing;
 //-----------------------------------------------------------------------------
 //********* images struct *****************************************************
 //-----------------------------------------------------------------------------
+typedef struct s_data
+{
+	char	**elements;
+	int		ceiling[4];
+	int		floor[4];
+	int		fl_color;
+	int		ce_color;
+	int		minimap_y;
+	int		minimap_x;
+	void	*minimap_img;
+	char	*img_data;
+	int		bits_per_pixel;
+	int		size_line;
+	int		endian;
+	int 	pixel_offset;
+
+	int		mini_map_color[4];
+	int		mini_map_floor[4];
+	int		mini_map_walls[4];
+
+	
+
+}				t_data;
+
 typedef struct s_moves
 {
 	float	moves[4];
@@ -61,20 +82,14 @@ typedef struct s_moves
 	int		player_x;
 	int		player_y;
 
-	// void	*exit;
-	// void	*wall;
-	// void	*ruby;
-	// void	*floor;
-	// void	*link_face;
-	// void	*link_back;
-	// void	*link_left;
-	// void	*link_right;
 }				t_moves;
+
 typedef struct s_game
 {
 	t_parsing	parse;
 	t_window	win;
 	t_moves		mov;
+	t_data		data;
 }				t_game;
 //-----------------------------------------------------------------------------
 //******** parsing functions **************************************************
@@ -86,7 +101,10 @@ void	ft_check_map(t_game *game);
 void	ft_error(t_game *game, char *s1, char *s2);
 void	ft_window(t_game *game);
 void	ft_init(t_game *game);
+void    ft_init_minimap(t_game *game);
 void    ft_get_colors(t_game *game);
+void	ft_minimap_size(t_game *game);
+void	ft_minimap_color_init(t_game *game);
 //-----------------------------------------------------------------------------
 //******** mapping ************************************************************
 //-----------------------------------------------------------------------------
