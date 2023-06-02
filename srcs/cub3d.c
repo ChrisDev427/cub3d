@@ -6,7 +6,7 @@
 /*   By: chmassa <chmassa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 11:00:09 by chmassa           #+#    #+#             */
-/*   Updated: 2023/05/31 16:09:25 by chmassa          ###   ########.fr       */
+/*   Updated: 2023/06/02 16:52:03 by chmassa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,22 +15,28 @@
 int	main(int argc, char **argv)
 {
 	t_game	game;
+	
 
 	if (argc == 2)
 	{
 		ft_init(&game);
+
 		ft_get_map(argv[1], &game);
 		ft_split_map_elem(&game);
 		ft_check_map(&game);
-
+		// ft_print_strs_array(game.parse.map);
+		ft_player_position(&game);
 		ft_get_colors(&game);
-		ft_init_minimap(&game);
+		ft_init_images(&game);
+       
+		
+   		ft_print_floor_ceiling(&game);
+		
+		// ft_init_minimap(&game);
 		ft_mini_map(&game);
 		
 		// ft_print_strs_array(game.parse.elements);
 		// puts("--------------------------------------------------------------------");
-		ft_print_strs_array(game.parse.map);
-		ft_player_position(&game);
 
 		mlx_key_hook(game.win.win, ft_keypress, &game);
 		// ft_print_map(&game);
@@ -38,7 +44,9 @@ int	main(int argc, char **argv)
 		mlx_hook(game.win.win, 3, 0, ft_keyrelease, &game);
 		mlx_hook(game.win.win, 17, 0, ft_quit, &game);
 		mlx_loop_hook(game.win.mlx, ft_run, &game);
+
 		
+		ft_title(&game);
 		mlx_loop(game.win.mlx);
 	}
 	else

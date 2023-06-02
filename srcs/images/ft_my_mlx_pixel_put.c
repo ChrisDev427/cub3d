@@ -1,37 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_open.c                                          :+:      :+:    :+:   */
+/*   ft_my_mlx_pixel_put.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chmassa <chmassa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/12 08:36:41 by chris             #+#    #+#             */
-/*   Updated: 2023/06/02 14:17:33 by chmassa          ###   ########.fr       */
+/*   Created: 2023/06/01 18:29:27 by chmassa           #+#    #+#             */
+/*   Updated: 2023/06/02 14:15:46 by chmassa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
 
-static int	ft_check_ext(char *file)
-{
-	if (!ft_found_char(file, '.'))
-		return (0);
-	if (ft_strcmp(".cub", ft_strrchr(file, '.')) != 0)
-		return (0);
-	return (1);
-}
 
-void	ft_open(char *file, int *fd)
+// void	ft_my_mlx_pixel_put(t_game *game, char *addr, int x, int y, int color)
+// {
+// 	char	*dst;
+// 	dst = addr + (y * game->data.line_length + x * (game->data.bits_per_pixel / 8));
+// 	*(unsigned int*)dst = (unsigned int)color;
+// }
+void	ft_my_mlx_pixel_put(t_img *img, int x, int y, int color)
 {
-	if (!ft_check_ext(file))
-	{
-		ft_putstr_fd("error: extension map must be '.cub'\n", 2);
-		exit(EXIT_FAILURE);
-	}
-	*fd = open(file, O_RDONLY);
-	if (*fd == -1)
-	{
-		perror(file);
-		exit(EXIT_FAILURE);
-	}
+	char	*dst;
+	dst = img->addr + (y * img->line_length + x * (img->bits_per_pixel / 8));
+	*(unsigned int*)dst = (unsigned int)color;
 }

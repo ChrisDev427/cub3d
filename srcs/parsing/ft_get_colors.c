@@ -6,13 +6,13 @@
 /*   By: chmassa <chmassa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 17:21:40 by chmassa           #+#    #+#             */
-/*   Updated: 2023/05/31 17:19:28 by chmassa          ###   ########.fr       */
+/*   Updated: 2023/06/02 14:17:21 by chmassa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../../includes/cub3d.h"
 
-static int ft_lexer(t_game *game, char *s)
+static void ft_lexer(t_game *game, char *s)
 {
 	int i;
 	int nb_comma;
@@ -31,11 +31,8 @@ static int ft_lexer(t_game *game, char *s)
 			nb_comma++;
 		i++;
 	}
-	if (nb_comma == 2)
-		return (2);
-	if (nb_comma == 3)
-		return (3);
-	return (0);
+	if (nb_comma != 2)
+		ft_error(game, "wrong color argument: ", s);
 }
 static void    ft_atoi_color(t_game *game, int *tab, char *s)
 {
@@ -43,9 +40,10 @@ static void    ft_atoi_color(t_game *game, int *tab, char *s)
 	int byte;
 	
 	i = 0;
-	byte = 0;
-	if (ft_lexer(game, s) == 2)
-		tab[3] = 0;
+	tab[0] = 0;
+	byte = 1;
+	ft_lexer(game, s);
+
 	while (s[i])
 	{
 		if (s[i] >= '0' && s[i] <= '9')
@@ -62,11 +60,12 @@ static void    ft_atoi_color(t_game *game, int *tab, char *s)
 	}
 }
 
-static void ft_color_to_int(int *color, int *tab_color)
+int ft_color_to_int(int *tab_color)
 {
-//    *color = tab_color[3] + tab_color[2] * 256 + tab_color[1] * 256 * 256
-//           + tab_color[0] * 256 * 256 * 256;
-	*color = tab_color[3] | tab_color[2] << 8 | tab_color[1] << 16 | tab_color[0] << 24; //same as above, but with bitshift
+   return (tab_color[3] + tab_color[2] * 256 + tab_color[1] * 256 * 256
+          + tab_color[0] * 256 * 256 * 256);
+	
+	// return (tab_color[3] | tab_color[2] << 8 | tab_color[1] << 16 | tab_color[0] << 24); //same as above, but with bitshift
 }
 
 void    ft_get_colors(t_game *game)
@@ -82,8 +81,6 @@ void    ft_get_colors(t_game *game)
 			ft_atoi_color(game, game->data.floor, game->data.elements[i]);
 		i++;
 	}
-	ft_color_to_int(&game->data.ce_color, game->data.ceiling);
-	ft_color_to_int(&game->data.fl_color, game->data.floor);
-	
-	
+	game->data.ce_color = ft_color_to_int(game->data.ceiling);
+	game->data.fl_color = ft_color_to_int(game->data.floor);
 }

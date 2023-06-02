@@ -6,11 +6,11 @@
 /*   By: chmassa <chmassa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 17:19:20 by chmassa           #+#    #+#             */
-/*   Updated: 2023/05/29 16:31:29 by chmassa          ###   ########.fr       */
+/*   Updated: 2023/06/02 14:17:26 by chmassa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../../includes/cub3d.h"
 
 static int	ft_count_lines(int fd)
 {

@@ -65,6 +65,7 @@ SRCS = 	srcs/str/ft_split.c \
 	   	srcs/tab/ft_rev_int_tab.c \
 	   	srcs/tab/ft_sort_int_tab.c \
 	   	srcs/tab/ft_strtab_size.c \
+	   	srcs/tab/ft_strtab_dup.c \
 	   	srcs/ft_printf/ft_putstr_ptf.c \
 	   	srcs/ft_printf/ft_printf.c \
 	   	srcs/ft_printf/ft_flag_linker.c \
