@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_floor_ceiling.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chmassa <chmassa@student.42.fr>            +#+  +:+       +#+        */
+/*   By: axfernan <axfernan@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 16:11:10 by chmassa           #+#    #+#             */
-/*   Updated: 2023/06/02 13:40:16 by chmassa          ###   ########.fr       */
+/*   Updated: 2023/06/05 14:10:13 by axfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void    ft_print_floor_ceiling(t_game *game)
 {
     int y;
     int x;
-    
+
     y = 0;
     x = 0;
     while (y < HEIGHT)
@@ -27,7 +27,6 @@ void    ft_print_floor_ceiling(t_game *game)
                 ft_my_mlx_pixel_put(&game->image.game_img , x, y, game->data.ce_color);
             else
                 ft_my_mlx_pixel_put(&game->image.game_img, x, y, game->data.fl_color);
-
             x++;
         }
         y++;

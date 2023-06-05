@@ -3,19 +3,29 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chmassa <chmassa@student.42.fr>            +#+  +:+       +#+        */
+/*   By: axfernan <axfernan@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 11:00:09 by chmassa           #+#    #+#             */
-/*   Updated: 2023/06/02 16:52:03 by chmassa          ###   ########.fr       */
+/*   Updated: 2023/06/05 14:07:06 by axfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
+void	ft_create_env(t_game *game)
+{
+	int x;
+	int y;
+
+	x = 0;
+	y = 0;
+	while ()
+}
+
 int	main(int argc, char **argv)
 {
 	t_game	game;
-	
+
 
 	if (argc == 2)
 	{
@@ -28,24 +38,24 @@ int	main(int argc, char **argv)
 		ft_player_position(&game);
 		ft_get_colors(&game);
 		ft_init_images(&game);
-       
-		
+
+
    		ft_print_floor_ceiling(&game);
-		
+		ft_create_env(&game);
 		// ft_init_minimap(&game);
 		ft_mini_map(&game);
-		
+
 		// ft_print_strs_array(game.parse.elements);
 		// puts("--------------------------------------------------------------------");
 
 		mlx_key_hook(game.win.win, ft_keypress, &game);
-		// ft_print_map(&game);
+		//ft_print_map(&game);
+		for (int i = 0; game.parse.map[i]; i++)
+			printf("%s\n", game.parse.map[i]);
 		mlx_hook(game.win.win, 2, 0, ft_keypress, &game);
 		mlx_hook(game.win.win, 3, 0, ft_keyrelease, &game);
 		mlx_hook(game.win.win, 17, 0, ft_quit, &game);
 		mlx_loop_hook(game.win.mlx, ft_run, &game);
-
-		
 		ft_title(&game);
 		mlx_loop(game.win.mlx);
 	}
