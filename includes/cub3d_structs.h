@@ -106,6 +106,7 @@ typedef struct s_images
 {
 	t_img minimap_img;
 	t_img game_img;
+	t_img ray_img;
 	t_img title_img;
 
 }				t_images;
