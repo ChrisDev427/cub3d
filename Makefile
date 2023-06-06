@@ -27,10 +27,12 @@ SRCS =  srcs/cub3d.c \
 		srcs/parsing/ft_split_map_elem.c \
 		srcs/parsing/ft_check_map.c \
 		srcs/parsing/ft_open.c \
+		srcs/parsing/ft_enlarge_map.c \
 		srcs/images/ft_init_images.c \
 		srcs/images/ft_my_mlx_pixel_put.c \
-		srcs/minimap/ft_mini_map.c \
-		srcs/minimap/ft_mini_map_utils.c
+		srcs/minimap/ft_minimap.c \
+		srcs/minimap/ft_minimap_print_utils.c \
+		srcs/minimap/ft_minimap_init.c
 
 
 OBJECT_FILES = $(SRCS:.c=.o)

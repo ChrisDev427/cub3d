@@ -6,7 +6,7 @@
 /*   By: chmassa <chmassa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 15:00:12 by chmassa           #+#    #+#             */
-/*   Updated: 2023/06/05 15:33:16 by chmassa          ###   ########.fr       */
+/*   Updated: 2023/06/06 16:14:36 by chmassa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,22 +31,19 @@ void	ft_get_map(char *file, t_game *game);
 void	ft_split_map_elem(t_game *game);
 void	ft_check_map(t_game *game);
 void	ft_error(t_game *game, char *s1, char *s2);
-void	ft_window(t_game *game);
+// void	ft_window(t_game *game);
 void	ft_init(t_game *game);
 void    ft_init_images(t_game *game);
 void    ft_get_colors(t_game *game);
-void	ft_minimap_size(t_game *game);
-void	ft_minimap_color_init(t_game *game);
+// void	ft_minimap_size(t_game *game);
 int     ft_set_map_cpy(t_game *game);
+void    ft_enlarge_map(t_game *game);
 //-----------------------------------------------------------------------------
-//******** mapping ************************************************************
+//******** game functions *****************************************************
 //-----------------------------------------------------------------------------
-void	ft_mini_map(t_game *game);
 void    ft_player_position(t_game *game);
-// void	ft_pixel_put(t_game *game, int x, int y, int color);
 int     ft_color_to_int(int *tab_color);
 void    ft_print_floor_ceiling(t_game *game);
-// void	ft_my_mlx_pixel_put(t_game *game, char *addr, int x, int y, int color);
 void	ft_my_mlx_pixel_put(t_img *img, int x, int y, int color);
 
 
@@ -60,4 +57,13 @@ int     ft_run(t_game *game);
 void    ft_camera(t_game *game);
 void    ft_title(t_game *game);
 void    ft_moves(t_game *game);
+//-----------------------------------------------------------------------------
+//******** minimap functions **************************************************
+//-----------------------------------------------------------------------------
+void	ft_mini_map(t_game *game);
+void	ft_minimap_init(t_game *game);
+void	ft_init_variables(t_game *game, int *x, int *y);
+void	ft_print_back_ground(t_game *game);
+void	ft_draw_walls_floor(t_game *game, int y, int x, int color);
+
 #endif

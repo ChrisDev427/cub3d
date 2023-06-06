@@ -18,17 +18,23 @@
 # define HEIGHT 1040
 
 //-- minimap back ground color ------------------
-# define BG_COL_A 200
+# define BG_COL_A 150
 # define BG_COL_R 150
 # define BG_COL_G 150
 # define BG_COL_B 150
+
+//-- minimap border color -----------------------
+# define BR_COL_A 250
+# define BR_COL_R 144
+# define BR_COL_G 3
+# define BR_COL_B 3
 //-- minimap floor color ------------------------
-# define FL_COL_A 0
+# define FL_COL_A 150
 # define FL_COL_R 129
 # define FL_COL_G 197
 # define FL_COL_B 232
 //-- minimap walls color ------------------------
-# define WL_COL_A 0
+# define WL_COL_A 150
 # define WL_COL_R 85
 # define WL_COL_G 85
 # define WL_COL_B 85

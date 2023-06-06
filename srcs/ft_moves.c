@@ -6,7 +6,7 @@
 /*   By: chmassa <chmassa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 15:32:40 by chmassa           #+#    #+#             */
-/*   Updated: 2023/06/05 16:13:24 by chmassa          ###   ########.fr       */
+/*   Updated: 2023/06/06 19:38:38 by chmassa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,18 @@
 
 void    ft_moves(t_game *game)
 {
-    if (game->mov.moves[0] == 'u')
-        game->mov.mp_pos_y -= 0.100;
-    if (game->mov.moves[1] == 'l')
-        game->mov.mp_pos_x -= 0.100;
-    if (game->mov.moves[2] == 'r')
-        game->mov.mp_pos_x += 0.100;
-    if (game->mov.moves[3] == 'd')
-        game->mov.mp_pos_y += 0.100;
+    int x;
+    int y;
+
+    x = game->mov.player_x;
+    y = game->mov.player_y;
+    if (game->mov.moves[0] == 'u' && game->parse.mapcpy[y -1][x] != '1')
+        game->mov.player_y -= 1;
+    else if (game->mov.moves[1] == 'l' && game->parse.mapcpy[y][x -1] != '1')
+        game->mov.player_x -= 1;
+    else if (game->mov.moves[2] == 'r' && game->parse.mapcpy[y][x +1] != '1')
+        game->mov.player_x += 1;
+    else if (game->mov.moves[3] == 'd' && game->parse.mapcpy[y +1][x] != '1')
+        game->mov.player_y += 1;
     
 }
