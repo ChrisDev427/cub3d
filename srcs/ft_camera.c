@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_camera.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chmassa <chmassa@student.42.fr>            +#+  +:+       +#+        */
+/*   By: axfernan <axfernan@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 17:19:10 by chmassa           #+#    #+#             */
-/*   Updated: 2023/05/30 18:49:43 by chmassa          ###   ########.fr       */
+/*   Updated: 2023/06/06 13:08:22 by axfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@ void    ft_camera(t_game *game)
         game->mov.degrees = 0;
     if (game->mov.degrees < 0)
         game->mov.degrees = 359;
-    
+
     if (game->mov.camera[0] == 'l')
         game->mov.degrees -= 0.001;
     if (game->mov.camera[1] == 'r')
         game->mov.degrees += 0.001;
-        
-    
+    printf("%f\n", game->mov.degrees);
+	
 }

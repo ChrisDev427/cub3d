@@ -6,21 +6,11 @@
 /*   By: axfernan <axfernan@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 11:00:09 by chmassa           #+#    #+#             */
-/*   Updated: 2023/06/05 14:07:06 by axfernan         ###   ########.fr       */
+/*   Updated: 2023/06/06 13:06:15 by axfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-
-void	ft_create_env(t_game *game)
-{
-	int x;
-	int y;
-
-	x = 0;
-	y = 0;
-	while ()
-}
 
 int	main(int argc, char **argv)
 {
@@ -33,7 +23,6 @@ int	main(int argc, char **argv)
 
 		ft_get_map(argv[1], &game);
 		ft_split_map_elem(&game);
-		ft_check_map(&game);
 		// ft_print_strs_array(game.parse.map);
 		ft_player_position(&game);
 		ft_get_colors(&game);
@@ -41,7 +30,6 @@ int	main(int argc, char **argv)
 
 
    		ft_print_floor_ceiling(&game);
-		ft_create_env(&game);
 		// ft_init_minimap(&game);
 		ft_mini_map(&game);
 
@@ -50,8 +38,8 @@ int	main(int argc, char **argv)
 
 		mlx_key_hook(game.win.win, ft_keypress, &game);
 		//ft_print_map(&game);
-		for (int i = 0; game.parse.map[i]; i++)
-			printf("%s\n", game.parse.map[i]);
+		// for (int i = 0; game.parse.map[i]; i++)
+		// 	printf("%s\n", game.parse.map[i]);
 		mlx_hook(game.win.win, 2, 0, ft_keypress, &game);
 		mlx_hook(game.win.win, 3, 0, ft_keyrelease, &game);
 		mlx_hook(game.win.win, 17, 0, ft_quit, &game);
