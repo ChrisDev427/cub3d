@@ -6,7 +6,7 @@
 /*   By: chmassa <chmassa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 15:00:12 by chmassa           #+#    #+#             */
-/*   Updated: 2023/06/02 16:49:58 by chmassa          ###   ########.fr       */
+/*   Updated: 2023/06/05 15:33:16 by chmassa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ void    ft_init_images(t_game *game);
 void    ft_get_colors(t_game *game);
 void	ft_minimap_size(t_game *game);
 void	ft_minimap_color_init(t_game *game);
+int     ft_set_map_cpy(t_game *game);
 //-----------------------------------------------------------------------------
 //******** mapping ************************************************************
 //-----------------------------------------------------------------------------
@@ -58,4 +59,5 @@ int		ft_keyrelease(int key, t_game *game);
 int     ft_run(t_game *game);
 void    ft_camera(t_game *game);
 void    ft_title(t_game *game);
+void    ft_moves(t_game *game);
 #endif

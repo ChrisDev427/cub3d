@@ -29,6 +29,8 @@ typedef struct s_parsing
 	int		fd;
 	char	**map;
 	char	*elem_token[7];
+	int		map_nb_lines;
+	int		map_lines_len;
 	char	**mapcpy;
 
 }				t_parsing;
@@ -46,9 +48,11 @@ typedef struct s_data
 	int		mini_map_bg[4];
 	int		mini_map_walls[4];
 	int		mini_map_floor[4];
+	int		mini_map_player[4];
 	int		mp_bg_color;
 	int		mp_walls_color;
 	int		mp_floor_color;
+	int		mp_player_color;
 
 }				t_data;
 
@@ -64,11 +68,11 @@ typedef struct s_img
 
 typedef struct s_moves
 {
-	float	moves[4];
+	int		moves[4];
 	int		camera[2];		
 	float	degrees;
-	float	pos_x;
-	float	pos_y;
+	float	mp_pos_x;
+	float	mp_pos_y;
 	int		player_x;
 	int		player_y;
 

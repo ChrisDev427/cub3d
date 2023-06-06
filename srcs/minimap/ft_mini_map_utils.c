@@ -6,7 +6,7 @@
 /*   By: chmassa <chmassa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 15:52:40 by chmassa           #+#    #+#             */
-/*   Updated: 2023/06/02 14:52:18 by chmassa          ###   ########.fr       */
+/*   Updated: 2023/06/05 14:06:25 by chmassa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,9 +51,15 @@ void	ft_minimap_color_init(t_game *game)
 	 game->data.mini_map_walls[2] = WL_COL_G;
 	 game->data.mini_map_walls[3] = WL_COL_B;
 
+	 game->data.mini_map_player[0] = PL_COL_A;
+	 game->data.mini_map_player[1] = PL_COL_R;
+	 game->data.mini_map_player[2] = PL_COL_G;
+	 game->data.mini_map_player[3] = PL_COL_B;
+
 
 	 game->data.mp_floor_color = ft_color_to_int(game->data.mini_map_floor);
 	 game->data.mp_walls_color = ft_color_to_int(game->data.mini_map_walls);
 	 game->data.mp_bg_color = ft_color_to_int(game->data.mini_map_bg);
+	 game->data.mp_player_color= ft_color_to_int(game->data.mini_map_player);
 	
 }

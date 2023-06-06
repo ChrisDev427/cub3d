@@ -14,6 +14,7 @@ SRCS =  srcs/cub3d.c \
 		srcs/ft_title.c \
 		srcs/ft_error.c \
 		srcs/ft_key.c \
+		srcs/ft_moves.c \
 		srcs/ft_window.c \
 		srcs/ft_player_position.c \
 		srcs/ft_run.c \
@@ -22,6 +23,7 @@ SRCS =  srcs/cub3d.c \
 		srcs/parsing/ft_init.c \
 		srcs/parsing/ft_get_colors.c \
 		srcs/parsing/ft_get_map.c \
+		srcs/parsing/ft_set_map_cpy.c \
 		srcs/parsing/ft_split_map_elem.c \
 		srcs/parsing/ft_check_map.c \
 		srcs/parsing/ft_open.c \
