@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_mini_map.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chmassa <chmassa@student.42.fr>            +#+  +:+       +#+        */
+/*   By: axfernan <axfernan@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 15:31:10 by chmassa           #+#    #+#             */
-/*   Updated: 2023/06/02 17:50:42 by chmassa          ###   ########.fr       */
+/*   Updated: 2023/06/08 11:20:56 by axfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@
 // 		x = x_tmp;
 // 		j = 0;
 // 	}
-	
+
 // }
 
 
@@ -65,10 +65,8 @@ void	ft_mini_map(t_game *game)
 	// int x;
 	// int y;
 
-	printf("color fl = %d\n", game->data.mp_floor_color);
-	printf("color wl = %d\n", game->data.mp_walls_color);
 	ft_print_back_ground(game);
-	
+
 	mlx_put_image_to_window(game->win.mlx, game->win.win, game->image.minimap_img.img, 35, 720);
 
 	// y = 0;
@@ -77,12 +75,12 @@ void	ft_mini_map(t_game *game)
 	// {
 	// 	while (game->parse.map[y][x])
 	// 	{
-			
+
 	// 		// if (game->parse.map[y][x] == 'N' || game->parse.map[y][x] == 'S' || game->parse.map[y][x] == 'E' || game->parse.map[y][x] == 'W')
 	// 		// 	ft_print_minimap(game, y, x, game->data.mp_walls_color);
 	// 		// if (game->parse.map[y][x] == '1')
 	// 		// 	ft_print_minimap(game, y, x, game->data.mp_walls_color);
-			
+
 	// 		x++;
 	// 	}
 	// 	y++;
