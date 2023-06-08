@@ -6,7 +6,7 @@
 /*   By: axfernan <axfernan@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 11:00:09 by chmassa           #+#    #+#             */
-/*   Updated: 2023/06/06 13:06:15 by axfernan         ###   ########.fr       */
+/*   Updated: 2023/06/08 14:46:15 by axfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,10 @@ int	main(int argc, char **argv)
 		ft_get_map(argv[1], &game);
 		ft_split_map_elem(&game);
 		// ft_print_strs_array(game.parse.map);
+    	// ft_print_strs_array(game.parse.maptmp);
+    	// ft_print_strs_array(game.parse.mapcpy);
+
+		// ft_print_strs_array(game.parse.map);
 		ft_player_position(&game);
 		ft_get_colors(&game);
 		ft_init_images(&game);
@@ -31,9 +35,8 @@ int	main(int argc, char **argv)
 
    		ft_print_floor_ceiling(&game);
 		// ft_init_minimap(&game);
-		ft_mini_map(&game);
+		// ft_mini_map(&game);
 
-		// ft_print_strs_array(game.parse.elements);
 		// puts("--------------------------------------------------------------------");
 
 		mlx_key_hook(game.win.win, ft_keypress, &game);
@@ -43,8 +46,15 @@ int	main(int argc, char **argv)
 		mlx_hook(game.win.win, 2, 0, ft_keypress, &game);
 		mlx_hook(game.win.win, 3, 0, ft_keyrelease, &game);
 		mlx_hook(game.win.win, 17, 0, ft_quit, &game);
+		t_vars vars;
+
+		vars.center_x = 400; // Position x du centre de rotation de l'aiguille
+		vars.center_y = 300; // Position y du centre de rotation de l'aiguille
+		vars.rotation_angle = 0;
 		mlx_loop_hook(game.win.mlx, ft_run, &game);
-		ft_title(&game);
+
+
+		// ft_title(&game);
 		mlx_loop(game.win.mlx);
 	}
 	else

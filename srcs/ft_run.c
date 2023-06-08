@@ -6,7 +6,7 @@
 /*   By: axfernan <axfernan@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 17:33:19 by chmassa           #+#    #+#             */
-/*   Updated: 2023/06/08 11:07:01 by axfernan         ###   ########.fr       */
+/*   Updated: 2023/06/08 14:46:19 by axfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,8 +66,8 @@ void	ft_raycasting(t_game *game)
 		//ratio = (game->ray.x - (1920 / 2));
 		//ratio /= 1920 / 2;
 		//game->ray.camerax = 2 * game->ray.x /
-		game->ray.dirx = (cos(game->mov.degrees / 2)) + cos(game->mov.degrees - 0.25) * ratio;
-		game->ray.diry = (sin(game->mov.degrees / 2)) + sin(game->mov.degrees - 0.25) * ratio;
+		game->ray.dirx = (cos(game->mov.degrees * (M_PI / 180) / 2)) + cos(game->mov.degrees - 0.25) * ratio;
+		game->ray.diry = (sin(game->mov.degrees * (M_PI / 180) / 2)) + sin(game->mov.degrees - 0.25) * ratio;
 		game->ray.mapx = (int)game->ray.posx;
 		game->ray.mapy = (int)game->ray.posy;
 		game->ray.deltadistx = sqrt(1 + (game->ray.diry * game->ray.diry) / (game->ray.dirx * game->ray.dirx));
@@ -148,10 +148,56 @@ void	ft_raycasting(t_game *game)
     	mlx_put_image_to_window(game->win.mlx, game->win.win, game->image.game_img.img, 0, 0);
 }
 
+void	draw_axis(t_vars *vars, t_game *game)
+{
+	int	x;
+	int	y;
+
+	x = vars->center_x;
+	y = vars->center_y;
+	while (y < 600) // Hauteur de la fenêtre
+	{
+		mlx_pixel_put(game->win.mlx, game->win.win, x, y, 0xFFFFFF); // Dessine un pixel blanc à la position (x, y)
+		y++;
+	}
+}
+
+void	rotate_axis(t_vars *vars, t_game *game)
+{
+	double	radians = (double)game->mov.degrees * M_PI / 180.0;
+	int		needle_length = 200; // Longueur de l'aiguille
+
+	int		end_x = vars->center_x + (int)(needle_length * cos(radians));
+	int		end_y = vars->center_y + (int)(needle_length * sin(radians));
+
+	mlx_clear_window(game->win.mlx, game->win.win); // Efface la fenêtre
+	draw_axis(vars, game); // Dessine l'axe fixe
+	mlx_pixel_put(vars->mlx, vars->win, vars->center_x, vars->center_y, 0xFF0000); // Dessine le point de rotation en rouge
+	mlx_pixel_put(vars->mlx, vars->win, end_x, end_y, 0x00FF00); // Dessine l'extrémité de l'aiguille en vert
+}
+static void ft_draw_orientation(t_vars *vars, t_game *game)
+{
+	rotate_axis(vars, game);
+}
+
 int    ft_run(t_game *game)
 {
-    //ft_print_floor_ceiling(game);
+	//mlx_clear_window(game->win.mlx, game->win.win);
+    if (game->data.frame == 200)
+        game->data.frame = 0;
+    game->data.frame++;
+
+    // ft_print_floor_ceiling(game);
+    // if (game->data.frame % 6 == 1)
     ft_camera(game);
+    ft_mini_map(game);
+	ft_draw_orientation(&vars, game);
 	//ft_raycasting(game);
+    if (game->data.frame % 6 == 1)
+        ft_moves(game);
+    // printf("%f\n", game->mov.degrees);
+    // printf("%d\n", game->data.frame);
+	ft_title(game);
+
     return (0);
 }

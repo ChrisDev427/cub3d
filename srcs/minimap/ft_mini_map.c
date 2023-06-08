@@ -6,7 +6,7 @@
 /*   By: axfernan <axfernan@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 15:31:10 by chmassa           #+#    #+#             */
-/*   Updated: 2023/06/08 11:20:56 by axfernan         ###   ########.fr       */
+/*   Updated: 2023/06/08 11:25:08 by axfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,7 @@ static void	ft_print_back_ground(t_game *game)
 			if ((y < 4) || (y > 245) || (x < 4) || (x > 395))
 				ft_my_mlx_pixel_put(&game->image.minimap_img, x, y, 0x6C6C6C); // filling minimap border
 			else
-				ft_my_mlx_pixel_put(&game->image.minimap_img, x, y,
-				game->data.mp_bg_color);                                       // filling minimap back ground
+				ft_my_mlx_pixel_put(&game->image.minimap_img, x, y, game->data.mp_bg_color);                                       // filling minimap back ground
 			x++;
 		}
 		y++;

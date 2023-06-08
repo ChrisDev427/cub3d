@@ -6,7 +6,7 @@
 /*   By: chmassa <chmassa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 11:50:57 by chmassa           #+#    #+#             */
-/*   Updated: 2023/06/02 14:17:37 by chmassa          ###   ########.fr       */
+/*   Updated: 2023/06/05 12:52:09 by chmassa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,4 +57,5 @@ void	ft_split_map_elem(t_game *game)
     if (elem_nb != 6)
         ft_error(game, "map: invalid elements\n", NULL);
     ft_trim_map(game, i + 1);
+	ft_set_map_cpy(game);
 }

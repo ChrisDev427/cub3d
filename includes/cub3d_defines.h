@@ -18,24 +18,35 @@
 # define HEIGHT 1040
 
 //-- minimap back ground color ------------------
-# define BG_COL_A 200
+# define BG_COL_A 150
 # define BG_COL_R 150
 # define BG_COL_G 150
 # define BG_COL_B 150
+
+//-- minimap border color -----------------------
+# define BR_COL_A 250
+# define BR_COL_R 144
+# define BR_COL_G 3
+# define BR_COL_B 3
 //-- minimap floor color ------------------------
-# define FL_COL_A 0
-# define FL_COL_R 0
-# define FL_COL_G 255
-# define FL_COL_B 0
+# define FL_COL_A 150
+# define FL_COL_R 129
+# define FL_COL_G 197
+# define FL_COL_B 232
 //-- minimap walls color ------------------------
-# define WL_COL_A 0
-# define WL_COL_R 0
-# define WL_COL_G 0
-# define WL_COL_B 255
+# define WL_COL_A 150
+# define WL_COL_R 85
+# define WL_COL_G 85
+# define WL_COL_B 85
+//-- minimap player color ------------------------
+# define PL_COL_A 0
+# define PL_COL_R 255
+# define PL_COL_G 0
+# define PL_COL_B 0
 //-- minimap size -------------------------------
-# define MP_SIZE_LINES 5
-# define MP_WIDTH 400
-# define MP_HEIGHT 250
+# define MP_SIZE_LINES 8
+# define MP_WIDTH 200
+# define MP_HEIGHT 200
 
 //-- title size ---------------------------------
 # define TITLE_WIDTH 1920
