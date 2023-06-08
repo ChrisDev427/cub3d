@@ -6,7 +6,7 @@
 /*   By: axfernan <axfernan@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 15:00:12 by chmassa           #+#    #+#             */
-/*   Updated: 2023/06/08 11:22:29 by axfernan         ###   ########.fr       */
+/*   Updated: 2023/06/08 15:38:20 by axfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,9 @@
 //-----------------------------------------------------------------------------
 //******** parsing functions **************************************************
 //-----------------------------------------------------------------------------
-void	ft_open(char *file, int *fd);
-void	ft_get_map(char *file, t_game *game);
+void 	ft_open(char *file, int *fd);
+char    **ft_get_map(char *file, char **tab);
+// void    ft_get_map(char *file, t_game *game);
 void	ft_split_map_elem(t_game *game);
 void	ft_check_map(t_game *game);
 void	ft_error(t_game *game, char *s1, char *s2);
@@ -38,6 +39,7 @@ void    ft_get_colors(t_game *game);
 // void	ft_minimap_size(t_game *game);
 int     ft_set_map_cpy(t_game *game);
 void    ft_enlarge_map(t_game *game);
+void	ft_check_ext(char *file);
 //-----------------------------------------------------------------------------
 //******** game functions *****************************************************
 //-----------------------------------------------------------------------------
@@ -45,7 +47,8 @@ void    ft_player_position(t_game *game);
 int     ft_color_to_int(int *tab_color);
 void    ft_print_floor_ceiling(t_game *game);
 void	ft_my_mlx_pixel_put(t_img *img, int x, int y, int color);
-
+void    ft_print_specs(t_game *game);
+void	rotate_axis(t_game *game);
 
 //-----------------------------------------------------------------------------
 //******** events functions ***************************************************

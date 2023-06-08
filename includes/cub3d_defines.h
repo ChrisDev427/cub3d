@@ -13,6 +13,7 @@
 #ifndef CUB3D_DEFINES_H
 # define CUB3D_DEFINES_H
 
+
 //-- screen size --------------------------------
 # define WIDTH 1920
 # define HEIGHT 1040
@@ -40,9 +41,9 @@
 # define WL_COL_B 85
 //-- minimap player color ------------------------
 # define PL_COL_A 0
-# define PL_COL_R 255
-# define PL_COL_G 0
-# define PL_COL_B 0
+# define PL_COL_R 0
+# define PL_COL_G 4
+# define PL_COL_B 147
 //-- minimap size -------------------------------
 # define MP_SIZE_LINES 8
 # define MP_WIDTH 200

@@ -13,6 +13,7 @@ SRCS =  srcs/cub3d.c \
 		srcs/ft_quit.c \
 		srcs/ft_title.c \
 		srcs/ft_error.c \
+		srcs/ft_print_specs.c \
 		srcs/ft_key.c \
 		srcs/ft_moves.c \
 		srcs/ft_window.c \
@@ -26,7 +27,7 @@ SRCS =  srcs/cub3d.c \
 		srcs/parsing/ft_set_map_cpy.c \
 		srcs/parsing/ft_split_map_elem.c \
 		srcs/parsing/ft_check_map.c \
-		srcs/parsing/ft_open.c \
+		srcs/parsing/ft_check_ext.c \
 		srcs/parsing/ft_enlarge_map.c \
 		srcs/images/ft_init_images.c \
 		srcs/images/ft_my_mlx_pixel_put.c \

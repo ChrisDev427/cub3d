@@ -6,7 +6,7 @@
 /*   By: axfernan <axfernan@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 17:19:10 by chmassa           #+#    #+#             */
-/*   Updated: 2023/06/08 11:22:50 by axfernan         ###   ########.fr       */
+/*   Updated: 2023/06/08 15:38:52 by axfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,20 @@
 
 void    ft_camera(t_game *game)
 {
-    if (game->mov.degrees > 359)
-        game->mov.degrees = 0;
-    if (game->mov.degrees < 0)
-        game->mov.degrees = 359;
-
     if (game->mov.camera[0] == 'l')
-        game->mov.degrees -= 1;
+    {
+        game->mov.rad -= 0.05;
+        if (game->mov.rad < -M_PI)
+        game->mov.rad = M_PI;
+    }
     if (game->mov.camera[1] == 'r')
-        game->mov.degrees += 1;
+    {
+        game->mov.rad += 0.05;
+        if (game->mov.rad > M_PI)
+        game->mov.rad = -M_PI;
+    }
     if (game->mov.str_deg)
         free(game->mov.str_deg);
-    game->mov.str_deg = ft_itoa(game->mov.degrees);
+    game->mov.str_deg = ft_itoa(game->mov.deg);
 
 }

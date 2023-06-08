@@ -6,7 +6,7 @@
 /*   By: chmassa <chmassa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 19:11:44 by chmassa           #+#    #+#             */
-/*   Updated: 2023/06/06 17:45:37 by chmassa          ###   ########.fr       */
+/*   Updated: 2023/06/08 15:15:40 by chmassa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,22 @@ static void ft_position(t_game *game, int y, int x, char dir)
 {
     game->mov.player_y = y;
     game->mov.player_x = x;
-    game->mov.mp_pos_y = y;
-    game->mov.mp_pos_x = x;
+    game->mov.pos_y = y;
+    game->mov.pos_x = x;
+    //put position to the center
+    game->mov.pos_y += 0.5;
+    game->mov.pos_x += 0.5;
     if (dir == 'N')
-        game->mov.degrees = 0;
+        game->mov.deg = 270;
     if (dir == 'S')
-        game->mov.degrees = 180;
+        game->mov.deg = 90;
     if (dir == 'E')
-        game->mov.degrees = 90;
+        game->mov.deg = 0;
     if (dir == 'W')
-        game->mov.degrees = 270;
+        game->mov.deg = 180;
     game->parse.mapcpy[y][x] = 'P';
+    game->mov.rad = game->mov.deg * (M_PI/180);
+    
 }
 
 void    ft_player_position(t_game *game)

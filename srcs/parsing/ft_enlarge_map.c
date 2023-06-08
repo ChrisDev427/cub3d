@@ -6,7 +6,7 @@
 /*   By: chmassa <chmassa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 16:08:32 by chmassa           #+#    #+#             */
-/*   Updated: 2023/06/06 17:19:08 by chmassa          ###   ########.fr       */
+/*   Updated: 2023/06/07 15:08:01 by chmassa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,4 +107,5 @@ void    ft_enlarge_map(t_game *game)
 {
     ft_alloc(game);
     ft_fill_tab(game);
+    
 }

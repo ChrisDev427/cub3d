@@ -94,6 +94,13 @@ typedef struct s_mp_data
 	int		x_tmp;
 	int		y_mp;
 	int		x_mp;
+	char	*player_radius_border[9];
+	char	**minimap_border;
+	int		start_needle_x;
+	int		start_needle_y;
+	int		end_needle_x;
+	int		end_needle_y;
+
 }				t_mp_data;
 
 typedef struct s_img
@@ -104,16 +111,20 @@ typedef struct s_img
 	int		line_length;
 	int		endian;
 	int 	pixel_offset;
+
+	void	*img_minimap_border;
 }				t_img;
 
 typedef struct s_moves
 {
 	int		moves[4];
 	int		camera[2];
-	int		degrees;
+	float		deg;
+	float		rad;
 	char	*str_deg;
-	float	mp_pos_x;
-	float	mp_pos_y;
+	char	*str_rad;
+	float	pos_x;
+	float	pos_y;
 	int		player_x;
 	int		player_y;
 
