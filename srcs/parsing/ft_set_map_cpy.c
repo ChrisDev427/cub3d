@@ -6,7 +6,7 @@
 /*   By: chmassa <chmassa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 09:31:36 by chmassa           #+#    #+#             */
-/*   Updated: 2023/06/06 17:21:04 by chmassa          ###   ########.fr       */
+/*   Updated: 2023/06/07 15:09:24 by chmassa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,5 +61,6 @@ int    ft_set_map_cpy(t_game *game)
     ft_fill_tab(game);
     ft_enlarge_map(game);
     free_str_tab(game->parse.maptmp);
+    
     return (0);
 }
