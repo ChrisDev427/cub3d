@@ -6,7 +6,7 @@
 /*   By: axfernan <axfernan@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 15:31:10 by chmassa           #+#    #+#             */
-/*   Updated: 2023/06/08 17:17:24 by axfernan         ###   ########.fr       */
+/*   Updated: 2023/06/09 10:47:11 by axfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ static void	ft_print_minimap(t_game *game, int y, int x)
 	ft_init_variables(game, &x, &y);
 	while (y)
 	{
-		while (x < game->mp_data.x_tmp +11)
+		while (x < game->mp_data.x_tmp + 11)
 		{
 			if (game->parse.mapcpy[y][x] == '0' || game->parse.mapcpy[y][x] == 'P')
 				ft_draw_walls_floor(game, game->mp_data.y_mp,
