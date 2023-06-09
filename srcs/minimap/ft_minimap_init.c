@@ -6,7 +6,7 @@
 /*   By: chmassa <chmassa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 15:52:40 by chmassa           #+#    #+#             */
-/*   Updated: 2023/06/07 16:46:07 by chmassa          ###   ########.fr       */
+/*   Updated: 2023/06/09 16:49:20 by chmassa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,8 @@ void	ft_init_variables(t_game *game, int *x, int *y)
 {
 	game->mp_data.y_tmp = *y;
 	game->mp_data.x_tmp = *x;
-	*y -= 10;
-	*x -= 10;
+	*y -= 20;
+	*x -= 20;
 	game->mp_data.y_mp = 5;
 	game->mp_data.x_mp = 5;
 	game->mp_data.player_radius_border[0] = "001111100";

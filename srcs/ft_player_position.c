@@ -6,7 +6,7 @@
 /*   By: chmassa <chmassa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 19:11:44 by chmassa           #+#    #+#             */
-/*   Updated: 2023/06/08 15:15:40 by chmassa          ###   ########.fr       */
+/*   Updated: 2023/06/09 16:35:08 by chmassa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ static void ft_position(t_game *game, int y, int x, char dir)
 {
     game->mov.player_y = y;
     game->mov.player_x = x;
+    game->mov.p_player_y = y *32 +16;
+    game->mov.p_player_x = x *32 +16;
     game->mov.pos_y = y;
     game->mov.pos_x = x;
     //put position to the center

@@ -6,7 +6,7 @@
 /*   By: chmassa <chmassa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 11:44:10 by chmassa           #+#    #+#             */
-/*   Updated: 2023/06/08 15:27:05 by chmassa          ###   ########.fr       */
+/*   Updated: 2023/06/09 09:11:58 by chmassa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void    ft_init(t_game *game)
     game->mov.moves[2] = 0;
     game->mov.moves[3] = 0;
     game->mov.deg = 0.0;
-    game->mp_data.start_needle_x = 100;
-	game->mp_data.start_needle_y = 100;
+    game->mp_data.start_needle_x = 99;
+	game->mp_data.start_needle_y = 99;
     ft_minimap_init(game);
 }

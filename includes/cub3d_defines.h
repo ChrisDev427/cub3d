@@ -19,13 +19,13 @@
 # define HEIGHT 1040
 
 //-- minimap back ground color ------------------
-# define BG_COL_A 150
+# define BG_COL_A 200
 # define BG_COL_R 150
 # define BG_COL_G 150
 # define BG_COL_B 150
 
 //-- minimap border color -----------------------
-# define BR_COL_A 250
+# define BR_COL_A 200
 # define BR_COL_R 144
 # define BR_COL_G 3
 # define BR_COL_B 3
@@ -46,8 +46,8 @@
 # define PL_COL_B 147
 //-- minimap size -------------------------------
 # define MP_SIZE_LINES 8
-# define MP_WIDTH 200
-# define MP_HEIGHT 200
+# define MP_WIDTH 500
+# define MP_HEIGHT 300
 
 //-- title size ---------------------------------
 # define TITLE_WIDTH 1920
