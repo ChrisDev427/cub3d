@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_minimap.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chmassa <chmassa@student.42.fr>            +#+  +:+       +#+        */
+/*   By: chris <chris@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 15:31:10 by chmassa           #+#    #+#             */
-/*   Updated: 2023/06/09 16:56:34 by chmassa          ###   ########.fr       */
+/*   Updated: 2023/06/11 11:43:36 by chris            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,33 +68,28 @@
 // 	// mlx_pixel_put(game->win.mlx, game->win.win, game->mp_data.center_needle_x, game->mp_data.center_needle_y, 0xFF0000); // Dessine le point de rotation en rouge
 // 	// mlx_pixel_put(game->win.mlx, game->win.win, end_x, end_y, 0x00FF00); // Dessine l'extrémité de l'aiguille en vert
 // }
-// static void	ft_draw_player(t_game *game, int y, int x, int color)
-// {
-// 	int i = 0;
-// 	int j = 0;
-// 	int x_tmp;
+static void	ft_draw_player(t_game *game, int y, int x, int color)
+{
+	int i = 0;
+	int j = 0;
+	int x_tmp;
 
-// 	x_tmp = x;
-// 	while (i <= MP_SIZE_LINES)
-// 	{
-// 		while (j <= MP_SIZE_LINES)
-// 		{
-// 			if (game->mp_data.player_radius_border[i][j] == '1')
-// 				ft_my_mlx_pixel_put(&game->image.minimap_img, x, y, color);
-
-
-// 			// if (j == 4 && i >= 0 && i <= 4)
-// 			// 	ft_my_mlx_pixel_put(&game->image.minimap_img, x, y, 0xEA0000);
-
-// 			j++;
-// 			x++;
-// 		}
-// 		i++;
-// 		y++;
-// 		x = x_tmp;
-// 		j = 0;
-// 	}
-// }
+	x_tmp = x;
+	while (i < 20)
+	{
+		while (j < 20)
+		{
+			if (game->mp_data.player_radius_border[i][j] == '1')
+				ft_my_mlx_pixel_put(&game->image.minimap_img, x, y, color);
+			j++;
+			x++;
+		}
+		i++;
+		y++;
+		x = x_tmp;
+		j = 0;
+	}
+}
 void	ft_draw_walls_floor(t_game *game, int y, int x, int color)
 {
 	int i = 0;
@@ -116,33 +111,32 @@ void	ft_draw_walls_floor(t_game *game, int y, int x, int color)
 		j = 0;
 	}
 }
-void	ft_print_minimap(t_game *game)
-{
-	int	y = 0;
-	int	x = 0;
-	// ft_init_variables(game, &x, &y);
-	while (game->parse.mapcpy[y])
-	{
-		while (game->parse.mapcpy[y][x])
-		{
-			if (game->parse.mapcpy[y][x] == '0' || game->parse.mapcpy[y][x] == 'P')
-				ft_draw_walls_floor(game, y*16, x*16, game->mp_data.mp_floor_color);
-			else
-				ft_draw_walls_floor(game, y*16, x*16, game->mp_data.mp_walls_color);
-			x++;
-		}
-		y++;
-		x = 0;
-	}
-}
+// void	ft_print_minimap(t_game *game)
+// {
+// 	int	y = 0;
+// 	int	x = 0;
+// 	// while (game->parse.mapcpy[y])
+// 	// {
+// 	// 	while (game->parse.mapcpy[y][x])
+// 	// 	{
+// 	// 		if (game->parse.mapcpy[y][x] == '0' || game->parse.mapcpy[y][x] == 'P')
+// 	// 			ft_draw_walls_floor(game, y*16, x*16, game->mp_data.mp_floor_color);
+// 	// 		else
+// 	// 			ft_draw_walls_floor(game, y*16, x*16, game->mp_data.mp_walls_color);
+// 	// 		x++;
+// 	// 	}
+// 	// 	y++;
+// 	// 	x = 0;
+// 	// }
+// }
 
 
 void	ft_mini_map(t_game *game)
 {
+	ft_init_radius_player(game);
 	ft_print_back_ground(game);
-	ft_print_minimap(game);
+	// ft_print_minimap(game);
 	// rotate_axis(game);
-	// ft_draw_player(game, 95,  95, game->mp_data.mp_player_color);
+	ft_draw_player(game, (MP_HEIGHT / 2) -9,  (MP_WIDTH / 2) -9, game->mp_data.mp_player_color);
 
-	// mlx_put_image_to_window(game->win.mlx, game->win.win, game->image.minimap_img.img, 35, 765);
 }

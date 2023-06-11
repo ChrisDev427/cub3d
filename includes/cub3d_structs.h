@@ -19,9 +19,6 @@ typedef struct s_window
 	void	*win;
 	int		x;
 	int		y;
-	// int		size_x;
-	// int		size_y;
-	
 }				t_window;
 
 typedef struct s_parsing
@@ -33,7 +30,6 @@ typedef struct s_parsing
 	int		map_lines_len;
 	char	**maptmp;
 	char	**mapcpy;
-
 }				t_parsing;
 
 typedef struct s_data
@@ -55,18 +51,15 @@ typedef struct s_mp_data
 	int		mini_map_walls[4];
 	int		mini_map_floor[4];
 	int		mini_map_player[4];
-	int		mini_map_border[4];
 	int		mp_bg_color;
 	int		mp_walls_color;
 	int		mp_floor_color;
 	int		mp_player_color;
-	int		mp_border_color;
 	int		y_tmp;
 	int		x_tmp;
 	int		y_mp;
 	int		x_mp;
-	char	*player_radius_border[9];
-	char	**minimap_border;
+	char	*player_radius_border[20];
 // Needle variables
 	int		start_needle_x;
 	int		start_needle_y;
@@ -98,8 +91,6 @@ typedef struct s_moves
 	int		camera[2];		
 	float		deg;
 	float		rad;
-	char	*str_deg;
-	char	*str_rad;
 	float	pos_x;
 	float	pos_y;
 	int		player_x;
@@ -114,7 +105,6 @@ typedef struct s_images
 	t_img minimap_img;
 	t_img game_img;
 	t_img title_img;
-
 }				t_images;
 
 typedef struct s_game
@@ -126,7 +116,4 @@ typedef struct s_game
 	t_mp_data	mp_data;
 	t_images	image;
 }				t_game;
-
-
-
 #endif

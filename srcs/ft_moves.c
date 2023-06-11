@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_moves.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chmassa <chmassa@student.42.fr>            +#+  +:+       +#+        */
+/*   By: chris <chris@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 15:32:40 by chmassa           #+#    #+#             */
-/*   Updated: 2023/06/09 12:01:08 by chmassa          ###   ########.fr       */
+/*   Updated: 2023/06/11 09:07:12 by chris            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,12 +44,6 @@ static void ft_mp_moves(t_game *game)
 
 static void ft_player_moves(t_game *game)
 {
-    int x;
-    int y;
-
-    x = game->mov.player_x;
-    y = game->mov.player_x;
-
     if (game->mov.moves[0] == 'u')// && game->parse.mapcpy[y -1][x] != '1')
         game->mov.pos_y -= 0.1;
     if (game->mov.moves[1] == 'l')// && game->parse.mapcpy[y][x -1] != '1')
