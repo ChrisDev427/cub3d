@@ -6,7 +6,7 @@
 /*   By: axfernan <axfernan@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 15:31:10 by chmassa           #+#    #+#             */
-/*   Updated: 2023/06/12 17:59:29 by axfernan         ###   ########.fr       */
+/*   Updated: 2023/06/12 22:52:00 by axfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,66 +36,69 @@ void	ft_draw_axis(t_game *game)
 		ft_my_mlx_pixel_put(&game->image.minimap_img, game->mov.pos_x, game->mov.pos_y, 0x123224);
 	}
 }
-// static void	ft_draw_player(t_game *game, int y, int x, int color)
-// {
-// 	int i = 0;
-// 	int j = 0;
-// 	int x_tmp;
+static void	ft_draw_player(t_game *game, int y, int x, int color)
+{
+	int i = 0;
+	int j = 0;
+	int x_tmp;
 
-// 	x_tmp = x;
-// 	while (i <= MP_SIZE_LINES)
-// 	{
-// 		while (j <= MP_SIZE_LINES)
-// 		{
-// 			if (game->mp_data.player_radius_border[i][j] == '1')
-// 				ft_my_mlx_pixel_put(&game->image.minimap_img, x, y, color);
-// 			j++;
-// 			x++;
-// 		}
-// 		i++;
-// 		y++;
-// 		x = x_tmp;
-// 		j = 0;
-// 	}
-// }
+	x_tmp = x;
+	while (i < 15)
+	{
+		while (j < 15)
+		{
+			//if (game->mp_data.player_radius_border[i][j] == '1')
+				ft_my_mlx_pixel_put(&game->image.minimap_img, x, y, color);
+			j++;
+			x++;
+		}
+		i++;
+		y++;
+		x = x_tmp;
+		j = 0;
+	}
+}
 
 static void	ft_print_minimap(t_game *game)
 {
 	int x = 0;
 	int y = 0;
-	int map_x = game->mov.player_x - 10;
-	int map_y = game->mov.player_y - 10;
+	int i;
+	int j;
+	i = game->mov.p_player_x - 150 + 10;
+	j = game->mov.p_player_y - 150 + 10;
+
 	while (y < MP_HEIGHT)
 	{
-		map_x = game->mov.player_x - 10;
+		i = game->mov.p_player_x - 150 + 10;
 		x = 0;
 		while (x < MP_WIDTH)
 		{
-			int tile_x = map_x / 15;
-            int tile_y = map_y / 15;
+			// int tile_x = game->mov.p_player_x / 15;
+            // int game->mov.p_player_y = game->mov.p_player_y / 15;
 
-            if (game->parse.mapcpy[tile_y][tile_x] == '0' || game->parse.mapcpy[tile_y][tile_x] == 'P')
+            if (game->parse.mapcpy[j / 15][i / 15] == '0' || game->parse.mapcpy[j / 15][i / 15] == 'P')
                 ft_my_mlx_pixel_put(&game->image.minimap_img, x, y, 0xFFFFFF);
-            else if (game->parse.mapcpy[tile_y][tile_x] == '1')
+            else if (game->parse.mapcpy[j / 15][i / 15] == '1')
                 ft_my_mlx_pixel_put(&game->image.minimap_img, x, y, 0x435533);
-            else if (game->parse.mapcpy[tile_y][tile_x] == '|')
+            else if (game->parse.mapcpy[j / 15][i / 15] == '|')
                 ft_my_mlx_pixel_put(&game->image.minimap_img, x, y, 0x435533 / 2);
 
             x++;
-            map_x++;
+            i++;
         }
         y++;
-        map_y++;
+        j++;
 	}
-	for (int k = 0; k < 15; k++)
-	{
-		int l = 0;
-		while (l < 15)
-		{
-			ft_my_mlx_pixel_put(&game->image.minimap_img, 150 + l, 150 + k, 0x436345);
-			l++;
-		}
-	}
+	// for (int k = 0; k < 15; k++)
+	// {
+	// 	int l = 0;
+	// 	while (l < 15)
+	// 	{
+	// 		ft_my_mlx_pixel_put(&game->image.minimap_img, 150 + l, 150 + k, 0x436345);
+	// 		l++;
+	// 	}
+	// }
 }
 
 
@@ -105,6 +108,6 @@ void	ft_mini_map(t_game *game)
 	//ft_print_back_ground(game);
 	ft_print_minimap(game);
 	ft_draw_axis(game);
-	//ft_draw_player(game, 95, 95, game->mp_data.mp_player_color);
+	ft_draw_player(game, (MP_HEIGHT / 2) -10, (MP_WIDTH / 2) -10, game->mp_data.mp_player_color);
 	mlx_put_image_to_window(game->win.mlx, game->win.win, game->image.minimap_img.img, 35, 35);
 }

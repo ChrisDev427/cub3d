@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_minimap_init.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chmassa <chmassa@student.42.fr>            +#+  +:+       +#+        */
+/*   By: axfernan <axfernan@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 15:52:40 by chmassa           #+#    #+#             */
-/*   Updated: 2023/06/07 16:46:07 by chmassa          ###   ########.fr       */
+/*   Updated: 2023/06/12 21:04:59 by axfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,9 +65,9 @@ void	ft_init_variables(t_game *game, int *x, int *y)
 
 void	ft_minimap_init(t_game *game)
 {
-	int	fd;
+	//int	fd;
 	ft_color_assign(game);
 	ft_color_init(game);
-	fd = open("mp_map_border.txt", O_RDONLY);
+//	fd = open("mp_map_border.txt", O_RDONLY);
 	game->mp_data.minimap_border = ft_get_map("mp_map_border.txt", game->mp_data.minimap_border);
 }

@@ -6,7 +6,7 @@
 /*   By: axfernan <axfernan@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 17:33:19 by chmassa           #+#    #+#             */
-/*   Updated: 2023/06/12 16:48:16 by axfernan         ###   ########.fr       */
+/*   Updated: 2023/06/12 22:44:23 by axfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -165,5 +165,6 @@ int    ft_run(t_game *game)
 	//ft_title(game);
     //ft_print_specs(game);
 	//mlx_put_image_to_window(game->win.mlx, game->win.win, game->image.minimap_img.img, 35, 35);
+    
     return (0);
 }

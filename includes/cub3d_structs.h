@@ -127,6 +127,8 @@ typedef struct s_moves
 	float	pos_y;
 	double	player_x;
 	double	player_y;
+	int		p_player_x;
+	int		p_player_y;
 
 }				t_moves;
 

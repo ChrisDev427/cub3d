@@ -48,7 +48,9 @@
 # define MP_SIZE_LINES 8
 # define MP_WIDTH 300
 # define MP_HEIGHT 300
-
+//-- minimap position -------------------------------
+# define MP_POS_WIDTH 35
+# define MP_POS_HEIGHT 35
 //-- title size ---------------------------------
 # define TITLE_WIDTH 1920
 # define TITLE_HEIGHT 40

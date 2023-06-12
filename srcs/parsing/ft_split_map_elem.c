@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split_map_elem.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chmassa <chmassa@student.42.fr>            +#+  +:+       +#+        */
+/*   By: axfernan <axfernan@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 11:50:57 by chmassa           #+#    #+#             */
-/*   Updated: 2023/06/05 12:52:09 by chmassa          ###   ########.fr       */
+/*   Updated: 2023/06/12 21:04:28 by axfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static void ft_trim_map(t_game *game, int i)
     while (game->parse.map[i] && strcmp(game->parse.map[i], "") != 0)
         i++;
     game->parse.map[i] = NULL;
-} 
+}
 
 static int  ft_token_match(char *s)
 {
@@ -36,11 +36,9 @@ static int  ft_token_match(char *s)
 void	ft_split_map_elem(t_game *game)
 {
     int     i;
-    int     j;
 	int		elem_nb;
-   
+
     i = 0;
-    j = 0;
     elem_nb = 0;
     while (game->parse.map[i])
     {
