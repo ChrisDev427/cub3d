@@ -6,7 +6,7 @@
 /*   By: chmassa <chmassa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 15:31:10 by chmassa           #+#    #+#             */
-/*   Updated: 2023/06/12 14:02:02 by chmassa          ###   ########.fr       */
+/*   Updated: 2023/06/12 19:41:34 by chmassa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,30 +111,108 @@ void	ft_draw_walls_floor(t_game *game, int y, int x, int color)
 		j = 0;
 	}
 }
+// void	ft_print_minimap(t_game *game)
+// {
+// 	int	y = (int)game->mov.pos_y -6;
+// 	int	x = (int)game->mov.pos_x -10;
+// 	int	y_max = (int)game->mov.pos_y +5;
+// 	int	x_max = (int)game->mov.pos_x +9;
+// 	int	y_tmp = 0;
+// 	int	x_tmp = 0;
+// 	while (game->parse.mapcpy[y] && y <= y_max+1)
+// 	{
+// 		while (game->parse.mapcpy[y][x] && x <= x_max+1)
+// 		{
+// 			if (game->parse.mapcpy[y][x] == '0' || game->parse.mapcpy[y][x] == 'P')
+// 					ft_draw_walls_floor(game, y_tmp, x_tmp, game->mp_data.mp_floor_color);
+// 			if (game->parse.mapcpy[y][x] == '1')
+// 				ft_draw_walls_floor(game, y_tmp, x_tmp, game->mp_data.mp_walls_color);
+// 			x++;
+// 			x_tmp += 20;
+// 		}
+// 		y++;
+// 		y_tmp += 20;
+// 		x_tmp = 0;
+// 		x = (int)game->mov.pos_x -10;
+// 	}
+// }
+
 void	ft_print_minimap(t_game *game)
 {
-	int	y = (int)game->mov.pos_y -6;
-	int	x = (int)game->mov.pos_x -10;
-	int	y_max = (int)game->mov.pos_y +5;
-	int	x_max = (int)game->mov.pos_x +9;
-	int	y_tmp = 0;
-	int	x_tmp = 0;
-	while (game->parse.mapcpy[y] && y <= y_max+1)
+	int	i = 0;
+	int	j = 0;
+	int	y = game->mov.p_player_y -120;
+	int	x = game->mov.p_player_x -200;
+	// int	y_max = (int)game->mov.pos_y +5;
+	// int	x_max = (int)game->mov.pos_x +9;
+	while (i < MP_HEIGHT)
 	{
-		while (game->parse.mapcpy[y][x] && x <= x_max+1)
+		while (j < MP_WIDTH)
 		{
-			if (game->parse.mapcpy[y][x] == '0' || game->parse.mapcpy[y][x] == 'P')
-				ft_draw_walls_floor(game, y_tmp, x_tmp, game->mp_data.mp_floor_color);
-			else if (game->parse.mapcpy[y][x] == '1')
-				ft_draw_walls_floor(game, y_tmp, x_tmp, game->mp_data.mp_walls_color);
+			if (game->parse.mapcpy[y /20][x /20] == '0' && x < (game->mov.p_player_x + 200))
+				ft_my_mlx_pixel_put(&game->image.minimap_img, j, i, game->mp_data.mp_floor_color);
+			if (game->parse.mapcpy[y /20][x /20] == '1' && x < (game->mov.p_player_x + 200))
+				ft_my_mlx_pixel_put(&game->image.minimap_img, j, i, game->mp_data.mp_walls_color);
+
+			
 			x++;
-			x_tmp += 20;
+			j++;
 		}
+		i++;
 		y++;
-		y_tmp += 20;
-		x_tmp = 0;
-		x = (int)game->mov.pos_x -10;
+		x = game->mov.p_player_x -200;
+		j = 0;
+
 	}
+	// printf("i = %d\n", i);
+	// printf("j = %d\n", j);
+	
+
+	// while (game->parse.mapcpy[y /20] && y < (game->mov.p_player_y + 100))
+	// {
+	// 	while (game->parse.mapcpy[y /20][x /20] && x < (game->mov.p_player_x + 180))
+	// 	{
+	// 		// ft_my_mlx_pixel_put(&game->image.minimap_img, j, i, game->mp_data.mp_floor_color);
+	// 		// j++;
+	// 		// printf("y = %d     %d\n", y / 20, y);
+	// 		// printf("x = %d     %d\n", x / 20, x);
+	// 		// puts("");
+	// 		// printf("j = %d\n", j);
+	// 		x++;
+	// 	}
+	// 	// j = 0;
+	// 	// i++;
+	// 	x = game->mov.p_player_x -200;
+	// 	y++;
+	// }
+	
+	// while (i < MP_HEIGHT)
+	// {
+	// 	while (j < MP_WIDTH)
+	// 	{
+	// 		if (game->mov.p_player_y /20 > y && game->mov.p_player_x /20 > x)
+	// 			//&& game->parse.mapcpy[(game->mov.p_player_y) /20][(game->mov.p_player_x ) /20] == '0')
+	// 			{
+	// 				printf("y = %d\n", game->mov.p_player_y / 20);
+	// 				printf("x = %d\n", (game->mov.p_player_x / 20));
+	// 			}
+	// 			// ft_my_mlx_pixel_put(&game->image.minimap_img, j, i, game->mp_data.mp_floor_color);
+
+	// 			// ft_draw_walls_floor(game, i, j, game->mp_data.mp_floor_color);
+	// 		// if (y < y_max && x < x_max && game->parse.mapcpy[y][x] == '1')
+	// 		// 	ft_my_mlx_pixel_put(&game->image.minimap_img, j, i, game->mp_data.mp_walls_color);
+
+	// 			// ft_draw_walls_floor(game, i, j, game->mp_data.mp_walls_color);
+	// 		// if (j % 20 == 0)
+	// 		game->mov.p_player_x++;
+	// 		j++;
+	// 	}
+	// 	// if (i % 20 == 0)
+	// 	game->mov.p_player_y++;
+	// 	i++;
+	// 	j = 0;
+	// 	// x = 0;
+	// }
 }
 void	ft_mini_map(t_game *game)
 {

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_player_position.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chris <chris@student.42.fr>                +#+  +:+       +#+        */
+/*   By: chmassa <chmassa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 19:11:44 by chmassa           #+#    #+#             */
-/*   Updated: 2023/06/11 10:06:36 by chris            ###   ########.fr       */
+/*   Updated: 2023/06/12 19:56:20 by chmassa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ static void ft_position(t_game *game, int y, int x, char dir)
 {
     game->mov.player_y = y;
     game->mov.player_x = x;
-    game->mov.p_player_y = y *32 +16;
-    game->mov.p_player_x = x *32 +16;
+    game->mov.p_player_y = y *20;
+    game->mov.p_player_x = x *20;
     game->mov.pos_y = y;
     game->mov.pos_x = x;
     //put position to the center
@@ -31,7 +31,7 @@ static void ft_position(t_game *game, int y, int x, char dir)
         game->mov.deg = 0;
     if (dir == 'W')
         game->mov.deg = 180;
-    game->parse.mapcpy[y][x] = 'P';
+    game->parse.mapcpy[y][x] = '0';
     game->mov.rad = game->mov.deg * (M_PI/180);
     
 }
