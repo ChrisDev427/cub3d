@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_player_position.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chmassa <chmassa@student.42.fr>            +#+  +:+       +#+        */
+/*   By: axfernan <axfernan@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 19:11:44 by chmassa           #+#    #+#             */
-/*   Updated: 2023/06/08 15:15:40 by chmassa          ###   ########.fr       */
+/*   Updated: 2023/06/12 16:47:14 by axfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static void ft_position(t_game *game, int y, int x, char dir)
         game->mov.deg = 180;
     game->parse.mapcpy[y][x] = 'P';
     game->mov.rad = game->mov.deg * (M_PI/180);
-    
+
 }
 
 void    ft_player_position(t_game *game)

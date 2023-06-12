@@ -46,8 +46,8 @@
 # define PL_COL_B 147
 //-- minimap size -------------------------------
 # define MP_SIZE_LINES 8
-# define MP_WIDTH 200
-# define MP_HEIGHT 200
+# define MP_WIDTH 300
+# define MP_HEIGHT 300
 
 //-- title size ---------------------------------
 # define TITLE_WIDTH 1920

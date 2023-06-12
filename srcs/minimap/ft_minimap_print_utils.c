@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_minimap_print_utils.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chmassa <chmassa@student.42.fr>            +#+  +:+       +#+        */
+/*   By: axfernan <axfernan@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 14:18:39 by chmassa           #+#    #+#             */
-/*   Updated: 2023/06/08 08:33:45 by chmassa          ###   ########.fr       */
+/*   Updated: 2023/06/12 11:58:02 by axfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,20 +40,15 @@ void	ft_print_back_ground(t_game *game)
 {
 	int x;
 	int y;
-	
+
 	y = 0;
 	x = 0;
 	while (y < MP_HEIGHT)
 	{
 		while (x < MP_WIDTH)
 		{
-			if (((y < 4) || (y > MP_HEIGHT -5) || (x < 4) || (x > MP_WIDTH -5))
-				&& (game->mp_data.minimap_border[y][x] == '1'))
 				ft_my_mlx_pixel_put(&game->image.minimap_img, x, y,
 					game->mp_data.mp_border_color); // filling minimap border
-			else if (game->mp_data.minimap_border[y][x] == '1')
-				ft_my_mlx_pixel_put(&game->image.minimap_img, x, y,
-					game->mp_data.mp_bg_color);    // filling minimap back ground
 			x++;
 		}
 		y++;

@@ -125,8 +125,8 @@ typedef struct s_moves
 	char	*str_rad;
 	float	pos_x;
 	float	pos_y;
-	int		player_x;
-	int		player_y;
+	double	player_x;
+	double	player_y;
 
 }				t_moves;
 
