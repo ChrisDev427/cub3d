@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_minimap_init.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chris <chris@student.42.fr>                +#+  +:+       +#+        */
+/*   By: chmassa <chmassa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 15:52:40 by chmassa           #+#    #+#             */
-/*   Updated: 2023/06/11 11:30:05 by chris            ###   ########.fr       */
+/*   Updated: 2023/06/12 12:08:57 by chmassa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,35 +38,6 @@ static void	ft_color_init(t_game *game)
 	game->mp_data.mp_walls_color = ft_color_to_int(game->mp_data.mini_map_walls);
 	game->mp_data.mp_bg_color = ft_color_to_int(game->mp_data.mini_map_bg);
 	game->mp_data.mp_player_color = ft_color_to_int(game->mp_data.mini_map_player);
-}
-void	ft_init_radius_player(t_game *game)
-{
-	// game->mp_data.y_tmp = *y;
-	// game->mp_data.x_tmp = *x;
-	// *y -= 20;
-	// *x -= 20;
-	// game->mp_data.y_mp = 5;
-	// game->mp_data.x_mp = 5;
-	game->mp_data.player_radius_border[0] =  "0000001111111000000";
-	game->mp_data.player_radius_border[1] =  "0000111111111110000";
-	game->mp_data.player_radius_border[2] =  "0001111111111111000";
-	game->mp_data.player_radius_border[3] =  "0011111111111111100";
-	game->mp_data.player_radius_border[4] =  "0111111111111111110";
-	game->mp_data.player_radius_border[5] =  "0111111111111111110";
-	game->mp_data.player_radius_border[6] =  "1111111111111111111";
-	game->mp_data.player_radius_border[7] =  "1111111111111111111";
-	game->mp_data.player_radius_border[8] =  "1111111111111111111";
-	game->mp_data.player_radius_border[9] =  "1111111111111111111";
-	game->mp_data.player_radius_border[10] = "1111111111111111111";
-	game->mp_data.player_radius_border[11] = "1111111111111111111";
-	game->mp_data.player_radius_border[12] = "1111111111111111111";
-	game->mp_data.player_radius_border[13] = "1111111111111111111";
-	game->mp_data.player_radius_border[14] = "0111111111111111110";
-	game->mp_data.player_radius_border[15] = "0111111111111111110";
-	game->mp_data.player_radius_border[16] = "0011111111111111100";
-	game->mp_data.player_radius_border[17] = "0001111111111111000";
-	game->mp_data.player_radius_border[18] = "0000111111111110000";
-	game->mp_data.player_radius_border[19] = "0000001111111000000";
 }
 
 void	ft_minimap_init(t_game *game)

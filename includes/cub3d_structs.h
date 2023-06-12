@@ -59,7 +59,7 @@ typedef struct s_mp_data
 	int		x_tmp;
 	int		y_mp;
 	int		x_mp;
-	char	*player_radius_border[20];
+	char	*player_radius_border[15];
 // Needle variables
 	int		start_needle_x;
 	int		start_needle_y;

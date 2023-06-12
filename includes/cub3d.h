@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chris <chris@student.42.fr>                +#+  +:+       +#+        */
+/*   By: chmassa <chmassa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 15:00:12 by chmassa           #+#    #+#             */
-/*   Updated: 2023/06/11 11:15:19 by chris            ###   ########.fr       */
+/*   Updated: 2023/06/12 12:09:35 by chmassa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,6 @@ void    ft_moves(t_game *game);
 //-----------------------------------------------------------------------------
 void	ft_mini_map(t_game *game);
 void	ft_minimap_init(t_game *game);
-void	ft_init_radius_player(t_game *game);
 void	ft_print_back_ground(t_game *game);
 void	ft_draw_walls_floor(t_game *game, int y, int x, int color);
 void	ft_print_minimap(t_game *game);

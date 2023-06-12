@@ -25,12 +25,12 @@
 # define BG_COL_B 150
 
 //-- minimap floor color ------------------------
-# define FL_COL_A 150
+# define FL_COL_A 0
 # define FL_COL_R 129
 # define FL_COL_G 197
 # define FL_COL_B 232
 //-- minimap walls color ------------------------
-# define WL_COL_A 150
+# define WL_COL_A 0
 # define WL_COL_R 85
 # define WL_COL_G 85
 # define WL_COL_B 85
@@ -41,8 +41,8 @@
 # define PL_COL_B 147
 //-- minimap size -------------------------------
 # define MP_SIZE_LINES 8
-# define MP_WIDTH 350
-# define MP_HEIGHT 350
+# define MP_WIDTH 420
+# define MP_HEIGHT 260
 //-- minimap position -------------------------------
 # define MP_POS_WIDTH 35
 # define MP_POS_HEIGHT 35
