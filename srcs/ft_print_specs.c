@@ -6,7 +6,7 @@
 /*   By: axfernan <axfernan@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 08:01:35 by chmassa           #+#    #+#             */
-/*   Updated: 2023/06/12 14:07:50 by axfernan         ###   ########.fr       */
+/*   Updated: 2023/06/13 15:05:06 by axfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,12 @@
 
 void    ft_print_specs(t_game *game)
 {
-    if (game->mov.moves[0] == 'u' || game->mov.moves[1] == 'l' || game->mov.moves[2] == 'r' || game->mov.moves[3] == 'd')
+    if (game->moves[0] == 'u' || game->moves[1] == 'l' || game->moves[2] == 'r'
+        || game->moves[3] == 'd' || game->camera[0] == 'l' || game->camera[1] == 'r')
     {
-        printf("pos_y = %f - player_y = %f\n", game->mov.pos_y, game->mov.player_y);
-        printf("pos_x = %f - player_x = %f\n", game->mov.pos_x, game->mov.player_x);
-        printf("rad = %f\n", game->mov.rad);
-
+        system("clear");
+        printf("float_pos_y = %f - pixel_player_y = %d\n", game->player_y, game->pp_y);
+        printf("float_pos_x = %f - pixel_player_x = %d\n", game->player_x, game->pp_x);
+        printf("rad = %f\n\n", game->rad);
     }
 }

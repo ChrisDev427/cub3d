@@ -6,7 +6,7 @@
 /*   By: chmassa <chmassa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 11:09:45 by chmassa           #+#    #+#             */
-/*   Updated: 2023/06/02 14:17:16 by chmassa          ###   ########.fr       */
+/*   Updated: 2023/06/13 13:26:09 by chmassa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,8 +72,8 @@ static int	check_element(char **tab)
 
 void	ft_check_map(t_game *game)
 {
-	if (check_element(game->parse.map) == 1)
+	if (check_element(game->map) == 1)
 		ft_error(game, "map must contain: 0 - 1 and one of the position/direction -> N - W - S - E\n", NULL);
-	if (walls_is_surrounding(game->parse.map) == 1)
+	if (walls_is_surrounding(game->map) == 1)
 		ft_error(game, "map must be sourrounded by walls\n", NULL);
 }

@@ -6,7 +6,7 @@
 /*   By: axfernan <axfernan@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 15:00:12 by chmassa           #+#    #+#             */
-/*   Updated: 2023/06/08 15:38:20 by axfernan         ###   ########.fr       */
+/*   Updated: 2023/06/13 13:53:12 by axfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,14 +59,13 @@ int		ft_keyrelease(int key, t_game *game);
 int     ft_run(t_game *game);
 void    ft_camera(t_game *game);
 void    ft_title(t_game *game);
-void    ft_moves(t_game *game);
+void    ft_player_moves(t_game *game);
 //-----------------------------------------------------------------------------
 //******** minimap functions **************************************************
 //-----------------------------------------------------------------------------
 void	ft_mini_map(t_game *game);
 void	ft_minimap_init(t_game *game);
-void	ft_init_variables(t_game *game, int *x, int *y);
 void	ft_print_back_ground(t_game *game);
-void	ft_draw_walls_floor(t_game *game, int y, int x, int color);
+void	ft_draw_player(t_game *game, int y, int x, int color);
 
 #endif

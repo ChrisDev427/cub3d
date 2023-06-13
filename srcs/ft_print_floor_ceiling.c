@@ -6,7 +6,7 @@
 /*   By: axfernan <axfernan@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 16:11:10 by chmassa           #+#    #+#             */
-/*   Updated: 2023/06/05 14:10:13 by axfernan         ###   ########.fr       */
+/*   Updated: 2023/06/13 14:03:02 by axfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@ void    ft_print_floor_ceiling(t_game *game)
 
     y = 0;
     x = 0;
-    while (y < HEIGHT)
+    while (y < SCREEN_HEIGHT)
     {
-        while (x < WIDTH)
+        while (x < SCREEN_WIDTH)
         {
-            if (y < HEIGHT / 2)
+            if (y < SCREEN_HEIGHT / 2)
                 ft_my_mlx_pixel_put(&game->image.game_img , x, y, game->data.ce_color);
             else
                 ft_my_mlx_pixel_put(&game->image.game_img, x, y, game->data.fl_color);

@@ -48,22 +48,18 @@ typedef struct s_window
 	void	*win_2;
 	int		x;
 	int		y;
-	// int		size_x;
-	// int		size_y;
-
 }				t_window;
 
-typedef struct s_parsing
-{
-	int		fd;
-	char	**map;
-	char	*elem_token[7];
-	int		map_nb_lines;
-	int		map_lines_len;
-	char	**maptmp;
-	char	**mapcpy;
-
-}				t_parsing;
+// typedef struct s_parsing
+// {
+// 	int		fd;
+// 	char	**map;
+// 	char	*elem_token[7];
+// 	int		map_nb_lines;
+// 	int		map_lines_len;
+// 	char	**maptmp;
+// 	char	**mapcpy;
+// }				t_parsing;
 
 typedef struct s_data
 {
@@ -84,23 +80,26 @@ typedef struct s_mp_data
 	int		mini_map_walls[4];
 	int		mini_map_floor[4];
 	int		mini_map_player[4];
-	int		mini_map_border[4];
 	int		mp_bg_color;
 	int		mp_walls_color;
 	int		mp_floor_color;
 	int		mp_player_color;
-	int		mp_border_color;
 	int		y_tmp;
 	int		x_tmp;
 	int		y_mp;
 	int		x_mp;
-	char	*player_radius_border[9];
-	char	**minimap_border;
+	char	*player_radius_border[15];
+// Needle variables
 	int		start_needle_x;
 	int		start_needle_y;
 	int		end_needle_x;
 	int		end_needle_y;
-
+	int		dx;
+	int		dy;
+	float	x_increment;
+	float	y_increment;
+	int 	steps;
+	int		needle_length;
 }				t_mp_data;
 
 typedef struct s_img
@@ -119,16 +118,14 @@ typedef struct s_moves
 {
 	int		moves[4];
 	int		camera[2];
-	float		deg;
-	float		rad;
-	char	*str_deg;
-	char	*str_rad;
-	float	pos_x;
-	float	pos_y;
-	double	player_x;
-	double	player_y;
-	int		p_player_x;
-	int		p_player_y;
+	float	deg;
+	float	rad;
+	float	fp_x;
+	float	fp_y;
+	int		player_x;
+	int		player_y;
+	int		pp_x;
+	int		pp_y;
 
 }				t_moves;
 
@@ -138,26 +135,35 @@ typedef struct s_images
 	t_img game_img;
 	t_img ray_img;
 	t_img title_img;
-
 }				t_images;
 
 typedef struct s_game
 {
-	t_parsing	parse;
+//---- parsing --------------------
+	int		fd;
+	char	**map;
+	char	*elem_token[7];
+	int		map_nb_lines;
+	int		map_lines_len;
+	char	**maptmp;
+	char	**mapcpy;
+//---- moves ---------------------
+	int		moves[4];
+	int		camera[2];
+	float	deg;
+	float	rad;
+	float	fp_x;
+	float	fp_y;
+	double	player_x;
+	double	player_y;
+	int		pp_x;
+	int		pp_y;
+	// t_parsing	parse;
 	t_window	win;
-	t_moves		mov;
+	// t_moves		mov;
 	t_data		data;
 	t_mp_data	mp_data;
 	t_images	image;
 	t_ray		ray;
 }				t_game;
-
-typedef struct	s_vars {
-	void	*mlx;
-	void	*win;
-	int		center_x; // Position x du centre de rotation de l'aiguille
-	int		center_y; // Position y du centre de rotation de l'aiguille
-	int		rotation_angle; // Angle de rotation de l'aiguille
-}				t_vars;
-
 #endif

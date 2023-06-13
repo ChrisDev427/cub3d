@@ -6,7 +6,7 @@
 /*   By: axfernan <axfernan@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 11:50:57 by chmassa           #+#    #+#             */
-/*   Updated: 2023/06/12 21:04:28 by axfernan         ###   ########.fr       */
+/*   Updated: 2023/06/13 14:34:39 by axfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 static void ft_trim_map(t_game *game, int i)
 {
-    while (strcmp(game->parse.map[i], "") == 0)
+    while (strcmp(game->map[i], "") == 0)
         i++;
-    game->parse.map = &game->parse.map[i];
+    game->map = &game->map[i];
     i = 0;
-    while (game->parse.map[i] && strcmp(game->parse.map[i], "") != 0)
+    while (game->map[i] && strcmp(game->map[i], "") != 0)
         i++;
-    game->parse.map[i] = NULL;
+    game->map[i] = NULL;
 }
 
 static int  ft_token_match(char *s)
@@ -40,11 +40,11 @@ void	ft_split_map_elem(t_game *game)
 
     i = 0;
     elem_nb = 0;
-    while (game->parse.map[i])
+    while (game->map[i])
     {
-        if (ft_token_match(game->parse.map[i]))
+        if (ft_token_match(game->map[i]))
         {
-            game->data.elements[elem_nb] = ft_strdup(game->parse.map[i]);
+            game->data.elements[elem_nb] = ft_strdup(game->map[i]);
             elem_nb++;
         }
         if (elem_nb == 6)

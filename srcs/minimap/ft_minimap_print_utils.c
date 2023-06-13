@@ -6,22 +6,22 @@
 /*   By: axfernan <axfernan@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 14:18:39 by chmassa           #+#    #+#             */
-/*   Updated: 2023/06/12 22:43:38 by axfernan         ###   ########.fr       */
+/*   Updated: 2023/06/13 14:01:06 by axfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
 
-void	ft_draw_walls_floor(t_game *game, int y, int x, int color)
+void	ft_draw_player(t_game *game, int y, int x, int color)
 {
 	int i = 0;
 	int j = 0;
 	int x_tmp;
 
 	x_tmp = x;
-	while (i <= MP_SIZE_LINES+1)
+	while (i < 20)
 	{
-		while (j <= MP_SIZE_LINES+1)
+		while (j < 20)
 		{
 			ft_my_mlx_pixel_put(&game->image.minimap_img, x, y, color);
 			j++;
@@ -33,8 +33,6 @@ void	ft_draw_walls_floor(t_game *game, int y, int x, int color)
 		j = 0;
 	}
 }
-// int** img;//each int is a pixel of the image
-// img[x][y] = img[x][y] | (calc[x][y] & 0xFF000000);
 
 void	ft_print_back_ground(t_game *game)
 {
@@ -47,8 +45,7 @@ void	ft_print_back_ground(t_game *game)
 	{
 		while (x < MP_WIDTH)
 		{
-				ft_my_mlx_pixel_put(&game->image.minimap_img, x, y,
-					game->mp_data.mp_border_color); // filling minimap border
+			ft_my_mlx_pixel_put(&game->image.minimap_img, x, y, game->mp_data.mp_bg_color);    // filling minimap back ground
 			x++;
 		}
 		y++;
