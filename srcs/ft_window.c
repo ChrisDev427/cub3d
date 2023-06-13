@@ -18,11 +18,11 @@ void	ft_window(t_game *game)
 	int		y;
 
 	y = 0;
-	len_x = ft_strlen(game->parse.map[y]);
-	while (game->parse.map[y])
+	len_x = ft_strlen(game->map[y]);
+	while (game->map[y])
 	{
-		if (ft_strlen(game->parse.map[y]) > len_x)
-			len_x = ft_strlen(game->parse.map[y]);
+		if (ft_strlen(game->map[y]) > len_x)
+			len_x = ft_strlen(game->map[y]);
 		y++;
 	}
 	game->win.x = len_x * 32;

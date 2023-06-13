@@ -21,16 +21,16 @@ typedef struct s_window
 	int		y;
 }				t_window;
 
-typedef struct s_parsing
-{
-	int		fd;
-	char	**map;
-	char	*elem_token[7];
-	int		map_nb_lines;
-	int		map_lines_len;
-	char	**maptmp;
-	char	**mapcpy;
-}				t_parsing;
+// typedef struct s_parsing
+// {
+// 	int		fd;
+// 	char	**map;
+// 	char	*elem_token[7];
+// 	int		map_nb_lines;
+// 	int		map_lines_len;
+// 	char	**maptmp;
+// 	char	**mapcpy;
+// }				t_parsing;
 
 typedef struct s_data
 {
@@ -89,14 +89,14 @@ typedef struct s_moves
 {
 	int		moves[4];
 	int		camera[2];		
-	float		deg;
-	float		rad;
-	float	pos_x;
-	float	pos_y;
+	float	deg;
+	float	rad;
+	float	fp_x;
+	float	fp_y;
 	int		player_x;
 	int		player_y;
-	int		p_player_x;
-	int		p_player_y;
+	int		pp_x;
+	int		pp_y;
 
 }				t_moves;
 
@@ -109,9 +109,28 @@ typedef struct s_images
 
 typedef struct s_game
 {
-	t_parsing	parse;
+//---- parsing --------------------
+	int		fd;
+	char	**map;
+	char	*elem_token[7];
+	int		map_nb_lines;
+	int		map_lines_len;
+	char	**maptmp;
+	char	**mapcpy;
+//---- moves ---------------------
+	int		moves[4];
+	int		camera[2];		
+	float	deg;
+	float	rad;
+	float	fp_x;
+	float	fp_y;
+	int		player_x;
+	int		player_y;
+	int		pp_x;
+	int		pp_y;
+	// t_parsing	parse;
 	t_window	win;
-	t_moves		mov;
+	// t_moves		mov;
 	t_data		data;
 	t_mp_data	mp_data;
 	t_images	image;

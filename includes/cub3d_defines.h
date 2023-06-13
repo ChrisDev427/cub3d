@@ -15,39 +15,35 @@
 
 
 //-- screen size --------------------------------
-# define WIDTH 1920
-# define HEIGHT 1040
+# define SCREEN_WIDTH 1220
+# define SCREEN_HEIGHT 920
 
 //-- minimap back ground color ------------------
-# define BG_COL_A 180
-# define BG_COL_R 150
-# define BG_COL_G 150
-# define BG_COL_B 150
+# define BG_COL_A 200
+# define BG_COL_R 100
+# define BG_COL_G 100
+# define BG_COL_B 100
 
 //-- minimap floor color ------------------------
-# define FL_COL_A 0
+# define FL_COL_A 140
 # define FL_COL_R 129
 # define FL_COL_G 197
 # define FL_COL_B 232
 //-- minimap walls color ------------------------
-# define WL_COL_A 0
-# define WL_COL_R 85
+# define WL_COL_A 140
+# define WL_COL_R 40
 # define WL_COL_G 85
-# define WL_COL_B 85
+# define WL_COL_B 140
 //-- minimap player color ------------------------
-# define PL_COL_A 0
+# define PL_COL_A 80
 # define PL_COL_R 0
 # define PL_COL_G 4
 # define PL_COL_B 147
 //-- minimap size -------------------------------
-# define MP_SIZE_LINES 8
-# define MP_WIDTH 420
-# define MP_HEIGHT 260
+# define MP_WIDTH 400
+# define MP_HEIGHT 240
 //-- minimap position -------------------------------
-# define MP_POS_WIDTH 35
-# define MP_POS_HEIGHT 35
-//-- title size ---------------------------------
-# define TITLE_WIDTH 1920
-# define TITLE_HEIGHT 40
+# define MP_POS_WIDTH 30
+# define MP_POS_HEIGHT 30
 
 #endif

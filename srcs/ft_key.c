@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_keypress.c                                      :+:      :+:    :+:   */
+/*   ft_key.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chmassa <chmassa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 17:01:52 by chmassa           #+#    #+#             */
-/*   Updated: 2023/05/30 17:38:43 by chmassa          ###   ########.fr       */
+/*   Updated: 2023/06/13 13:34:25 by chmassa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,17 @@
 int	ft_keyrelease(int key, t_game *game)
 {
 	if (key == 13)
-		game->mov.moves[0] = '0';
+		game->moves[0] = '0';
 	if (key == 0)
-		game->mov.moves[1] = '0';
+		game->moves[1] = '0';
 	if (key == 2)
-		game->mov.moves[2] = '0';
+		game->moves[2] = '0';
 	if (key == 1)
-		game->mov.moves[3] = '0';
+		game->moves[3] = '0';
 	if (key == 123)
-		game->mov.camera[0] = '0';
+		game->camera[0] = '0';
 	if (key == 124)
-		game->mov.camera[1] = '0';
+		game->camera[1] = '0';
 	
 	return (0);
 }
@@ -38,16 +38,16 @@ int	ft_keypress(int key, t_game *game)
 	if (key == 53)
 		ft_quit(game);
 	if (key == 13)
-		game->mov.moves[0] = 'u';
+		game->moves[0] = 'u';
 	if (key == 0)
-		game->mov.moves[1] = 'l';
+		game->moves[1] = 'l';
 	if (key == 2)
-		game->mov.moves[2] = 'r';
+		game->moves[2] = 'r';
 	if (key == 1)
-		game->mov.moves[3] = 'd';
+		game->moves[3] = 'd';
 	if (key == 123)
-		game->mov.camera[0] = 'l';
+		game->camera[0] = 'l';
 	if (key == 124)
-		game->mov.camera[1] = 'r';
+		game->camera[1] = 'r';
 	return (0);
 }

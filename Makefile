@@ -15,8 +15,7 @@ SRCS =  srcs/cub3d.c \
 		srcs/ft_error.c \
 		srcs/ft_print_specs.c \
 		srcs/ft_key.c \
-		srcs/ft_moves.c \
-		srcs/ft_window.c \
+		srcs/ft_player_moves.c \
 		srcs/ft_player_position.c \
 		srcs/ft_run.c \
 		srcs/ft_camera.c \

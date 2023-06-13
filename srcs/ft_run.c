@@ -6,7 +6,7 @@
 /*   By: chmassa <chmassa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 17:33:19 by chmassa           #+#    #+#             */
-/*   Updated: 2023/06/12 19:54:01 by chmassa          ###   ########.fr       */
+/*   Updated: 2023/06/13 12:11:52 by chmassa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int    ft_run(t_game *game)
 
     ft_mini_map(game);
     // if (game->data.frame % 2 == 1)
-        ft_moves(game);
+    ft_player_moves(game);
 	ft_title(game);
 	mlx_put_image_to_window(game->win.mlx, game->win.win, game->image.minimap_img.img, MP_POS_HEIGHT, MP_POS_WIDTH);
     

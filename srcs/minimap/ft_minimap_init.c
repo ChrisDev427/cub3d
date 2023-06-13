@@ -6,7 +6,7 @@
 /*   By: chmassa <chmassa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 15:52:40 by chmassa           #+#    #+#             */
-/*   Updated: 2023/06/12 12:08:57 by chmassa          ###   ########.fr       */
+/*   Updated: 2023/06/13 13:33:39 by chmassa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,6 @@ static void	ft_color_init(t_game *game)
 
 void	ft_minimap_init(t_game *game)
 {
-	// int	fd;
-
 	ft_color_assign(game);
 	ft_color_init(game);
-// 	fd = open("mp_map_border.txt", O_RDONLY);
-// 	game->mp_data.minimap_border = ft_get_map("mp_map_border.txt", game->mp_data.minimap_border);
 }

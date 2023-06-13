@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chris <chris@student.42.fr>                +#+  +:+       +#+        */
+/*   By: chmassa <chmassa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 11:00:09 by chmassa           #+#    #+#             */
-/*   Updated: 2023/06/11 09:22:11 by chris            ###   ########.fr       */
+/*   Updated: 2023/06/13 13:27:14 by chmassa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	main(int argc, char **argv)
 		ft_init(&game);
 		ft_check_ext(argv[1]);
 		
-		game.parse.map = ft_get_map(argv[1], game.parse.map);
+		game.map = ft_get_map(argv[1], game.map);
 		
 		ft_split_map_elem(&game);
 		ft_check_map(&game);

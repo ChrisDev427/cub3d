@@ -6,7 +6,7 @@
 /*   By: chmassa <chmassa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 16:08:32 by chmassa           #+#    #+#             */
-/*   Updated: 2023/06/07 15:08:01 by chmassa          ###   ########.fr       */
+/*   Updated: 2023/06/13 12:25:52 by chmassa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@ static void ft_fill_first_ten_lines(t_game *game)
     game->data.x = 0;
     while (game->data.y < 10)
     {
-        while (game->data.x < game->parse.map_lines_len)
+        while (game->data.x < game->map_lines_len)
         {
-            game->parse.mapcpy[game->data.y][game->data.x] = '|';
+            game->mapcpy[game->data.y][game->data.x] = '|';
             game->data.x++;
         }
         if (game->data.y < 10)
-            game->parse.mapcpy[game->data.y][game->data.x] = '\0';
+            game->mapcpy[game->data.y][game->data.x] = '\0';
         game->data.y++;
         game->data.x = 0;
     }
@@ -39,19 +39,19 @@ static void ft_fill_last_ten_lines(t_game *game, int x, int y)
     j = 0;
     while (i < 10)
     {
-        while (j < game->parse.map_lines_len)
+        while (j < game->map_lines_len)
         {
-            game->parse.mapcpy[y][x] = '|';
+            game->mapcpy[y][x] = '|';
             j++;
             x++;
         }
-        game->parse.mapcpy[y][x] = '\0';
+        game->mapcpy[y][x] = '\0';
         i++;
         y++;
         j = 0;
         x = 0;
     }
-    game->parse.mapcpy[y] = 0;
+    game->mapcpy[y] = 0;
 }
 
 static void ft_fill_tab(t_game *game)
@@ -66,15 +66,15 @@ static void ft_fill_tab(t_game *game)
     x = game->data.x;
     i = 0;
     j = 0;
-    while (game->parse.maptmp[i])
+    while (game->maptmp[i])
     {
         while (x < 10)
-            game->parse.mapcpy[y][x++] = '|';
-        while (game->parse.maptmp[i][j])
-            game->parse.mapcpy[y][x++] = game->parse.maptmp[i][j++];
-        while (x < game->parse.map_lines_len)
-            game->parse.mapcpy[y][x++] = '|';
-        game->parse.mapcpy[y][x] = '\0';
+            game->mapcpy[y][x++] = '|';
+        while (game->maptmp[i][j])
+            game->mapcpy[y][x++] = game->maptmp[i][j++];
+        while (x < game->map_lines_len)
+            game->mapcpy[y][x++] = '|';
+        game->mapcpy[y][x] = '\0';
         y++;
         i++;
         x = 0;
@@ -88,15 +88,15 @@ static int ft_alloc(t_game *game)
     int     i;
 
     i = 0;
-    game->parse.map_nb_lines = ft_strtab_size(game->parse.maptmp) +20;
-    game->parse.map_lines_len = ft_biggest_str_in_tab(game->parse.maptmp) +20;
-    game->parse.mapcpy = malloc(sizeof(char *) * (game->parse.map_nb_lines + 1));
-    if (!game->parse.mapcpy)
+    game->map_nb_lines = ft_strtab_size(game->maptmp) +20;
+    game->map_lines_len = ft_biggest_str_in_tab(game->maptmp) +20;
+    game->mapcpy = malloc(sizeof(char *) * (game->map_nb_lines + 1));
+    if (!game->mapcpy)
         return (-1);
-    while (i < game->parse.map_nb_lines)
+    while (i < game->map_nb_lines)
     {
-        game->parse.mapcpy[i] = malloc(sizeof(char) * (game->parse.map_lines_len + 1));
-        if (!game->parse.mapcpy)
+        game->mapcpy[i] = malloc(sizeof(char) * (game->map_lines_len + 1));
+        if (!game->mapcpy)
             return (-1);
         i++;
     }
