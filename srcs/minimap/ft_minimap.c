@@ -6,34 +6,54 @@
 /*   By: axfernan <axfernan@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 15:31:10 by chmassa           #+#    #+#             */
-/*   Updated: 2023/06/12 22:52:00 by axfernan         ###   ########.fr       */
+/*   Updated: 2023/06/13 13:51:02 by axfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
 
+
 void	ft_draw_axis(t_game *game)
 {
-	int		needle_length = 50; // Longueur de l'aiguille
+	int		needle_length = 30; // Longueur de l'aiguille
 
-	game->mp_data.end_needle_x = (int)game->mov.player_x + (int)(needle_length * cos(game->mov.rad));
-	game->mp_data.end_needle_y = (int)game->mov.player_y + (int)(needle_length * sin(game->mov.rad));
+	game->mp_data.end_needle_x = game->mov.p_player_x - (int)(needle_length * cos(game->mov.rad - M_PI / 4));
+	game->mp_data.end_needle_y = game->mov.p_player_y - (int)(needle_length * sin(game->mov.rad - M_PI / 4));
 
-	int	dx = game->mp_data.end_needle_x - (int)game->mov.player_x;
-	int	dy = game->mp_data.end_needle_y - (int)game->mov.player_y;
+	int	dx = game->mp_data.end_needle_x - game->mov.p_player_x;
+	int	dy = game->mp_data.end_needle_y - game->mov.p_player_y;
 	int	steps = abs(dx) > abs(dy) ? abs(dx) : abs(dy);
 
 	float	x_increment = (float)dx / (float)steps;
 	float	y_increment = (float)dy / (float)steps;
 
-	game->mov.pos_x = (float)game->mov.player_x;
-	game->mov.pos_y = (float)game->mov.player_y;
+	game->mov.pos_x = (MP_WIDTH / 2 - 3);
+	game->mov.pos_y = (MP_HEIGHT / 2 - 2);
 
 	for (int i = 0; i <= steps; i++)
 	{
 		game->mov.pos_x += x_increment;
 		game->mov.pos_y += y_increment;
-		ft_my_mlx_pixel_put(&game->image.minimap_img, game->mov.pos_x, game->mov.pos_y, 0x123224);
+		ft_my_mlx_pixel_put(&game->image.minimap_img, game->mov.pos_x, game->mov.pos_y, 0x643575);
+	}
+	game->mp_data.end_needle_x = game->mov.p_player_x - (int)(needle_length * cos(game->mov.rad + M_PI / 4));
+	game->mp_data.end_needle_y = game->mov.p_player_y - (int)(needle_length * sin(game->mov.rad + M_PI / 4));
+
+	dx = game->mp_data.end_needle_x - game->mov.p_player_x;
+	dy = game->mp_data.end_needle_y - game->mov.p_player_y;
+	steps = abs(dx) > abs(dy) ? abs(dx) : abs(dy);
+
+	x_increment = (float)dx / (float)steps;
+	y_increment = (float)dy / (float)steps;
+
+	game->mov.pos_x = (MP_WIDTH / 2 - 3);
+	game->mov.pos_y = (MP_HEIGHT / 2 - 2);
+
+	for (int i = 0; i <= steps; i++)
+	{
+		game->mov.pos_x += x_increment;
+		game->mov.pos_y += y_increment;
+		ft_my_mlx_pixel_put(&game->image.minimap_img, game->mov.pos_x, game->mov.pos_y, 0x643575);
 	}
 }
 static void	ft_draw_player(t_game *game, int y, int x, int color)
@@ -41,14 +61,14 @@ static void	ft_draw_player(t_game *game, int y, int x, int color)
 	int i = 0;
 	int j = 0;
 	int x_tmp;
-
+	(void)color;
 	x_tmp = x;
 	while (i < 15)
 	{
 		while (j < 15)
 		{
 			//if (game->mp_data.player_radius_border[i][j] == '1')
-				ft_my_mlx_pixel_put(&game->image.minimap_img, x, y, color);
+				ft_my_mlx_pixel_put(&game->image.minimap_img, x, y, 0x346788);
 			j++;
 			x++;
 		}

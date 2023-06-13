@@ -6,7 +6,7 @@
 /*   By: axfernan <axfernan@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 15:32:40 by chmassa           #+#    #+#             */
-/*   Updated: 2023/06/12 22:46:45 by axfernan         ###   ########.fr       */
+/*   Updated: 2023/06/13 11:49:36 by axfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,13 +60,13 @@ static void ft_player_moves(t_game *game)
 	// 		trigo_direction(game, 0.1, -game->mov.rad, 1);
 	// 	}
     if (game->mov.moves[0] == 'u' && game->parse.mapcpy[(game->mov.p_player_y - 1) / 15][game->mov.p_player_x / 15] != '1')
-		trigo_direction(game, 0.1, game->mov.rad, 1);
-    if (game->mov.moves[1] == 'l' && game->parse.mapcpy[game->mov.p_player_y / 15][(game->mov.p_player_x - 1) / 15] != '1')
-		trigo_direction(game, 0.1, game->mov.rad + M_PI / 2, -1);
-    if (game->mov.moves[2] == 'r' && game->parse.mapcpy[game->mov.p_player_y / 15][(game->mov.p_player_x + 1) / 15] != '1')
-		trigo_direction(game, 0.1, game->mov.rad + M_PI / 2, 1);
-    if (game->mov.moves[3] == 'd' && game->parse.mapcpy[(game->mov.p_player_y + 1) / 15][game->mov.p_player_x / 15] != '1')
 		trigo_direction(game, 0.1, game->mov.rad, -1);
+    if (game->mov.moves[1] == 'l' && game->parse.mapcpy[game->mov.p_player_y / 15][(game->mov.p_player_x - 1) / 15] != '1')
+		trigo_direction(game, 0.1, game->mov.rad + M_PI / 2, 1);
+    if (game->mov.moves[2] == 'r' && game->parse.mapcpy[game->mov.p_player_y / 15][(game->mov.p_player_x + 1) / 15] != '1')
+		trigo_direction(game, 0.1, game->mov.rad + M_PI / 2, -1);
+    if (game->mov.moves[3] == 'd' && game->parse.mapcpy[(game->mov.p_player_y + 1) / 15][game->mov.p_player_x / 15] != '1')
+		trigo_direction(game, 0.1, game->mov.rad, 1);
 	system("clear");
 	printf("pos player x = %f\n", game->mov.player_x);
 	printf("pos player y = %f\n", game->mov.player_y);
