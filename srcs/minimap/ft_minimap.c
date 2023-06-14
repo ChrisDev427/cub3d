@@ -6,7 +6,7 @@
 /*   By: chmassa <chmassa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 15:31:10 by chmassa           #+#    #+#             */
-/*   Updated: 2023/06/13 13:38:48 by chmassa          ###   ########.fr       */
+/*   Updated: 2023/06/13 13:48:36 by chmassa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,7 +111,7 @@ static void	ft_print_minimap(t_game *game)
 		}
 		i++;
 		y++;
-		x = game->pp_x -200;
+		x = game->pp_x - (MP_WIDTH /2);
 		j = 0;
 	}
 }
