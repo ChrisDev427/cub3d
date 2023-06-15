@@ -11,11 +11,11 @@ void ft_raycasting_test(t_game *game)
     game->rc.time = 0; //time of current frame
     game->rc.oldtime = 0; //time of previous frame
 //----------------------------------------------------------------------------------------------------------------------------------------
-    int x = 0;
+    game->rc.ray_x = 0;
     
-    while (x < SCREEN_WIDTH)
+    while (game->rc.ray_x < SCREEN_WIDTH)
     {
-        game->rc.camera_x = 2 * x / (double)SCREEN_WIDTH - 1; //x-coordinate in camera space
+        game->rc.camera_x = 2 * game->rc.ray_x / (double)SCREEN_WIDTH - 1; //x-coordinate in camera space
         game->rc.ray_dir_x = game->rc.dir_x + game->rc.plane_x * game->rc.camera_x;
         game->rc.ray_dir_y = game->rc.dir_y + game->rc.plane_y * game->rc.camera_x;
 //----------------------------------------------------------------------------------------------------------------------------
@@ -106,7 +106,7 @@ void ft_raycasting_test(t_game *game)
 
 
         // printf("x = %d -- camera_x = %f -- raydir_x = %f -- raydir_y = %f\n", x, game->rc.camera_x, game->rc.raydir_x, game->rc.raydir_y);
-        x++;
+        game->rc.ray_x++;
     }
 
 }

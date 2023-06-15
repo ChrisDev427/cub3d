@@ -101,6 +101,7 @@ typedef struct s_raycasting
 
 	double	perp_wall_dist;
 
+	int		ray_x;
 	int		step_x;
     int		step_y;
     int		hit; //was there a wall hit?

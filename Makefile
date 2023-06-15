@@ -16,7 +16,7 @@ SRCS =  srcs/cub3d.c \
 		srcs/ft_print_specs.c \
 		srcs/ft_key.c \
 		srcs/ft_player_moves.c \
-		srcs/ft_player_position.c \
+		srcs/ft_position_direction.c \
 		srcs/ft_run.c \
 		srcs/ft_raycasting_test.c \
 		srcs/ft_camera.c \
@@ -29,6 +29,7 @@ SRCS =  srcs/cub3d.c \
 		srcs/parsing/ft_check_map.c \
 		srcs/parsing/ft_check_ext.c \
 		srcs/parsing/ft_enlarge_map.c \
+		srcs/images/ft_vertical_draw.c \
 		srcs/images/ft_init_images.c \
 		srcs/images/ft_my_mlx_pixel_put.c \
 		srcs/minimap/ft_minimap.c \
