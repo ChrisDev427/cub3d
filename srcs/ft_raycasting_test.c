@@ -6,8 +6,8 @@ void ft_raycasting_test(t_game *game)
     game->rc.map_y = (int)game->fpos_y;
     // game->rc.dir_x = -1;
     // game->rc.dir_y = 0; //initial directiongame-> 
-    // game->rc.plane_x = 0;
-    // game->rc.plane_y = 0.66; //the 2d raycaster version of camergame-> 
+    game->rc.plane_x = 0;
+    game->rc.plane_y = 0.66; //the 2d raycaster version of camergame-> 
     game->rc.time = 0; //time of current frame
     game->rc.oldtime = 0; //time of previous frame
 //----------------------------------------------------------------------------------------------------------------------------------------
@@ -111,6 +111,7 @@ void ft_raycasting_test(t_game *game)
 
 
         // printf("x = %d -- camera_x = %f -- raydir_x = %f -- raydir_y = %f\n", x, game->rc.camera_x, game->rc.raydir_x, game->rc.raydir_y);
+            
         game->rc.ray_x++;
     }
 

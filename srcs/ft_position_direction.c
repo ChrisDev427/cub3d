@@ -6,7 +6,7 @@
 /*   By: chmassa <chmassa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 19:11:44 by chmassa           #+#    #+#             */
-/*   Updated: 2023/06/15 13:43:24 by chmassa          ###   ########.fr       */
+/*   Updated: 2023/06/15 15:18:45 by chmassa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,18 +30,24 @@ static void ft_direction(t_game *game, char dir)
         game->rad = M_PI/2;
         game->rc.dir_x = 0;
         game->rc.dir_y = 1;
+        game->rc.plane_x = 0.66;
+        game->rc.plane_y = 0;
     }
     if (dir == 'S')
     {
         game->rad = -M_PI/2;
         game->rc.dir_x = 0;
         game->rc.dir_y = -1;
+        game->rc.plane_x = 0;
+        game->rc.plane_y = 0.66;
     }
     if (dir == 'E')
     {
         game->rad = 0;
         game->rc.dir_x = 1;
         game->rc.dir_y = 0;
+        game->rc.plane_x = 0;
+        game->rc.plane_y = 0.66;
     }
     if (dir == 'W')
     {
@@ -49,7 +55,7 @@ static void ft_direction(t_game *game, char dir)
         game->rc.dir_x = -1;
         game->rc.dir_y = 0;
         game->rc.plane_x = 0;
-        game->rc.plane_y = 0.66;
+        game->rc.plane_y = -0.66;
     }
 }
 
