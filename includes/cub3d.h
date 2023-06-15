@@ -6,7 +6,7 @@
 /*   By: axfernan <axfernan@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 15:00:12 by chmassa           #+#    #+#             */
-/*   Updated: 2023/06/13 13:53:12 by axfernan         ###   ########.fr       */
+/*   Updated: 2023/06/15 10:35:55 by axfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 # include <fcntl.h>
 # include <unistd.h>
 # include <math.h>
+# include <limits.h>
 
 //-----------------------------------------------------------------------------
 //******** parsing functions **************************************************
@@ -49,6 +50,9 @@ void    ft_print_floor_ceiling(t_game *game);
 void	ft_my_mlx_pixel_put(t_img *img, int x, int y, int color);
 void    ft_print_specs(t_game *game);
 void	rotate_axis(t_game *game);
+void    ft_raycasting_test(t_game *game);
+void    ft_rotate_right(t_game *game);
+void    ft_rotate_left(t_game *game);
 
 //-----------------------------------------------------------------------------
 //******** events functions ***************************************************

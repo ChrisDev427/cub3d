@@ -6,7 +6,7 @@
 /*   By: axfernan <axfernan@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 11:44:10 by chmassa           #+#    #+#             */
-/*   Updated: 2023/06/13 14:05:43 by axfernan         ###   ########.fr       */
+/*   Updated: 2023/06/15 10:38:55 by axfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ void    ft_init(t_game *game)
     game->moves[2] = 0;
     game->moves[3] = 0;
     game->deg = 0.0;
-    game->mp_data.start_needle_x = 99;
-	game->mp_data.start_needle_y = 99;
+
     ft_minimap_init(game);
 }

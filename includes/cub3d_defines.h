@@ -15,8 +15,8 @@
 
 
 //-- screen size --------------------------------
-# define SCREEN_WIDTH 1220
-# define SCREEN_HEIGHT 920
+# define SCREEN_WIDTH 920
+# define SCREEN_HEIGHT 720
 
 //-- minimap back ground color ------------------
 # define BG_COL_A 200

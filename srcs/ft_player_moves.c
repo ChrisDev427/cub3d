@@ -6,7 +6,7 @@
 /*   By: axfernan <axfernan@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 15:32:40 by chmassa           #+#    #+#             */
-/*   Updated: 2023/06/13 16:17:51 by axfernan         ###   ########.fr       */
+/*   Updated: 2023/06/15 11:02:15 by axfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ static void	trigo_direction(t_game *game, double speed, double radians, int reve
 
 	mov_playerx = (speed * cos(radians));
 	mov_playery = (speed * sin(radians));
-	game->player_x += (mov_playerx * reverse);
-	game->player_y += (mov_playery * reverse);
+	game->fpos_x += (mov_playerx * reverse);
+	game->fpos_y += (mov_playery * reverse);
 }
 
 static void    ft_up(t_game *game)
@@ -65,8 +65,8 @@ static void    ft_left(t_game *game)
 }
 void ft_player_moves(t_game *game)
 {
-	game->pp_x = (game->player_x * 20);
-	game->pp_y = (game->player_y * 20);
+	game->ppos_x = (game->fpos_x * 20);
+	game->ppos_y = (game->fpos_y * 20);
 
     if (game->moves[0] == 'u')
         ft_up(game);

@@ -6,7 +6,7 @@
 /*   By: chmassa <chmassa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 09:31:36 by chmassa           #+#    #+#             */
-/*   Updated: 2023/06/13 13:25:18 by chmassa          ###   ########.fr       */
+/*   Updated: 2023/06/15 09:45:37 by chmassa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,14 @@ static void ft_fill_tab(t_game *game)
         while (game->map[y][x])
         {
             if (game->map[y][x] == ' ')
-                game->maptmp[y][x] = '1';
+                game->maptmp[y][x] = '|';
             else
                 game->maptmp[y][x] = game->map[y][x];
             x++;
         }
         while (x < game->map_lines_len)
         {
-            game->maptmp[y][x] = '1';
+            game->maptmp[y][x] = '|';
             x++;
         }
         game->maptmp[y][x] = '\0';
