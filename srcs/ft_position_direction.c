@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_player_position.c                               :+:      :+:    :+:   */
+/*   ft_position_direction.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: axfernan <axfernan@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 19:11:44 by chmassa           #+#    #+#             */
-/*   Updated: 2023/06/15 13:28:17 by axfernan         ###   ########.fr       */
+/*   Updated: 2023/06/15 14:47:46 by axfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-static void ft_position(t_game *game, int y, int x, char dir)
+static void ft_position(t_game *game, int x, int y)
 {
     game->ipos_y = y;
     game->ipos_x = x;
@@ -20,6 +20,11 @@ static void ft_position(t_game *game, int y, int x, char dir)
     game->ppos_x = x * 20;
     game->fpos_y = y + 0.5;
     game->fpos_x = x + 0.5;
+    game->mapcpy[y][x] = '0';
+}
+
+static void ft_direction(t_game *game, char dir)
+{
     if (dir == 'N')
     {
         game->rad = M_PI_2;
@@ -43,11 +48,12 @@ static void ft_position(t_game *game, int y, int x, char dir)
         game->rad = M_PI;
         game->rc.dir_x = -1;
         game->rc.dir_y = 0;
+        game->rc.plane_x = 0;
+        game->rc.plane_y = 0.66;
     }
-    game->mapcpy[y][x] = '0';
 }
 
-void    ft_player_position(t_game *game)
+void    ft_position_direction(t_game *game)
 {
     int y;
     int x;
@@ -59,7 +65,10 @@ void    ft_player_position(t_game *game)
         while(game->mapcpy[y][x++])
             if (game->mapcpy[y][x] == 'N' || game->mapcpy[y][x] == 'S'
                 || game->mapcpy[y][x] == 'E' || game->mapcpy[y][x] == 'W')
-                ft_position(game, y, x, game->mapcpy[y][x]);
+                {
+                    ft_direction(game, game->mapcpy[y][x]);
+                    ft_position(game, x, y);
+                }
         y++;
     }
 }

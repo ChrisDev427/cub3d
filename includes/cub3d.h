@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: axfernan <axfernan@student.42nice.fr>      +#+  +:+       +#+        */
+/*   By: chmassa <chmassa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 15:00:12 by chmassa           #+#    #+#             */
-/*   Updated: 2023/06/15 10:35:55 by axfernan         ###   ########.fr       */
+/*   Updated: 2023/06/15 14:40:03 by chmassa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	ft_check_ext(char *file);
 //-----------------------------------------------------------------------------
 //******** game functions *****************************************************
 //-----------------------------------------------------------------------------
-void    ft_player_position(t_game *game);
+void    ft_position_direction(t_game *game);
 int     ft_color_to_int(int *tab_color);
 void    ft_print_floor_ceiling(t_game *game);
 void	ft_my_mlx_pixel_put(t_img *img, int x, int y, int color);
@@ -53,6 +53,7 @@ void	rotate_axis(t_game *game);
 void    ft_raycasting_test(t_game *game);
 void    ft_rotate_right(t_game *game);
 void    ft_rotate_left(t_game *game);
+void    ft_vertical_draw(t_game *game, int start, int end, int color);
 
 //-----------------------------------------------------------------------------
 //******** events functions ***************************************************

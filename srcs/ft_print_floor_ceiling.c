@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_floor_ceiling.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: axfernan <axfernan@student.42nice.fr>      +#+  +:+       +#+        */
+/*   By: chmassa <chmassa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 16:11:10 by chmassa           #+#    #+#             */
-/*   Updated: 2023/06/13 14:03:02 by axfernan         ###   ########.fr       */
+/*   Updated: 2023/06/15 13:00:07 by chmassa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,5 @@ void    ft_print_floor_ceiling(t_game *game)
         y++;
         x = 0;
     }
-    mlx_put_image_to_window(game->win.mlx, game->win.win, game->image.game_img.img, 0, 0);
+    // mlx_put_image_to_window(game->win.mlx, game->win.win, game->image.game_img.img, 0, 0);
 }

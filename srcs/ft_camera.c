@@ -6,12 +6,13 @@
 /*   By: axfernan <axfernan@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 17:19:10 by chmassa           #+#    #+#             */
-/*   Updated: 2023/06/15 14:37:22 by axfernan         ###   ########.fr       */
+/*   Updated: 2023/06/15 15:50:13 by axfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-    //rotate to the left
+
+//rotate to the left
 void    ft_rotate_left(t_game *game)
 {
     //both camera direction and camera plane must be rotated
@@ -21,8 +22,6 @@ void    ft_rotate_left(t_game *game)
     double oldPlaneX = game->rc.plane_x;
     game->rc.plane_x = game->rc.plane_x * cos(game->rad) - game->rc.plane_y * sin(game->rad);
     game->rc.plane_y = oldPlaneX * sin(game->rad) + game->rc.plane_y * cos(game->rad);
-    // printf("dir_y = %f\n", game->rc.dir_y);
-    // printf("dir_x = %f\n", game->rc.dir_x);
 }
 //rotate to the right
 void    ft_rotate_right(t_game *game)
@@ -35,6 +34,8 @@ void    ft_rotate_right(t_game *game)
     game->rc.plane_x = game->rc.plane_x * cos(-game->rad) - game->rc.plane_y * sin(-game->rad);
     game->rc.plane_y = oldPlaneX * sin(-game->rad) + game->rc.plane_y * cos(-game->rad);
 }
+
+
 
 void    ft_camera(t_game *game)
 {
@@ -51,6 +52,5 @@ void    ft_camera(t_game *game)
         if (game->rad < -M_PI)
         game->rad = M_PI;
 		ft_rotate_right(game);
-
     }
 }
