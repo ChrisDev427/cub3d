@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_key.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chmassa <chmassa@student.42.fr>            +#+  +:+       +#+        */
+/*   By: axfernan <axfernan@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 17:01:52 by chmassa           #+#    #+#             */
-/*   Updated: 2023/06/14 18:28:12 by chmassa          ###   ########.fr       */
+/*   Updated: 2023/06/15 10:36:04 by axfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	ft_keyrelease(int key, t_game *game)
 		game->camera[0] = '0';
 	if (key == 124)
 		game->camera[1] = '0';
-	
+
 	return (0);
 }
 

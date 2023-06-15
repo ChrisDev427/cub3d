@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d_structs.h                                            :+:      :+:    :+:   */
+/*   cub3d_structs.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chmassa <chmassa@student.42.fr>            +#+  +:+       +#+        */
+/*   By: axfernan <axfernan@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 15:00:12 by chmassa           #+#    #+#             */
-/*   Updated: 2023/06/01 13:57:04 by chmassa          ###   ########.fr       */
+/*   Updated: 2023/06/15 10:41:33 by axfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,7 +126,7 @@ typedef struct s_game
 	char	**mapcpy;
 //---- moves ---------------------
 	int		moves[4];
-	int		camera[2];		
+	int		camera[2];
 	float	deg;
 	float	rad;
 	double	fpos_x;

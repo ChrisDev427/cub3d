@@ -6,7 +6,7 @@
 /*   By: chmassa <chmassa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 19:11:44 by chmassa           #+#    #+#             */
-/*   Updated: 2023/06/15 11:55:35 by chmassa          ###   ########.fr       */
+/*   Updated: 2023/06/15 13:02:26 by chmassa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ static void ft_position(t_game *game, int x, int y)
 {
     game->ipos_y = y;
     game->ipos_x = x;
-    game->ppos_y = y *20;
-    game->ppos_x = x *20;
+    game->ppos_y = y * 20;
+    game->ppos_x = x * 20;
     game->fpos_y = y + 0.5;
     game->fpos_x = x + 0.5;
     game->mapcpy[y][x] = '0';    

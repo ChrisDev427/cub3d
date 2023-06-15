@@ -1,3 +1,4 @@
+
 #include "../../includes/cub3d.h"
 
 void	draw_axis(t_game *game, double pos, int needle_length)
@@ -10,7 +11,7 @@ void	draw_axis(t_game *game, double pos, int needle_length)
 	game->dy = game->end_needle_y - game->ppos_y;
 	if (abs(game->dx) > abs(game->dy))
     	game->steps = abs(game->dx);
-	else 
+	else
     	game->steps = abs(game->dy);
 	game->x_increment = (float)game->dx / (float)game->steps;
 	game->y_increment = (float)game->dy / (float)game->steps;
@@ -26,7 +27,6 @@ void	draw_axis(t_game *game, double pos, int needle_length)
 		game->i++;
 	}
 }
-
 
 static void	ft_print_minimap(t_game *game)
 {
@@ -61,7 +61,7 @@ void	ft_mini_map(t_game *game)
 	// draw_axis(game, (M_PI / 4));
 	// draw_axis(game, (M_PI / 4) * -1);
 
-	draw_axis(game, (-M_PI/2), 150);
+	draw_axis(game, -M_PI_2, 150);
 	draw_axis(game, -M_PI/2 -M_PI /5.5, 30);
 	draw_axis(game, -M_PI/2 -M_PI /5.5 * -1, 30);
 	ft_draw_player(game, (MP_HEIGHT / 2), (MP_WIDTH / 2), game->mp_data.mp_player_color);

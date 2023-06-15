@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_minimap_print_utils.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chmassa <chmassa@student.42.fr>            +#+  +:+       +#+        */
+/*   By: axfernan <axfernan@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 14:18:39 by chmassa           #+#    #+#             */
-/*   Updated: 2023/06/13 13:40:00 by chmassa          ###   ########.fr       */
+/*   Updated: 2023/06/13 14:01:06 by axfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	ft_print_back_ground(t_game *game)
 {
 	int x;
 	int y;
-	
+
 	y = 0;
 	x = 0;
 	while (y < MP_HEIGHT)

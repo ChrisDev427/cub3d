@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_check_ext.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chmassa <chmassa@student.42.fr>            +#+  +:+       +#+        */
+/*   By: axfernan <axfernan@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 08:36:41 by chris             #+#    #+#             */
-/*   Updated: 2023/06/07 16:00:18 by chmassa          ###   ########.fr       */
+/*   Updated: 2023/06/13 15:26:10 by axfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static void	ft_check_dot_nb(char *file)
 
 void	ft_check_ext(char *file)
 {
-	if (strrchr(file, '/'))
+	if (ft_strrchr(file, '/'))
 		file = &file[ft_str_rchr(file, '/')];
 	ft_check_dot_nb(file);
 	if (ft_strcmp(".cub", ft_strrchr(file, '.')) != 0)

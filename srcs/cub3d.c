@@ -6,7 +6,7 @@
 /*   By: chmassa <chmassa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 11:00:09 by chmassa           #+#    #+#             */
-/*   Updated: 2023/06/15 11:56:14 by chmassa          ###   ########.fr       */
+/*   Updated: 2023/06/15 13:01:58 by chmassa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,14 @@
 int	main(int argc, char **argv)
 {
 	t_game	game;
-	
+
 
 	if (argc == 2)
 	{
 		ft_init(&game);
 		ft_check_ext(argv[1]);
-		
+
 		game.map = ft_get_map(argv[1], game.map);
-		
 		ft_split_map_elem(&game);
 		ft_check_map(&game);
 		ft_get_colors(&game);
@@ -40,6 +39,8 @@ int	main(int argc, char **argv)
 		mlx_hook(game.win.win, 2, 0, ft_keypress, &game);
 		mlx_hook(game.win.win, 3, 0, ft_keyrelease, &game);
 		mlx_hook(game.win.win, 17, 0, ft_quit, &game);
+
+
 		mlx_loop_hook(game.win.mlx, ft_run, &game);
 		mlx_loop(game.win.mlx);
 	}

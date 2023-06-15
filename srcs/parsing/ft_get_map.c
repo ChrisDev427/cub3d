@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_get_map.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chris <chris@student.42.fr>                +#+  +:+       +#+        */
+/*   By: axfernan <axfernan@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 17:19:20 by chmassa           #+#    #+#             */
-/*   Updated: 2023/06/11 09:18:54 by chris            ###   ########.fr       */
+/*   Updated: 2023/06/13 15:27:49 by axfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ char    **ft_get_map(char *file, char **tab)
 {
 	int		map_lines;
     int     fd;
-    
+
 	fd = open(file, O_RDONLY);
 	map_lines = ft_count_lines(fd);
 	tab = malloc(sizeof(char *) * (map_lines + 1));
