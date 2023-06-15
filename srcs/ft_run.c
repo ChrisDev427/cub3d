@@ -6,7 +6,7 @@
 /*   By: chmassa <chmassa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 17:33:19 by chmassa           #+#    #+#             */
-/*   Updated: 2023/06/15 13:02:39 by chmassa          ###   ########.fr       */
+/*   Updated: 2023/06/15 16:15:13 by chmassa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -138,19 +138,21 @@
 
 int    ft_run(t_game *game)
 {
-    // if (game->data.frame == 100)
-    //     game->data.frame = 0;
-    // game->data.frame++;
+    if (game->data.frame == 100)
+        game->data.frame = 0;
+    game->data.frame++;
 
-    ft_print_specs(game);
 	mlx_clear_window(game->win.mlx, game->win.win); // Efface la fenêtre
    	ft_print_floor_ceiling(game);
     ft_mini_map(game);
+   
 
     ft_player_moves(game);
     ft_camera(game);
     
+    
     ft_raycasting_test(game);
+    ft_print_specs(game);
 
     // if (game->data.frame % 2 == 1)
 	ft_title(game);

@@ -6,7 +6,7 @@
 /*   By: chmassa <chmassa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 19:11:44 by chmassa           #+#    #+#             */
-/*   Updated: 2023/06/15 15:18:45 by chmassa          ###   ########.fr       */
+/*   Updated: 2023/06/15 18:01:06 by chmassa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,26 +20,26 @@ static void ft_position(t_game *game, int x, int y)
     game->ppos_x = x * 20;
     game->fpos_y = y + 0.5;
     game->fpos_x = x + 0.5;
-    game->mapcpy[y][x] = '0';    
+    game->mapcpy[y][x] = '0';
 }
 
 static void ft_direction(t_game *game, char dir)
 {
     if (dir == 'N')
     {
-        game->rad = M_PI/2;
+        game->rad = M_PI_2;
         game->rc.dir_x = 0;
         game->rc.dir_y = 1;
-        game->rc.plane_x = 0.66;
+        game->rc.plane_x = -0.66;
         game->rc.plane_y = 0;
     }
     if (dir == 'S')
     {
-        game->rad = -M_PI/2;
+        game->rad = -M_PI_2;
         game->rc.dir_x = 0;
         game->rc.dir_y = -1;
-        game->rc.plane_x = 0;
-        game->rc.plane_y = 0.66;
+        game->rc.plane_x = 0.66;
+        game->rc.plane_y = 0;
     }
     if (dir == 'E')
     {
@@ -47,7 +47,7 @@ static void ft_direction(t_game *game, char dir)
         game->rc.dir_x = 1;
         game->rc.dir_y = 0;
         game->rc.plane_x = 0;
-        game->rc.plane_y = 0.66;
+        game->rc.plane_y = -0.66;
     }
     if (dir == 'W')
     {
@@ -55,7 +55,7 @@ static void ft_direction(t_game *game, char dir)
         game->rc.dir_x = -1;
         game->rc.dir_y = 0;
         game->rc.plane_x = 0;
-        game->rc.plane_y = -0.66;
+        game->rc.plane_y = 0.66;
     }
 }
 

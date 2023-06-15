@@ -6,7 +6,7 @@
 /*   By: chmassa <chmassa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 15:00:12 by chmassa           #+#    #+#             */
-/*   Updated: 2023/06/15 14:21:11 by chmassa          ###   ########.fr       */
+/*   Updated: 2023/06/15 16:43:24 by chmassa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,7 @@ typedef struct s_raycasting
 	double	dir_y;
 	double	plane_x;
 	double	plane_y;
+	
 	double	time;
 	double	oldtime;
 
@@ -104,10 +105,10 @@ typedef struct s_raycasting
 	int		ray_x;
 	int		step_x;
     int		step_y;
-    int		hit; //was there a wall hit?
-    int		side; //was a NS or a EW wall hit?
 	int		map_x;
 	int		map_y;
+    int		hit; //was there a wall hit?
+    int		side; //was a NS or a EW wall hit?
 	int		line_height;
 	int		draw_start;
 	int		draw_end;
