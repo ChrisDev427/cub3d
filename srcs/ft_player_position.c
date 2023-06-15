@@ -6,7 +6,7 @@
 /*   By: axfernan <axfernan@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 19:11:44 by chmassa           #+#    #+#             */
-/*   Updated: 2023/06/15 10:58:19 by axfernan         ###   ########.fr       */
+/*   Updated: 2023/06/15 13:28:17 by axfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,13 @@ static void ft_position(t_game *game, int y, int x, char dir)
     game->fpos_x = x + 0.5;
     if (dir == 'N')
     {
-        game->rad = M_PI/2;
+        game->rad = M_PI_2;
         game->rc.dir_x = 0;
         game->rc.dir_y = 1;
     }
     if (dir == 'S')
     {
-        game->rad = -M_PI/2;
+        game->rad = -M_PI_2;
         game->rc.dir_x = 0;
         game->rc.dir_y = -1;
     }

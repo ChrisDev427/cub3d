@@ -6,7 +6,7 @@
 /*   By: axfernan <axfernan@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 15:32:40 by chmassa           #+#    #+#             */
-/*   Updated: 2023/06/15 12:53:51 by axfernan         ###   ########.fr       */
+/*   Updated: 2023/06/15 13:45:25 by axfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static void    ft_up(t_game *game)
     // {
         //game->pp_y -= 4;
         //game->fp_y -= 0.2;
-		trigo_direction(game, 0.1, game->rad, -1);
+		trigo_direction(game, 0.1, -game->rad, 1);
     // }
 }
 static void    ft_down(t_game *game)
@@ -40,17 +40,7 @@ static void    ft_down(t_game *game)
     // {
         //game->pp_y += 4;
         //game->fp_y += 0.2;
-		trigo_direction(game, 0.1, game->rad, 1);
-    // }
-}
-static void    ft_right(t_game *game)
-{
-//     if ((game->mapcpy[game->pp_y  /20][(game->pp_x +20) /20] != '1')
-//         && (game->mapcpy[(game->pp_y +19) /20][(game->pp_x +20) /20] != '1'))
-//     {
-        //game->pp_x += 4;
-        //game->fp_x += 0.2;
-		trigo_direction(game, 0.1, game->rad + M_PI / 2, -1);
+		trigo_direction(game, 0.1, -game->rad, -1);
     // }
 }
 static void    ft_left(t_game *game)
@@ -60,7 +50,17 @@ static void    ft_left(t_game *game)
     // {
         //game->pp_x -= 4;
         //game->fp_x -= 0.2;
-		trigo_direction(game, 0.1, game->rad + M_PI / 2, 1);
+		trigo_direction(game, 0.1, -game->rad - M_PI_2, 1);
+    // }
+}
+static void    ft_right(t_game *game)
+{
+//     if ((game->mapcpy[game->pp_y  /20][(game->pp_x +20) /20] != '1')
+//         && (game->mapcpy[(game->pp_y +19) /20][(game->pp_x +20) /20] != '1'))
+//     {
+        //game->pp_x += 4;
+        //game->fp_x += 0.2;
+		trigo_direction(game, 0.1, -game->rad - M_PI_2, -1);
     // }
 }
 void ft_player_moves(t_game *game)

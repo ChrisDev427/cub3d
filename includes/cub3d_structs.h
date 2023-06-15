@@ -6,7 +6,7 @@
 /*   By: axfernan <axfernan@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 15:00:12 by chmassa           #+#    #+#             */
-/*   Updated: 2023/06/15 10:41:33 by axfernan         ###   ########.fr       */
+/*   Updated: 2023/06/15 14:23:22 by axfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,6 +103,8 @@ typedef struct s_raycasting
 
 	int		step_x;
     int		step_y;
+	int		map_x;
+	int		map_y;
     int		hit; //was there a wall hit?
     int		side; //was a NS or a EW wall hit?
 

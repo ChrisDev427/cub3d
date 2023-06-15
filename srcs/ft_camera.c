@@ -6,7 +6,7 @@
 /*   By: axfernan <axfernan@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 17:19:10 by chmassa           #+#    #+#             */
-/*   Updated: 2023/06/15 12:58:23 by axfernan         ###   ########.fr       */
+/*   Updated: 2023/06/15 14:37:22 by axfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,14 +40,17 @@ void    ft_camera(t_game *game)
 {
     if (game->camera[0] == 'l')
     {
-        game->rad -= 0.05;
-        if (game->rad < -M_PI)
-        game->rad = M_PI;
+        game->rad += 0.02;
+        if (game->rad > M_PI)
+        game->rad = -M_PI;
+		ft_rotate_left(game);
     }
     if (game->camera[1] == 'r')
     {
-        game->rad += 0.05;
-        if (game->rad > M_PI)
-        game->rad = -M_PI;
+        game->rad -= 0.02;
+        if (game->rad < -M_PI)
+        game->rad = M_PI;
+		ft_rotate_right(game);
+
     }
 }
