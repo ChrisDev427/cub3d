@@ -18,6 +18,7 @@ SRCS =  srcs/cub3d.c \
 		srcs/ft_player_moves.c \
 		srcs/ft_player_position.c \
 		srcs/ft_run.c \
+		srcs/ft_raycasting_test.c \
 		srcs/ft_camera.c \
 		srcs/ft_print_floor_ceiling.c \
 		srcs/parsing/ft_init.c \

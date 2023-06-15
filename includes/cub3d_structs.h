@@ -60,17 +60,6 @@ typedef struct s_mp_data
 	int		y_mp;
 	int		x_mp;
 	char	*player_radius_border[15];
-// Needle variables
-	int		start_needle_x;
-	int		start_needle_y;
-	int		end_needle_x;
-	int		end_needle_y;
-	int		dx;
-	int		dy;
-	float	x_increment;
-	float	y_increment;
-	int 	steps;
-	int		needle_length;
 }				t_mp_data;
 
 typedef struct s_img
@@ -81,24 +70,9 @@ typedef struct s_img
 	int		line_length;
 	int		endian;
 	int 	pixel_offset;
-
 	void	*img_minimap_border;
 }				t_img;
 
-typedef struct s_moves
-{
-	int		moves[4];
-	int		camera[2];		
-	float	deg;
-	float	rad;
-	float	fp_x;
-	float	fp_y;
-	int		player_x;
-	int		player_y;
-	int		pp_x;
-	int		pp_y;
-
-}				t_moves;
 
 typedef struct s_images
 {
@@ -106,6 +80,38 @@ typedef struct s_images
 	t_img game_img;
 	t_img title_img;
 }				t_images;
+
+typedef struct s_raycasting
+{
+	double	dir_x;
+	double	dir_y;
+	double	plane_x;
+	double	plane_y;
+	double	time;
+	double	oldtime;
+
+	double camera_x;
+    double ray_dir_x;
+    double ray_dir_y;
+
+	double	delta_dist_x;
+	double	delta_dist_y;
+	double	side_dist_x;
+	double	side_dist_y;
+
+	double	perp_wall_dist;
+
+	int		step_x;
+    int		step_y;
+    int		hit; //was there a wall hit?
+    int		side; //was a NS or a EW wall hit?
+
+	int		line_height;
+	int		draw_start;
+	int		draw_end;
+
+
+}				t_raycasting;
 
 typedef struct s_game
 {
@@ -122,17 +128,31 @@ typedef struct s_game
 	int		camera[2];		
 	float	deg;
 	float	rad;
-	float	fp_x;
-	float	fp_y;
-	int		player_x;
-	int		player_y;
-	int		pp_x;
-	int		pp_y;
-	// t_parsing	parse;
-	t_window	win;
-	// t_moves		mov;
-	t_data		data;
-	t_mp_data	mp_data;
-	t_images	image;
+	double	fpos_x;
+	double	fpos_y;
+	int		ipos_x;
+	int		ipos_y;
+	int		ppos_x;
+	int		ppos_y;
+//--- axis data ------------------
+	int		i;
+	int		start_needle_x;
+	int		start_needle_y;
+	int		end_needle_x;
+	int		end_needle_y;
+	int		dx;
+	int		dy;
+	float		pos_x;
+	float		pos_y;
+	float	x_increment;
+	float	y_increment;
+	int 	steps;
+	int		needle_length;
+
+	t_window		win;
+	t_data			data;
+	t_mp_data		mp_data;
+	t_images		image;
+	t_raycasting	rc;
 }				t_game;
 #endif

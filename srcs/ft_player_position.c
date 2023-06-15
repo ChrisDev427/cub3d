@@ -6,7 +6,7 @@
 /*   By: chmassa <chmassa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 19:11:44 by chmassa           #+#    #+#             */
-/*   Updated: 2023/06/13 13:36:28 by chmassa          ###   ########.fr       */
+/*   Updated: 2023/06/15 10:20:51 by chmassa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,37 @@
 
 static void ft_position(t_game *game, int y, int x, char dir)
 {
-    game->player_y = y;
-    game->player_x = x;
-    game->pp_y = y *20;
-    game->pp_x = x *20;
-    game->fp_y = y;
-    game->fp_x = x;
-    //put position to the center
-    game->fp_y += 0.5;
-    game->fp_x += 0.5;
+    game->ipos_y = y;
+    game->ipos_x = x;
+    game->ppos_y = y *20;
+    game->ppos_x = x *20;
+    game->fpos_y = y + 0.5;
+    game->fpos_x = x + 0.5;
     if (dir == 'N')
-        game->deg = 270;
+    {
+        game->rad = M_PI/2;
+        game->rc.dir_x = 0;
+        game->rc.dir_y = 1;
+    }
     if (dir == 'S')
-        game->deg = 90;
+    {
+        game->rad = -M_PI/2;
+        game->rc.dir_x = 0;
+        game->rc.dir_y = -1;
+    }
     if (dir == 'E')
-        game->deg = 0;
+    {
+        game->rad = 0;
+        game->rc.dir_x = 1;
+        game->rc.dir_y = 0;
+    }
     if (dir == 'W')
-        game->deg = 180;
-    game->mapcpy[y][x] = '0';
-    game->rad = game->deg * (M_PI/180);
-    
+    {
+        game->rad = M_PI;
+        game->rc.dir_x = -1;
+        game->rc.dir_y = 0;
+    }
+    game->mapcpy[y][x] = '0';    
 }
 
 void    ft_player_position(t_game *game)
@@ -42,22 +53,13 @@ void    ft_player_position(t_game *game)
     int x;
 
     y = 0;
-    x = 0;
     while (game->mapcpy[y])
     {
-        while(game->mapcpy[y][x])
-        {
-            if (game->mapcpy[y][x] == 'N')
-                ft_position(game, y, x, 'N');
-            if (game->mapcpy[y][x] == 'S')
-                ft_position(game, y, x, 'S');
-            if (game->mapcpy[y][x] == 'E')
-                ft_position(game, y, x, 'E');
-            if (game->mapcpy[y][x] == 'W')
-                ft_position(game, y, x, 'W');
-            x++;
-        }
         x = 0;
+        while(game->mapcpy[y][x++])
+            if (game->mapcpy[y][x] == 'N' || game->mapcpy[y][x] == 'S'
+                || game->mapcpy[y][x] == 'E' || game->mapcpy[y][x] == 'W')
+                ft_position(game, y, x, game->mapcpy[y][x]);
         y++;
     }
 }
