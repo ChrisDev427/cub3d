@@ -18,8 +18,8 @@
 # define SCREEN_WIDTH 920
 # define SCREEN_HEIGHT 720
 //-- speed --------------------------------------
-# define MOVE_SPEED 0.16
-# define ROT_SPEED 0.01
+# define MOVE_SPEED 0.016
+# define ROT_SPEED 0.02
 
 //-- minimap back ground color ------------------
 # define BG_COL_A 200

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_key.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: axfernan <axfernan@student.42nice.fr>      +#+  +:+       +#+        */
+/*   By: chmassa <chmassa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 17:01:52 by chmassa           #+#    #+#             */
-/*   Updated: 2023/06/15 10:36:04 by axfernan         ###   ########.fr       */
+/*   Updated: 2023/06/16 11:04:39 by chmassa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ int	ft_keypress(int key, t_game *game)
 {
 	// if (key == 36)
 	// 	game->start_game = 1;
+	
 	if (key == 53)
 		ft_quit(game);
 	if (key == 13)
