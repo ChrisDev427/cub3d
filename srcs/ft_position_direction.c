@@ -6,7 +6,7 @@
 /*   By: axfernan <axfernan@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 19:11:44 by chmassa           #+#    #+#             */
-/*   Updated: 2023/06/16 10:57:53 by axfernan         ###   ########.fr       */
+/*   Updated: 2023/06/16 11:46:02 by axfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static void ft_direction(t_game *game, char dir)
     {
         game->rad = M_PI_2;
         game->rc.dir_x = 0;
-        game->rc.dir_y = 1;
+        game->rc.dir_y = -1;
 		game->rc.plane_x = -0.66;
         game->rc.plane_y = 0;
     }
@@ -37,7 +37,7 @@ static void ft_direction(t_game *game, char dir)
     {
         game->rad = -M_PI_2;
         game->rc.dir_x = 0;
-        game->rc.dir_y = -1;
+        game->rc.dir_y = 1;
 		game->rc.plane_x = 0.66;
         game->rc.plane_y = 0;
     }

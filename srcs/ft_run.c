@@ -6,7 +6,7 @@
 /*   By: axfernan <axfernan@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 17:33:19 by chmassa           #+#    #+#             */
-/*   Updated: 2023/06/15 14:56:34 by axfernan         ###   ########.fr       */
+/*   Updated: 2023/06/16 15:47:17 by axfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -150,7 +150,6 @@ int    ft_run(t_game *game)
     ft_camera(game);
 
     ft_raycasting_test(game);
-
 	ft_print_specs(game);
     // if (game->data.frame % 2 == 1)
 	ft_title(game);

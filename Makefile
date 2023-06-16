@@ -4,7 +4,7 @@
 NAME = cub3D
 
 LIBFT = libft/
-CC = gcc 
+CC = gcc -ffast-math
 CFLAGS = -Wall -Wextra -Werror
 MLX_PATH =  -L /usr/local/lib/
 OPENGL = -framework OpenGL
@@ -42,7 +42,7 @@ OBJECT_FILES = $(SRCS:.c=.o)
 
 HEADER = -I ./includes
 
-all: $(NAME) 
+all: $(NAME)
 .c.o:
 	@$(CC) $(CFLAGS) $(HEADER) -c $< -o $(<:.c=.o)
 	@printf "$(YELLOW)Compiling $(NAME): << $< >>\033[K\r$(DEFAULT)"
@@ -53,10 +53,10 @@ $(NAME): $(OBJECT_FILES)
 #	@echo "$(YELLOW)<<<<< libft compiling ... >>>>>\n$(DEFAULT)"
 	@$(MAKE) -C $(LIBFT)
 	@cp ./libft/libft.a $(NAME)
-	@$(CC) $(CFLAGS) $(HEADER) -o $(NAME) $(SRCS) $(MLX_PATH) -lmlx $(OPENGL) $(APPKIT) libft/libft.a 
+	@$(CC) $(CFLAGS) $(HEADER) -o $(NAME) $(SRCS) $(MLX_PATH) -lmlx $(OPENGL) $(APPKIT) libft/libft.a
 	@echo "$(GREEN)<<<<< $(NAME) created ! ... >>>>>\n$(DEFAULT)"
 #------------------------------------------------------------------------------
-clean: 
+clean:
 	@rm -rf $(OBJECT_FILES) $(OBJECT_BONUS)
 	@echo "$(GREEN)<<<<< clean from $(NAME) done ! >>>>>\n$(DEFAULT)"
 #	@$(MAKE) clean -C $(LIBFT)

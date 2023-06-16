@@ -6,7 +6,7 @@
 /*   By: axfernan <axfernan@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 15:32:40 by chmassa           #+#    #+#             */
-/*   Updated: 2023/06/16 11:20:50 by axfernan         ###   ########.fr       */
+/*   Updated: 2023/06/16 14:47:54 by axfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,4 +77,3 @@ void ft_player_moves(t_game *game)
     if (game->moves[1] == 'l')
         ft_left(game);
 }
-
