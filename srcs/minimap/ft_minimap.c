@@ -15,8 +15,8 @@ void	draw_axis(t_game *game, double pos, int needle_length)
     	game->steps = abs(game->dy);
 	game->x_increment = (float)game->dx / (float)game->steps;
 	game->y_increment = (float)game->dy / (float)game->steps;
-	game->pos_x = (MP_WIDTH / 2 + 10);
-	game->pos_y = (MP_HEIGHT / 2 + 10);
+	game->pos_x = (MP_WIDTH / 2);
+	game->pos_y = (MP_HEIGHT / 2);
 	game->i = 0;
 	while (game->i <= game->steps)
 	{
@@ -61,8 +61,8 @@ void	ft_mini_map(t_game *game)
 	// draw_axis(game, (M_PI / 4));
 	// draw_axis(game, (M_PI / 4) * -1);
 
-	draw_axis(game, game->rad , 150);
-	draw_axis(game, -M_PI /5.5, 30);
-	draw_axis(game, -M_PI /5.5 * -1, 30);
-	ft_draw_player(game, (MP_HEIGHT / 2), (MP_WIDTH / 2), game->mp_data.mp_player_color);
+	draw_axis(game, 0 , 150);
+	draw_axis(game, -M_PI /4, 30);
+	draw_axis(game, -M_PI /4 * -1, 30);
+	ft_draw_player(game, (MP_HEIGHT / 2 ) -10, (MP_WIDTH / 2 ) -10, game->mp_data.mp_player_color);
 }

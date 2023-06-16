@@ -6,7 +6,7 @@
 /*   By: chmassa <chmassa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 17:01:52 by chmassa           #+#    #+#             */
-/*   Updated: 2023/06/16 11:04:39 by chmassa          ###   ########.fr       */
+/*   Updated: 2023/06/16 13:55:55 by chmassa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ int	ft_keyrelease(int key, t_game *game)
 		game->camera[0] = '0';
 	if (key == 124)
 		game->camera[1] = '0';
+	if (key == 126)
+		game->slow = '0';
 
 	return (0);
 }
@@ -35,7 +37,7 @@ int	ft_keypress(int key, t_game *game)
 {
 	// if (key == 36)
 	// 	game->start_game = 1;
-	
+	// printf("key -> %d\n", key);
 	if (key == 53)
 		ft_quit(game);
 	if (key == 13)
@@ -50,5 +52,7 @@ int	ft_keypress(int key, t_game *game)
 		game->camera[0] = 'l';
 	if (key == 124)
 		game->camera[1] = 'r';
+	if (key == 126)
+		game->slow = 's';
 	return (0);
 }

@@ -4,8 +4,8 @@
 NAME = cub3D
 
 LIBFT = libft/
-CC = gcc 
-CFLAGS = -Wall -Wextra -Werror
+CC = gcc -ffast-math
+CFLAGS = -Wall -Wextra -Werror 
 MLX_PATH =  -L /usr/local/lib/
 OPENGL = -framework OpenGL
 APPKIT = -framework AppKit
