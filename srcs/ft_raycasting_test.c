@@ -2,25 +2,20 @@
 
 void ft_raycasting_test(t_game *game)
 {
-    game->rc.map_x = (int)game->fpos_x;
-    game->rc.map_y = (int)game->fpos_y;
-    //game->rc.dir_x = -1;
-    //game->rc.dir_y = 0; //initial directiongame->
-    game->rc.plane_x = 0;
-    game->rc.plane_y = 0.66; //the 2d raycaster version of camergame->
-    game->rc.time = 0; //time of current frame
-    game->rc.oldtime = 0; //time of previous frame
+
 //----------------------------------------------------------------------------------------------------------------------------------------
     game->rc.ray_x = 0;
 
     while (game->rc.ray_x < SCREEN_WIDTH)
     {
+		game->rc.map_x = (int)game->fpos_x;
+    	game->rc.map_y = (int)game->fpos_y;
         game->rc.camera_x = 2 * game->rc.ray_x / (double)SCREEN_WIDTH - 1; //x-coordinate in camera space
-        game->rc.ray_dir_x = game->rc.dir_x + game->rc.plane_x * game->rc.camera_x;
-        game->rc.ray_dir_y = game->rc.dir_y + game->rc.plane_y * game->rc.camera_x;
+        game->rc.ray_dir_x = game->rc.dir_x - game->rc.plane_x * game->rc.camera_x;
+        game->rc.ray_dir_y = game->rc.dir_y - game->rc.plane_y * game->rc.camera_x;
 //----------------------------------------------------------------------------------------------------------------------------
-        game->rc.delta_dist_x = fabs(1 /  game->rc.ray_dir_x);
-        game->rc.delta_dist_y = fabs(1 /  game->rc.ray_dir_y);
+        //game->rc.delta_dist_x = fabs(1 /  game->rc.ray_dir_x);
+        //game->rc.delta_dist_y = fabs(1 /  game->rc.ray_dir_y);
 //----------------------------------------------------------------------------------------------------------------------------
         if (game->rc.ray_dir_x == 0)
             game->rc.delta_dist_x = __DBL_MAX__;
@@ -86,6 +81,9 @@ void ft_raycasting_test(t_game *game)
             // printf("x = %d\n",game->rc.map_x);
             // printf("y = %d\n",game->rc.map_y);
         }
+		int color = 0xFFFFFF;
+		if ( game->rc.side == 1)
+			color = color / 2;
 //----------------------------------------------------------------------------------------------------------------------------------------
     //Calculate distance projected on camera direction (Euclidean distance would give fisheye effect!)
         if (game->rc.side == 0)
@@ -105,7 +103,7 @@ void ft_raycasting_test(t_game *game)
         if(game->rc.draw_end >= SCREEN_HEIGHT)
             game->rc.draw_end = SCREEN_HEIGHT - 1;
 
-        ft_vertical_draw(game, game->rc.draw_start, game->rc.draw_end, 0xFFFFFF);
+        ft_vertical_draw(game, game->rc.draw_start, game->rc.draw_end, color);
 
         // printf("x = %d -- camera_x = %f -- raydir_x = %f -- raydir_y = %f\n", x, game->rc.camera_x, game->rc.raydir_x, game->rc.raydir_y);
         game->rc.ray_x++;
