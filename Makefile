@@ -20,7 +20,6 @@ SRCS =  srcs/cub3d.c \
 		srcs/ft_run.c \
 		srcs/ft_raycasting_test.c \
 		srcs/ft_camera.c \
-		srcs/ft_print_floor_ceiling.c \
 		srcs/parsing/ft_init.c \
 		srcs/parsing/ft_get_colors.c \
 		srcs/parsing/ft_get_map.c \

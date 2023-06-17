@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_vertical_draw.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chmassa <chmassa@student.42.fr>            +#+  +:+       +#+        */
+/*   By: chris <chris@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 10:43:46 by chmassa           #+#    #+#             */
-/*   Updated: 2023/06/15 14:40:37 by chmassa          ###   ########.fr       */
+/*   Updated: 2023/06/17 09:37:47 by chris            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,20 @@
 
 void    ft_vertical_draw(t_game *game, int start, int end, int color)
 {
-    while (start < end)
+    int y = 0;
+    while (y <= SCREEN_HEIGHT)
     {
-        ft_my_mlx_pixel_put(&game->image.game_img, game->rc.ray_x, start, color);
-        start++;
+        if (y < start)
+            ft_my_mlx_pixel_put(&game->image.game_img , game->rc.ray_x, y, game->data.ce_color);
+        if (y >= start && y <= end)
+        {
+            ft_my_mlx_pixel_put(&game->image.game_img, game->rc.ray_x, start, color);
+            start++;
+        }
+        if (y > end)
+            ft_my_mlx_pixel_put(&game->image.game_img, game->rc.ray_x, y, game->data.fl_color);
+        y++;
     }
 }
+
+    

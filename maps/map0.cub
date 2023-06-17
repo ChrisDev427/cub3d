@@ -6,13 +6,13 @@ WE ./path_to_the_west_texture
 
 
 EA ./path_to_the_east_texture
-F 100,0,0
+F 70,70,70
 
 
 
 
 
-C 80,180,250
+C 137,228,255
 
 
 

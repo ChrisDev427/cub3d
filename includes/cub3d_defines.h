@@ -17,6 +17,9 @@
 //-- screen size --------------------------------
 # define SCREEN_WIDTH 920
 # define SCREEN_HEIGHT 720
+//-- walls color --------------------------------
+# define WALLS_COLOR_1 0xFF9BEA
+# define WALLS_COLOR_2 0xC2C2C2
 //-- speed --------------------------------------
 # define MOVE_SPEED 0.1
 # define ROT_SPEED 0.02

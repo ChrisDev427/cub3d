@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_run.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chmassa <chmassa@student.42.fr>            +#+  +:+       +#+        */
+/*   By: chris <chris@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 17:33:19 by chmassa           #+#    #+#             */
-/*   Updated: 2023/06/16 11:10:30 by chmassa          ###   ########.fr       */
+/*   Updated: 2023/06/17 09:38:43 by chris            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -143,7 +143,6 @@ int    ft_run(t_game *game)
     game->data.frame++;
 
 	mlx_clear_window(game->win.mlx, game->win.win); // Efface la fenêtre
-   	ft_print_floor_ceiling(game);
     ft_mini_map(game);
    
 

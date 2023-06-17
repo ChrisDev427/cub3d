@@ -1,3 +1,4 @@
+
 #include "cub3d.h"
 
 void ft_raycasting_test(t_game *game)
@@ -72,9 +73,9 @@ void ft_raycasting_test(t_game *game)
             if (game->mapcpy[game->rc.map_y][game->rc.map_x] == '1')
                 game->rc.hit = 1;
         }
-		int color = 0xFFFFFF;
-		if ( game->rc.side == 1)
-			color = color / 2;
+		game->rc.color = WALLS_COLOR_1;
+		if (game->rc.side == 1)
+			game->rc.color = WALLS_COLOR_2;
 //----------------------------------------------------------------------------------------------------------------------------------------
     //Calculate distance projected on camera direction (Euclidean distance would give fisheye effect!)
         if (game->rc.side == 0)
