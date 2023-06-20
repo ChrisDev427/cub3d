@@ -1,5 +1,6 @@
 #include "cub3d.h"
 
+
 void ft_raycasting_test(t_game *game)
 {
 
@@ -20,7 +21,7 @@ void ft_raycasting_test(t_game *game)
         if (game->rc.ray_dir_x == 0)
             game->rc.delta_dist_x = __DBL_MAX__;
         else
-         game->rc.delta_dist_x = fabs(1 / game->rc.ray_dir_x);
+            game->rc.delta_dist_x = fabs(1 / game->rc.ray_dir_x);
 
         if (game->rc.ray_dir_y == 0)
             game->rc.delta_dist_y = __DBL_MAX__;
@@ -68,6 +69,7 @@ void ft_raycasting_test(t_game *game)
               game->rc.side_dist_y += game->rc.delta_dist_y;
               game->rc.map_y += game->rc.step_y;
               game->rc.side = 1;
+
             }
             // ft_print_specs(game);
 
@@ -90,6 +92,13 @@ void ft_raycasting_test(t_game *game)
             game->rc.perp_wall_dist = (game->rc.side_dist_x - game->rc.delta_dist_x);
         else
             game->rc.perp_wall_dist = (game->rc.side_dist_y - game->rc.delta_dist_y);
+
+
+        game->needle_length = game->rc.perp_wall_dist * 20;
+         if (game->needle_length > MP_WIDTH / 2)
+             game->needle_length = MP_WIDTH / 2;
+         draw_axis(game, game->rc.ray_dir_x, game->rc.ray_dir_y, game->needle_length);
+
 //---------------------------------------------------------------------------------------------------------------------------------------------
     //Calculate height of line to draw on screen
         game->rc.line_height = (int)(SCREEN_HEIGHT / game->rc.perp_wall_dist);

@@ -6,7 +6,7 @@
 /*   By: axfernan <axfernan@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 17:33:19 by chmassa           #+#    #+#             */
-/*   Updated: 2023/06/16 15:47:17 by axfernan         ###   ########.fr       */
+/*   Updated: 2023/06/20 14:20:36 by axfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -144,12 +144,13 @@ int    ft_run(t_game *game)
 
 	mlx_clear_window(game->win.mlx, game->win.win); // Efface la fenêtre
    	ft_print_floor_ceiling(game);
-    ft_mini_map(game);
 
+    ft_mini_map(game);
     ft_player_moves(game);
     ft_camera(game);
 
     ft_raycasting_test(game);
+	ft_draw_player(game, (MP_HEIGHT / 2 - (0.5 * 20)), (MP_WIDTH / 2 - (0.5 * 20)), game->mp_data.mp_player_color);
 	ft_print_specs(game);
     // if (game->data.frame % 2 == 1)
 	ft_title(game);

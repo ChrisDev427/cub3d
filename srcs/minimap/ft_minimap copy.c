@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_minimap.c                                       :+:      :+:    :+:   */
+/*   ft_minimap copy.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chmassa <chmassa@student.42.fr>            +#+  +:+       +#+        */
+/*   By: axfernan <axfernan@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 15:31:10 by chmassa           #+#    #+#             */
-/*   Updated: 2023/06/14 09:53:27 by chmassa          ###   ########.fr       */
+/*   Updated: 2023/06/20 12:58:12 by axfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,14 @@
 // static void	ft_draw_axis(t_game *game)
 // {
 // 	game->mp_data.needle_length = 50; // Longueur de l'aiguille
-	
+
 
 // 	game->mp_data.end_needle_x = game->mp_data.start_needle_x + (int)(game->mp_data.needle_length * cos(game->mov.rad));
 // 	game->mp_data.end_needle_y = game->mp_data.start_needle_y + (int)(game->mp_data.needle_length * sin(game->mov.rad));
 
 // 	game->mp_data.dx = game->mp_data.end_needle_x - game->mp_data.start_needle_x;
 // 	game->mp_data.dy = game->mp_data.end_needle_y - game->mp_data.start_needle_y;
-// 	if (abs(game->mp_data.dx) > abs(game->mp_data.dy)) 
+// 	if (abs(game->mp_data.dx) > abs(game->mp_data.dy))
 //     	game->mp_data.steps = abs(game->mp_data.dx);
 // 	else
 //     	game->mp_data.steps = abs(game->mp_data.dy);
@@ -120,5 +120,5 @@ void	ft_mini_map(t_game *game)
 	ft_print_back_ground(game);
 	ft_print_minimap(game);
 	// rotate_axis(game);
-	ft_draw_player(game, (MP_HEIGHT / 2), (MP_WIDTH / 2), game->mp_data.mp_player_color);
+	//ft_draw_player(game, (MP_HEIGHT / 2), (MP_WIDTH / 2), game->mp_data.mp_player_color);
 }

@@ -6,7 +6,7 @@
 /*   By: axfernan <axfernan@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 15:00:12 by chmassa           #+#    #+#             */
-/*   Updated: 2023/06/15 14:48:27 by axfernan         ###   ########.fr       */
+/*   Updated: 2023/06/20 14:39:00 by axfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,10 +51,12 @@ typedef struct s_mp_data
 	int		mini_map_walls[4];
 	int		mini_map_floor[4];
 	int		mini_map_player[4];
+	int		mini_map_fov[4];
 	int		mp_bg_color;
 	int		mp_walls_color;
 	int		mp_floor_color;
 	int		mp_player_color;
+	int		mp_fov_color;
 	int		y_tmp;
 	int		x_tmp;
 	int		y_mp;

@@ -39,6 +39,11 @@
 # define PL_COL_R 0
 # define PL_COL_G 4
 # define PL_COL_B 147
+//-- minimap fov color ------------------------
+# define FOV_COL_A 0
+# define FOV_COL_R 155
+# define FOV_COL_G 251
+# define FOV_COL_B 255
 //-- minimap size -------------------------------
 # define MP_WIDTH 400
 # define MP_HEIGHT 240

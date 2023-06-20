@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_specs.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chmassa <chmassa@student.42.fr>            +#+  +:+       +#+        */
+/*   By: axfernan <axfernan@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 08:01:35 by chmassa           #+#    #+#             */
-/*   Updated: 2023/06/15 14:26:56 by chmassa          ###   ########.fr       */
+/*   Updated: 2023/06/20 12:47:11 by axfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void    ft_print_specs(t_game *game)
 {
-    // if (game->moves[0] == 'u' || game->moves[1] == 'l' || game->moves[2] == 'r'
-    //     || game->moves[3] == 'd' || game->camera[0] == 'l' || game->camera[1] == 'r')
-    // {
+    if (game->moves[0] == 'u' || game->moves[1] == 'l' || game->moves[2] == 'r'
+        || game->moves[3] == 'd' || game->camera[0] == 'l' || game->camera[1] == 'r')
+    {
         system("clear");
         printf("float_pos_x = [%f] - ipos_x = %d - pixel_player_x = %d\n", game->fpos_x, game->ipos_x, game->ppos_x);
         printf("float_pos_y = [%f] - ipos_y = %d - pixel_player_y = %d\n", game->fpos_y, game->ipos_y, game->ppos_y);
@@ -44,5 +44,5 @@ void    ft_print_specs(t_game *game)
         printf("perp_wall_dist = [%f]\n", game->rc.perp_wall_dist);
         puts("");
 
-    // }
+    }
 }
