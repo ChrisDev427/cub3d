@@ -95,8 +95,8 @@ void ft_raycasting_test(t_game *game)
 
 
         game->needle_length = game->rc.perp_wall_dist * 20;
-         if (game->needle_length > MP_WIDTH / 2)
-             game->needle_length = MP_WIDTH / 2;
+         if (game->needle_length > MP_WIDTH / 3)
+             game->needle_length = MP_WIDTH / 3;
          draw_axis(game, game->rc.ray_dir_x, game->rc.ray_dir_y, game->needle_length);
 
 //---------------------------------------------------------------------------------------------------------------------------------------------

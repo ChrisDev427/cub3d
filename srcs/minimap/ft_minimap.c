@@ -21,16 +21,12 @@ void	draw_axis(t_game *game, double posx, double posy, int needle_length)
 	game->mp_data.mini_map_fov[0] = 0;
 	while (game->i <= game->steps)
 	{
-		game->pos_x += game->x_increment;
-		game->pos_y += game->y_increment;
-		// if ((cos(game->pos_x) - sin(game->pos_y)) > MP_HEIGHT / 2)
-		// 	break;
-				// printf("posx = [%f]\n", game->pos_x);
-		// printf("posy = [%f]\n", game->pos_y);
-		game->mp_data.mini_map_fov[0] = game->i + 30;
+		game->mp_data.mini_map_fov[0] = game->i * 1.5;
 		game->mp_data.mp_fov_color = ft_color_to_int(game->mp_data.mini_map_fov);
 		ft_my_mlx_pixel_put(&game->image.minimap_img,
 			game->pos_x, game->pos_y, game->mp_data.mp_fov_color);
+		game->pos_x += game->x_increment;
+		game->pos_y += game->y_increment;
 		game->i++;
 	}
 }
