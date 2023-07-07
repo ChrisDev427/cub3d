@@ -1,7 +1,7 @@
 
 #include "../../includes/cub3d.h"
 
-void	draw_axis(t_game *game, double pos, int needle_length)
+void	ft_draw_axis(t_game *game, double pos, int needle_length)
 {
 	game->end_needle_x = game->ppos_x + (int)(needle_length
 		* cos(-game->rad - pos));
@@ -23,7 +23,7 @@ void	draw_axis(t_game *game, double pos, int needle_length)
 		game->pos_x += game->x_increment;
 		game->pos_y += game->y_increment;
 		ft_my_mlx_pixel_put(&game->image.minimap_img,
-			game->pos_x, game->pos_y, 0x63EFF00);
+			game->pos_x, game->pos_y, 0xFF0000);
 		game->i++;
 	}
 }
@@ -43,10 +43,10 @@ static void	ft_print_minimap(t_game *game)
 		x = game->ppos_x - (MP_WIDTH /2);
 		while (j < MP_WIDTH)
 		{
-			if (game->mapcpy[y /20][x /20] == '0')
-				ft_my_mlx_pixel_put(&game->image.minimap_img, j, i, game->mp_data.mp_floor_color);
 			if (game->mapcpy[y /20][x /20] == '1')
 				ft_my_mlx_pixel_put(&game->image.minimap_img, j, i, game->mp_data.mp_walls_color);
+			if (game->mapcpy[y /20][x /20] == '|')
+				ft_my_mlx_pixel_put(&game->image.minimap_img, j, i, game->mp_data.mp_overmap_color);
 			x++;
 			j++;
 		}
@@ -58,11 +58,9 @@ void	ft_mini_map(t_game *game)
 {
 	ft_print_back_ground(game);
 	ft_print_minimap(game);
-	// draw_axis(game, (M_PI / 4));
-	// draw_axis(game, (M_PI / 4) * -1);
-
-	draw_axis(game, 0 , 150);
-	draw_axis(game, -M_PI /4, 30);
-	draw_axis(game, -M_PI /4 * -1, 30);
+	if (game->rc.ray_dist < 135)
+		ft_draw_axis(game, 0 , game->rc.ray_dist); 
+	ft_draw_axis(game, -M_PI /4, 30);
+	ft_draw_axis(game, -M_PI /4 * -1, 30);
 	ft_draw_player(game, (MP_HEIGHT / 2 ) -10, (MP_WIDTH / 2 ) -10, game->mp_data.mp_player_color);
 }

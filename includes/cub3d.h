@@ -6,7 +6,7 @@
 /*   By: chris <chris@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 15:00:12 by chmassa           #+#    #+#             */
-/*   Updated: 2023/06/17 09:38:28 by chris            ###   ########.fr       */
+/*   Updated: 2023/07/06 13:05:37 by chris            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int     ft_color_to_int(int *tab_color);
 void	ft_my_mlx_pixel_put(t_img *img, int x, int y, int color);
 void    ft_print_specs(t_game *game);
 void	rotate_axis(t_game *game);
-void    ft_raycasting_test(t_game *game);
+void    ft_raycasting(t_game *game);
 void    ft_rotate_right(t_game *game);
 void    ft_rotate_left(t_game *game);
 void    ft_vertical_draw(t_game *game, int start, int end, int color);
@@ -64,6 +64,7 @@ int     ft_run(t_game *game);
 void    ft_camera(t_game *game);
 void    ft_title(t_game *game);
 void    ft_player_moves(t_game *game);
+void    ft_speed(t_game *game);
 //-----------------------------------------------------------------------------
 //******** minimap functions **************************************************
 //-----------------------------------------------------------------------------
@@ -71,5 +72,5 @@ void	ft_mini_map(t_game *game);
 void	ft_minimap_init(t_game *game);
 void	ft_print_back_ground(t_game *game);
 void	ft_draw_player(t_game *game, int y, int x, int color);
-
+void	ft_draw_axis(t_game *game, double pos, int needle_length);
 #endif

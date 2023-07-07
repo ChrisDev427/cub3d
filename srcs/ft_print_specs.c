@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_specs.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chmassa <chmassa@student.42.fr>            +#+  +:+       +#+        */
+/*   By: chris <chris@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 08:01:35 by chmassa           #+#    #+#             */
-/*   Updated: 2023/06/16 13:27:55 by chmassa          ###   ########.fr       */
+/*   Updated: 2023/07/07 09:54:14 by chris            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,4 +40,7 @@ void    ft_print_specs(t_game *game)
         printf("ray_x =          [%d]\n", game->rc.ray_x);
         printf("camera_x =       [%f]\n", game->rc.camera_x);
         printf("perp_wall_dist = [%f]\n\n", game->rc.perp_wall_dist);
+        printf("--------------------------------------------------------------\n");
+        printf("rot_speed =  [%s]-[%f]\n", game->state, game->rc.rot_speed);
+        printf("mov_speed =  [%s]-[%f]\n", game->state, game->rc.move_speed);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_init.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chmassa <chmassa@student.42.fr>            +#+  +:+       +#+        */
+/*   By: chris <chris@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 11:44:10 by chmassa           #+#    #+#             */
-/*   Updated: 2023/06/16 14:07:09 by chmassa          ###   ########.fr       */
+/*   Updated: 2023/07/07 09:58:09 by chris            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,5 @@ void    ft_init(t_game *game)
     game->moves[1] = 0;
     game->moves[2] = 0;
     game->moves[3] = 0;
-    
-
     ft_minimap_init(game);
 }

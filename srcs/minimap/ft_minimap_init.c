@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_minimap_init.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: axfernan <axfernan@student.42nice.fr>      +#+  +:+       +#+        */
+/*   By: chris <chris@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 15:52:40 by chmassa           #+#    #+#             */
-/*   Updated: 2023/06/13 14:01:01 by axfernan         ###   ########.fr       */
+/*   Updated: 2023/06/20 09:33:26 by chris            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@ static void	ft_color_assign(t_game *game)
 	game->mp_data.mini_map_bg[1] = BG_COL_R;
 	game->mp_data.mini_map_bg[2] = BG_COL_G;
 	game->mp_data.mini_map_bg[3] = BG_COL_B;
-	game->mp_data.mini_map_floor[0] = FL_COL_A;
-	game->mp_data.mini_map_floor[1] = FL_COL_R;
-	game->mp_data.mini_map_floor[2] = FL_COL_G;
-	game->mp_data.mini_map_floor[3] = FL_COL_B;
+	game->mp_data.mini_map_overmap[0] = OV_COL_A;
+	game->mp_data.mini_map_overmap[1] = OV_COL_R;
+	game->mp_data.mini_map_overmap[2] = OV_COL_G;
+	game->mp_data.mini_map_overmap[3] = OV_COL_B;
 	game->mp_data.mini_map_walls[0] = WL_COL_A;
 	game->mp_data.mini_map_walls[1] = WL_COL_R;
 	game->mp_data.mini_map_walls[2] = WL_COL_G;
@@ -34,7 +34,7 @@ static void	ft_color_assign(t_game *game)
 
 static void	ft_color_init(t_game *game)
 {
-	game->mp_data.mp_floor_color = ft_color_to_int(game->mp_data.mini_map_floor);
+	game->mp_data.mp_overmap_color = ft_color_to_int(game->mp_data.mini_map_overmap);
 	game->mp_data.mp_walls_color = ft_color_to_int(game->mp_data.mini_map_walls);
 	game->mp_data.mp_bg_color = ft_color_to_int(game->mp_data.mini_map_bg);
 	game->mp_data.mp_player_color = ft_color_to_int(game->mp_data.mini_map_player);

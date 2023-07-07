@@ -6,7 +6,7 @@
 /*   By: chris <chris@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 10:43:46 by chmassa           #+#    #+#             */
-/*   Updated: 2023/06/17 09:37:47 by chris            ###   ########.fr       */
+/*   Updated: 2023/06/19 08:13:33 by chris            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void    ft_vertical_draw(t_game *game, int start, int end, int color)
 {
     int y = 0;
-    while (y <= SCREEN_HEIGHT)
+    while (y < SCREEN_HEIGHT)
     {
         if (y < start)
             ft_my_mlx_pixel_put(&game->image.game_img , game->rc.ray_x, y, game->data.ce_color);

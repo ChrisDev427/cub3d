@@ -6,7 +6,7 @@
 /*   By: chris <chris@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 15:00:12 by chmassa           #+#    #+#             */
-/*   Updated: 2023/06/17 09:42:52 by chris            ###   ########.fr       */
+/*   Updated: 2023/07/03 17:14:29 by chris            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,16 +49,12 @@ typedef struct s_mp_data
 	//--- minimap data  ------------
 	int		mini_map_bg[4];
 	int		mini_map_walls[4];
-	int		mini_map_floor[4];
+	int		mini_map_overmap[4];
 	int		mini_map_player[4];
 	int		mp_bg_color;
 	int		mp_walls_color;
-	int		mp_floor_color;
+	int		mp_overmap_color;
 	int		mp_player_color;
-	// int		y_tmp;
-	// int		x_tmp;
-	// int		y_mp;
-	// int		x_mp;
 }				t_mp_data;
 
 typedef struct s_img
@@ -100,7 +96,7 @@ typedef struct s_raycasting
 	double	side_dist_y;
 
 	double	perp_wall_dist;
-
+	int		ray_dist;
 	int		ray_x;
 	int		step_x;
     int		step_y;
@@ -132,6 +128,8 @@ typedef struct s_game
 	int		moves[4];
 	int		camera[2];
 	int		slow;
+	int		fast;
+	char	*state;
 	float	rad;
 	double	fpos_x;
 	double	fpos_y;
@@ -153,6 +151,7 @@ typedef struct s_game
 	float	y_increment;
 	int 	steps;
 	int		needle_length;
+	
 
 	t_window		win;
 	t_data			data;

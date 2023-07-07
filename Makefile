@@ -5,7 +5,7 @@ NAME = cub3D
 
 LIBFT = libft/
 CC = gcc -ffast-math
-CFLAGS = -Wall -Wextra -Werror 
+CFLAGS = -Wall -Wextra -Werror #-fsanitize=address
 MLX_PATH =  -L /usr/local/lib/
 OPENGL = -framework OpenGL
 APPKIT = -framework AppKit
@@ -18,8 +18,9 @@ SRCS =  srcs/cub3d.c \
 		srcs/ft_player_moves.c \
 		srcs/ft_position_direction.c \
 		srcs/ft_run.c \
-		srcs/ft_raycasting_test.c \
+		srcs/ft_raycasting.c \
 		srcs/ft_camera.c \
+		srcs/ft_speed.c \
 		srcs/parsing/ft_init.c \
 		srcs/parsing/ft_get_colors.c \
 		srcs/parsing/ft_get_map.c \
@@ -56,12 +57,13 @@ $(NAME): $(OBJECT_FILES)
 	@echo "$(GREEN)<<<<< $(NAME) created ! ... >>>>>\n$(DEFAULT)"
 #------------------------------------------------------------------------------
 clean: 
-	@rm -rf $(OBJECT_FILES) $(OBJECT_BONUS)
+	@rm -rf $(OBJECT_FILES)
+	@$(MAKE) clean -C $(LIBFT)
 	@echo "$(GREEN)<<<<< clean from $(NAME) done ! >>>>>\n$(DEFAULT)"
 #	@$(MAKE) clean -C $(LIBFT)
 #------------------------------------------------------------------------------
 fclean: clean
-	@rm -rf $(NAME) $(NAME_BONUS)
+	@rm -rf $(NAME)
 	@$(MAKE) fclean -C $(LIBFT)
 	@echo "$(GREEN)<<<<< fclean from $(NAME) done ! >>>>>\n$(DEFAULT)"
 #------------------------------------------------------------------------------
@@ -78,3 +80,4 @@ DEFAULT = \033[0m
 #DEBUG
 # -fsanitize=address
 # valgrind --leak-check=full
+# find . -type f -name "*.o" -delete

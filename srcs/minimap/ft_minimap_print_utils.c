@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_minimap_print_utils.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: axfernan <axfernan@student.42nice.fr>      +#+  +:+       +#+        */
+/*   By: chris <chris@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 14:18:39 by chmassa           #+#    #+#             */
-/*   Updated: 2023/06/13 14:01:06 by axfernan         ###   ########.fr       */
+/*   Updated: 2023/06/18 10:24:04 by chris            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,16 @@
 
 void	ft_draw_player(t_game *game, int y, int x, int color)
 {
-	int i = 0;
-	int j = 0;
+	int i;
+	int j;
 	int x_tmp;
 
 	x_tmp = x;
+	i = 0;
 	while (i < 20)
 	{
+		j = 0;
+		x = x_tmp;
 		while (j < 20)
 		{
 			ft_my_mlx_pixel_put(&game->image.minimap_img, x, y, color);
@@ -29,26 +32,23 @@ void	ft_draw_player(t_game *game, int y, int x, int color)
 		}
 		i++;
 		y++;
-		x = x_tmp;
-		j = 0;
 	}
 }
 
 void	ft_print_back_ground(t_game *game)
 {
-	int x;
-	int y;
+	int i;
+	int j;
 
-	y = 0;
-	x = 0;
-	while (y < MP_HEIGHT)
+	i = 0;
+	while (i < MP_HEIGHT)
 	{
-		while (x < MP_WIDTH)
+		j = 0;
+		while (j < MP_WIDTH)
 		{
-			ft_my_mlx_pixel_put(&game->image.minimap_img, x, y, game->mp_data.mp_bg_color);    // filling minimap back ground
-			x++;
+			ft_my_mlx_pixel_put(&game->image.minimap_img, j, i, game->mp_data.mp_bg_color);    // filling minimap back ground
+			j++;
 		}
-		y++;
-		x = 0;
+		i++;
 	}
 }

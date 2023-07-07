@@ -26,15 +26,15 @@
 
 //-- minimap back ground color ------------------
 # define BG_COL_A 200
-# define BG_COL_R 100
-# define BG_COL_G 100
-# define BG_COL_B 100
+# define BG_COL_R 255
+# define BG_COL_G 255
+# define BG_COL_B 255
 
-//-- minimap floor color ------------------------
-# define FL_COL_A 140
-# define FL_COL_R 129
-# define FL_COL_G 197
-# define FL_COL_B 232
+//-- over map color -----------------------------
+# define OV_COL_A 190
+# define OV_COL_R 225
+# define OV_COL_G 0
+# define OV_COL_B 0
 //-- minimap walls color ------------------------
 # define WL_COL_A 140
 # define WL_COL_R 40

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_check_map.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chmassa <chmassa@student.42.fr>            +#+  +:+       +#+        */
+/*   By: chris <chris@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 11:09:45 by chmassa           #+#    #+#             */
-/*   Updated: 2023/06/13 13:26:09 by chmassa          ###   ########.fr       */
+/*   Updated: 2023/07/06 16:03:04 by chris            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,9 @@ static int	walls_is_surrounding(char **tab)
 	int	x;
 
 	y = 0;
-	x = 0;
 	while (tab[y])
 	{
-		if (tab[y][0] != '1' && tab[y][0] != ' ')
-				return (1);
+		x = 0;
         while (tab[y][x])
 		{
 			if (tab[y][x] == '0')
@@ -34,7 +32,6 @@ static int	walls_is_surrounding(char **tab)
 			}
             x++;
 		}
-		x = 0;
 		y++;
 	}
 	return (0);
