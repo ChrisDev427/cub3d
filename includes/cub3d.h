@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chris <chris@student.42.fr>                +#+  +:+       +#+        */
+/*   By: axfernan <axfernan@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 15:00:12 by chmassa           #+#    #+#             */
-/*   Updated: 2023/07/06 13:05:37 by chris            ###   ########.fr       */
+/*   Updated: 2023/07/08 10:21:37 by axfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,5 +72,6 @@ void	ft_mini_map(t_game *game);
 void	ft_minimap_init(t_game *game);
 void	ft_print_back_ground(t_game *game);
 void	ft_draw_player(t_game *game, int y, int x, int color);
-void	ft_draw_axis(t_game *game, double pos, int needle_length);
+//void	ft_draw_axis(t_game *game, double pos, int needle_length);
+void	ft_draw_axis(t_game *game, double posx, double posy, int needle_length);
 #endif

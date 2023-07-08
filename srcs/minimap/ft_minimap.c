@@ -1,12 +1,39 @@
 
 #include "../../includes/cub3d.h"
 
-void	ft_draw_axis(t_game *game, double pos, int needle_length)
+// void	ft_draw_axis(t_game *game, double pos, int needle_length)
+// {
+// 	game->end_needle_x = game->ppos_x + (int)(needle_length
+// 		* cos(-game->rad - pos));
+// 	game->end_needle_y = game->ppos_y + (int)(needle_length
+// 		* sin(-game->rad - pos));
+// 	game->dx = game->end_needle_x - game->ppos_x;
+// 	game->dy = game->end_needle_y - game->ppos_y;
+// 	if (abs(game->dx) > abs(game->dy))
+//     	game->steps = abs(game->dx);
+// 	else
+//     	game->steps = abs(game->dy);
+// 	game->x_increment = (float)game->dx / (float)game->steps;
+// 	game->y_increment = (float)game->dy / (float)game->steps;
+// 	game->pos_x = (MP_WIDTH / 2);
+// 	game->pos_y = (MP_HEIGHT / 2);
+// 	game->i = 0;
+// 	while (game->i <= game->steps)
+// 	{
+// 		game->pos_x += game->x_increment;
+// 		game->pos_y += game->y_increment;
+// 		ft_my_mlx_pixel_put(&game->image.minimap_img,
+// 			game->pos_x, game->pos_y, 0xFF0000);
+// 		game->i++;
+// 	}
+// }
+
+void	ft_draw_axis(t_game *game, double posx, double posy, int needle_length)
 {
 	game->end_needle_x = game->ppos_x + (int)(needle_length
-		* cos(-game->rad - pos));
+		* posx);
 	game->end_needle_y = game->ppos_y + (int)(needle_length
-		* sin(-game->rad - pos));
+		* posy);
 	game->dx = game->end_needle_x - game->ppos_x;
 	game->dy = game->end_needle_y - game->ppos_y;
 	if (abs(game->dx) > abs(game->dy))
@@ -18,12 +45,15 @@ void	ft_draw_axis(t_game *game, double pos, int needle_length)
 	game->pos_x = (MP_WIDTH / 2);
 	game->pos_y = (MP_HEIGHT / 2);
 	game->i = 0;
+	game->mp_data.mini_map_fov[0] = 0;
 	while (game->i <= game->steps)
 	{
+		game->mp_data.mini_map_fov[0] = game->i * 1.5;
+		game->mp_data.mp_fov_color = ft_color_to_int(game->mp_data.mini_map_fov);
+		ft_my_mlx_pixel_put(&game->image.minimap_img,
+			game->pos_x, game->pos_y, game->mp_data.mp_fov_color);
 		game->pos_x += game->x_increment;
 		game->pos_y += game->y_increment;
-		ft_my_mlx_pixel_put(&game->image.minimap_img,
-			game->pos_x, game->pos_y, 0xFF0000);
 		game->i++;
 	}
 }
@@ -58,9 +88,8 @@ void	ft_mini_map(t_game *game)
 {
 	ft_print_back_ground(game);
 	ft_print_minimap(game);
-	if (game->rc.ray_dist < 135)
-		ft_draw_axis(game, 0 , game->rc.ray_dist); 
-	ft_draw_axis(game, -M_PI /4, 30);
-	ft_draw_axis(game, -M_PI /4 * -1, 30);
-	ft_draw_player(game, (MP_HEIGHT / 2 ) -10, (MP_WIDTH / 2 ) -10, game->mp_data.mp_player_color);
+	// if (game->rc.ray_dist < 135)
+	// 	ft_draw_axis(game, 0 , game->rc.ray_dist);
+	// ft_draw_axis(game, -M_PI /4, 30);
+	// ft_draw_axis(game, -M_PI /4 * -1, 30);
 }

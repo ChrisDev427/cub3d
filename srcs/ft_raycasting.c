@@ -64,14 +64,30 @@ static void ft_dda_algo(t_game *game)
         if (game->mapcpy[game->rc.map_y][game->rc.map_x] == '1')
             game->rc.hit = 1;
     }
-	game->rc.color = WALLS_COLOR_1;
-	if (game->rc.side == 1)
+	// game->rc.color = mlx_get_data_addr(game->sprite.north, int *bits_per_pixel,
+	// 		   int *size_line, int *endian);
+	if (game->rc.map_x > game->ipos_x)
 		game->rc.color = WALLS_COLOR_2;
+	else
+		game->rc.color = 0x345622;
+	if (game->rc.side == 1)
+	{
+		if (game->rc.map_y > game->ipos_y)
+			game->rc.color = WALLS_COLOR_1;
+		else
+			game->rc.color = WALLS_COLOR_3;
+
+	}
 }
 
 
 void ft_raycasting(t_game *game)
 {
+	char **texture;
+
+	texture = malloc(sizeof(char*) * (4 + 1));
+  	for(int i = 0; i < 4; i++)
+		texture[i] = malloc(sizeof(char) * (64 * 64 + 1));//.resize(texWidth * texHeight);
     game->rc.ray_x = 0;
     while (game->rc.ray_x < SCREEN_WIDTH)
     {
@@ -79,7 +95,7 @@ void ft_raycasting(t_game *game)
         ft_step_sidedist(game);
         ft_dda_algo(game);
 
-        
+
 //Calculate distance projected on camera direction (Euclidean distance would give fisheye effect!)
         if (game->rc.side == 0)
             game->rc.perp_wall_dist = (game->rc.side_dist_x - game->rc.delta_dist_x);
@@ -87,6 +103,10 @@ void ft_raycasting(t_game *game)
             game->rc.perp_wall_dist = (game->rc.side_dist_y - game->rc.delta_dist_y);
         if (game->rc.ray_x == SCREEN_WIDTH /2)
             game->rc.ray_dist =  game->rc.perp_wall_dist * 20;
+		game->needle_length = game->rc.perp_wall_dist * 20;
+        if (game->needle_length > MP_WIDTH / 3)
+            game->needle_length = MP_WIDTH / 3;
+         ft_draw_axis(game, game->rc.ray_dir_x, game->rc.ray_dir_y, game->needle_length);
 //Calculate height of line to draw on screen
         game->rc.line_height = (int)(SCREEN_HEIGHT / game->rc.perp_wall_dist);
 //calculate lowest and highest pixel to fill in current stripe
@@ -96,6 +116,24 @@ void ft_raycasting(t_game *game)
         game->rc.draw_end = game->rc.line_height / 2 + SCREEN_HEIGHT / 2;
         if(game->rc.draw_end >= SCREEN_HEIGHT)
             game->rc.draw_end = SCREEN_HEIGHT - 1;
+
+	// 	//texturing calculations
+    //   int texNum = game->mapcpy[game->rc.map_y][game->rc.map_x] - 1; //1 subtracted from it so that texture 0 can be used!
+
+    //   //calculate value of wallX
+    //   double wallX; //where exactly the wall was hit
+    //   if (game->rc.side == 0)
+	//   	wallX = game->fpos_x + game->rc.perp_wall_dist * game->rc.ray_dir_y;
+    //   else
+	//   	wallX = game->fpos_x + game->rc.perp_wall_dist * game->rc.ray_dir_x;
+    //   wallX -= floor((wallX));
+
+    //   //x coordinate on the texture
+    //   int texX = (int)(wallX * (double)game->rc.texwidth);
+    //   if(game->rc.side == 0 && game->rc.ray_dir_x > 0)
+	//   	texX = game->rc.texwidth - texX - 1;
+    //   if(game->rc.side == 1 && game->rc.ray_dir_y < 0)
+	//   	texX = game->rc.texwidth - texX - 1;
         ft_vertical_draw(game, game->rc.draw_start, game->rc.draw_end, game->rc.color);
 
     game->rc.ray_x++;

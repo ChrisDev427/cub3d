@@ -20,6 +20,7 @@
 //-- walls color --------------------------------
 # define WALLS_COLOR_1 0xFF9BEA
 # define WALLS_COLOR_2 0xC2C2C2
+# define WALLS_COLOR_3 0x432522
 //-- speed --------------------------------------
 # define MOVE_SPEED 0.1
 # define ROT_SPEED 0.02
@@ -29,7 +30,11 @@
 # define BG_COL_R 255
 # define BG_COL_G 255
 # define BG_COL_B 255
-
+//-- minimap fov color ------------------------
+# define FOV_COL_A 0
+# define FOV_COL_R 155
+# define FOV_COL_G 251
+# define FOV_COL_B 255
 //-- over map color -----------------------------
 # define OV_COL_A 190
 # define OV_COL_R 225

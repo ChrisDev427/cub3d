@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_vertical_draw.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chris <chris@student.42.fr>                +#+  +:+       +#+        */
+/*   By: axfernan <axfernan@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 10:43:46 by chmassa           #+#    #+#             */
-/*   Updated: 2023/06/19 08:13:33 by chris            ###   ########.fr       */
+/*   Updated: 2023/07/08 14:58:16 by axfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,4 +30,3 @@ void    ft_vertical_draw(t_game *game, int start, int end, int color)
     }
 }
 
-    

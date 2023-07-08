@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_structs.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chris <chris@student.42.fr>                +#+  +:+       +#+        */
+/*   By: axfernan <axfernan@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 15:00:12 by chmassa           #+#    #+#             */
-/*   Updated: 2023/07/03 17:14:29 by chris            ###   ########.fr       */
+/*   Updated: 2023/07/08 14:29:00 by axfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,10 +51,12 @@ typedef struct s_mp_data
 	int		mini_map_walls[4];
 	int		mini_map_overmap[4];
 	int		mini_map_player[4];
+	int		mini_map_fov[4];
 	int		mp_bg_color;
 	int		mp_walls_color;
 	int		mp_overmap_color;
 	int		mp_player_color;
+	int		mp_fov_color;
 }				t_mp_data;
 
 typedef struct s_img
@@ -76,13 +78,21 @@ typedef struct s_images
 	t_img title_img;
 }				t_images;
 
+typedef struct s_sprites
+{
+	void *south;
+	void *north;
+	void *east;
+	void *west;
+}	t_sprites;
+
 typedef struct s_raycasting
 {
 	double	dir_x;
 	double	dir_y;
 	double	plane_x;
 	double	plane_y;
-	
+
 	double	time;
 	double	oldtime;
 
@@ -110,7 +120,8 @@ typedef struct s_raycasting
 	int		color;
 	double	rot_speed;
 	double	move_speed;
-
+	int		texheight;
+	int		texwidth;
 
 }				t_raycasting;
 
@@ -151,12 +162,13 @@ typedef struct s_game
 	float	y_increment;
 	int 	steps;
 	int		needle_length;
-	
+
 
 	t_window		win;
 	t_data			data;
 	t_mp_data		mp_data;
 	t_images		image;
 	t_raycasting	rc;
+	t_sprites		sprite;
 }				t_game;
 #endif
