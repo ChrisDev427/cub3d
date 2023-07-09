@@ -6,7 +6,7 @@
 /*   By: chris <chris@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 11:00:09 by chmassa           #+#    #+#             */
-/*   Updated: 2023/07/07 09:51:11 by chris            ###   ########.fr       */
+/*   Updated: 2023/07/08 22:42:55 by chris            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,18 +23,16 @@ int	main(int argc, char **argv)
 		ft_check_ext(argv[1]);
 
 		game.map = ft_get_map(argv[1], game.map);
+		ft_print_strs_array(game.map);
 		ft_split_map_elem(&game);
     	// ft_print_strs_array(game.mapcpy);
 		ft_check_map(&game);
 		ft_get_colors(&game);
+		ft_init_textures(&game);
 		ft_position_direction(&game);
 		ft_init_images(&game);
 		ft_title(&game);
-    	// ft_print_strs_array(game.parse.maptmp);
-		// ft_print_strs_array(game.parse.map);
-   		// ft_print_floor_ceiling(&game);
-		// ft_init_minimap(&game);
-		// ft_mini_map(&game);
+    	// ft_print_strs_array(game.maptmp);
 		// puts("--------------------------------------------------------------------");
 		mlx_key_hook(game.win.win, ft_keypress, &game);
 		mlx_hook(game.win.win, 2, 0, ft_keypress, &game);

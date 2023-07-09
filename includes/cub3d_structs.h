@@ -6,7 +6,7 @@
 /*   By: chris <chris@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 15:00:12 by chmassa           #+#    #+#             */
-/*   Updated: 2023/07/03 17:14:29 by chris            ###   ########.fr       */
+/*   Updated: 2023/07/08 23:07:44 by chris            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ typedef struct s_window
 
 typedef struct s_data
 {
-	char	**elements;
+	// char	**elem;
 	int		ceiling[4];
 	int		floor[4];
 	int		fl_color;
@@ -65,7 +65,7 @@ typedef struct s_img
 	int		line_length;
 	int		endian;
 	int 	pixel_offset;
-	void	*img_minimap_border;
+	// void	*img_minimap_border;
 }				t_img;
 
 
@@ -74,6 +74,12 @@ typedef struct s_images
 	t_img minimap_img;
 	t_img game_img;
 	t_img title_img;
+	t_img tex[4];
+
+	// t_img north_img;
+	// t_img south_img;
+	// t_img east_img;
+	// t_img west_img;
 }				t_images;
 
 typedef struct s_raycasting
@@ -119,6 +125,7 @@ typedef struct s_game
 //---- parsing --------------------
 	int		fd;
 	char	**map;
+	char	**elem;
 	char	*elem_token[7];
 	int		map_nb_lines;
 	int		map_lines_len;

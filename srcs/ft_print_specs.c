@@ -6,7 +6,7 @@
 /*   By: chris <chris@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 08:01:35 by chmassa           #+#    #+#             */
-/*   Updated: 2023/07/07 09:54:14 by chris            ###   ########.fr       */
+/*   Updated: 2023/07/08 18:07:41 by chris            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,4 +43,5 @@ void    ft_print_specs(t_game *game)
         printf("--------------------------------------------------------------\n");
         printf("rot_speed =  [%s]-[%f]\n", game->state, game->rc.rot_speed);
         printf("mov_speed =  [%s]-[%f]\n", game->state, game->rc.move_speed);
+        printf("side =  [%d]\n", game->rc.side);
 }

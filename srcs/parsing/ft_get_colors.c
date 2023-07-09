@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_get_colors.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chmassa <chmassa@student.42.fr>            +#+  +:+       +#+        */
+/*   By: chris <chris@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 17:21:40 by chmassa           #+#    #+#             */
-/*   Updated: 2023/06/02 14:17:21 by chmassa          ###   ########.fr       */
+/*   Updated: 2023/07/08 22:59:24 by chris            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,12 +73,12 @@ void    ft_get_colors(t_game *game)
 	int i;
 
 	i = 0;
-	while (game->data.elements[i])
+	while (game->elem[i])
 	{
-		if (game->data.elements[i][0] == 'C')
-			ft_atoi_color(game, game->data.ceiling, game->data.elements[i]);
-		if (game->data.elements[i][0] == 'F')
-			ft_atoi_color(game, game->data.floor, game->data.elements[i]);
+		if (game->elem[i][0] == 'C')
+			ft_atoi_color(game, game->data.ceiling, game->elem[i]);
+		if (game->elem[i][0] == 'F')
+			ft_atoi_color(game, game->data.floor, game->elem[i]);
 		i++;
 	}
 	game->data.ce_color = ft_color_to_int(game->data.ceiling);

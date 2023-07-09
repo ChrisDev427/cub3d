@@ -6,7 +6,7 @@
 /*   By: chris <chris@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 11:44:10 by chmassa           #+#    #+#             */
-/*   Updated: 2023/07/07 09:58:09 by chris            ###   ########.fr       */
+/*   Updated: 2023/07/08 22:59:51 by chris            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 void    ft_init(t_game *game)
 {
-    game->data.elements = malloc(sizeof(char *) * 7);
-    if (!game->data.elements)
+    game->elem = malloc(sizeof(char *) * 7);
+    if (!game->elem)
         return ;
     game->win.mlx = mlx_init();
     game->win.win = mlx_new_window(game->win.mlx, SCREEN_WIDTH, SCREEN_HEIGHT, "cub3D");

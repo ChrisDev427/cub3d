@@ -29,6 +29,7 @@ SRCS =  srcs/cub3d.c \
 		srcs/parsing/ft_check_map.c \
 		srcs/parsing/ft_check_ext.c \
 		srcs/parsing/ft_enlarge_map.c \
+		srcs/images/ft_init_textures.c \
 		srcs/images/ft_vertical_draw.c \
 		srcs/images/ft_init_images.c \
 		srcs/images/ft_my_mlx_pixel_put.c \

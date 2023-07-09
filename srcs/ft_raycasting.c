@@ -44,31 +44,39 @@ static void ft_step_sidedist(t_game *game)
 
 static void ft_dda_algo(t_game *game)
 {
-    //perform DDA
     game->rc.hit = 0;
     while (game->rc.hit == 0)
     {
-        //jump to next map square, either in x-direction, or in y-direction
         if (game->rc.side_dist_x < game->rc.side_dist_y)
         {
-          game->rc.side_dist_x += game->rc.delta_dist_x;
-          game->rc.map_x += game->rc.step_x;
-          game->rc.side = 0;
+            game->rc.side_dist_x += game->rc.delta_dist_x;
+            game->rc.map_x += game->rc.step_x;
+            if (game->rc.map_x > game->ipos_x)
+                game->rc.side = 0;
+            else
+                game->rc.side = 3;
         }
         else
         {
-          game->rc.side_dist_y += game->rc.delta_dist_y;
-          game->rc.map_y += game->rc.step_y;
-          game->rc.side = 1;
+            game->rc.side_dist_y += game->rc.delta_dist_y;
+            game->rc.map_y += game->rc.step_y;
+            if (game->rc.map_y > game->ipos_y)
+                game->rc.side = 2;
+            else
+                game->rc.side = 1;
         }
         if (game->mapcpy[game->rc.map_y][game->rc.map_x] == '1')
             game->rc.hit = 1;
     }
-	game->rc.color = WALLS_COLOR_1;
-	if (game->rc.side == 1)
-		game->rc.color = WALLS_COLOR_2;
+    if (game->rc.side == 0)
+	    game->rc.color = WALLS_WEST;
+	else if (game->rc.side == 1)
+		game->rc.color = WALLS_NORTH;
+    else if (game->rc.side == 3)
+		game->rc.color = WALLS_EAST;
+    else if (game->rc.side == 2)
+		game->rc.color = WALLS_SOUTH;
 }
-
 
 void ft_raycasting(t_game *game)
 {
@@ -78,12 +86,10 @@ void ft_raycasting(t_game *game)
         ft_loop_init(game);
         ft_step_sidedist(game);
         ft_dda_algo(game);
-
-        
 //Calculate distance projected on camera direction (Euclidean distance would give fisheye effect!)
-        if (game->rc.side == 0)
+        if (game->rc.side == 0 || game->rc.side == 3)
             game->rc.perp_wall_dist = (game->rc.side_dist_x - game->rc.delta_dist_x);
-        else
+        else if (game->rc.side == 2 || game->rc.side == 1)
             game->rc.perp_wall_dist = (game->rc.side_dist_y - game->rc.delta_dist_y);
         if (game->rc.ray_x == SCREEN_WIDTH /2)
             game->rc.ray_dist =  game->rc.perp_wall_dist * 20;
@@ -97,7 +103,6 @@ void ft_raycasting(t_game *game)
         if(game->rc.draw_end >= SCREEN_HEIGHT)
             game->rc.draw_end = SCREEN_HEIGHT - 1;
         ft_vertical_draw(game, game->rc.draw_start, game->rc.draw_end, game->rc.color);
-
     game->rc.ray_x++;
     }
 }
