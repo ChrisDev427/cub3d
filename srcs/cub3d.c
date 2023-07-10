@@ -6,7 +6,7 @@
 /*   By: axfernan <axfernan@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 11:00:09 by chmassa           #+#    #+#             */
-/*   Updated: 2023/07/08 22:14:00 by axfernan         ###   ########.fr       */
+/*   Updated: 2023/07/10 09:36:12 by axfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,9 @@ int	main(int argc, char **argv)
 		// ft_init_minimap(&game);
 		// ft_mini_map(&game);
 		// puts("--------------------------------------------------------------------");
+		game.image.north.addr = mlx_get_data_addr(game.image.north.img, &game.image.north.bits_per_pixel, &game.image.north.line_length, &game.image.north.endian);
+		printf("res =            [%s]\n", game.image.north.addr);
+		exit(1);
 		mlx_key_hook(game.win.win, ft_keypress, &game);
 		mlx_hook(game.win.win, 2, 0, ft_keypress, &game);
 		mlx_hook(game.win.win, 3, 0, ft_keyrelease, &game);

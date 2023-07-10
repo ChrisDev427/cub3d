@@ -6,7 +6,7 @@
 /*   By: axfernan <axfernan@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 16:07:07 by chmassa           #+#    #+#             */
-/*   Updated: 2023/07/08 22:48:33 by axfernan         ###   ########.fr       */
+/*   Updated: 2023/07/10 09:37:22 by axfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,8 @@ void	ft_init_sprites(t_game *game)
 {
 	game->rc.texwidth = 64;
 	game->rc.texheight = 64;
-	game->image.north.img= mlx_xpm_file_to_image(game->win.mlx, "/Users/axelfernandez/ecole42/cursus42/cub3d/sprites/sun.xpm", &game->rc.texwidth, &game->rc.texheight);
-	game->image.west.img = mlx_xpm_file_to_image(game->win.mlx, "/Users/axelfernandez/ecole42/cursus42/cub3d/sprites/earth.xpm", &game->rc.texwidth, &game->rc.texheight);
-	game->image.east.img = mlx_xpm_file_to_image(game->win.mlx, "/Users/axelfernandez/ecole42/cursus42/cub3d/sprites/mars.xpm", &game->rc.texwidth, &game->rc.texheight);
-	game->image.south.img = mlx_xpm_file_to_image(game->win.mlx, "/Users/axelfernandez/ecole42/cursus42/cub3d/sprites/moon.xpm", &game->rc.texwidth, &game->rc.texheight);
+	game->image.north.img= mlx_xpm_file_to_image(game->win.mlx, "./sprites/sun.xpm", &game->rc.texwidth, &game->rc.texheight);
+	game->image.west.img = mlx_xpm_file_to_image(game->win.mlx, "./sprites/earth.xpm", &game->rc.texwidth, &game->rc.texheight);
+	game->image.east.img = mlx_xpm_file_to_image(game->win.mlx, "./sprites/mars.xpm", &game->rc.texwidth, &game->rc.texheight);
+	game->image.south.img = mlx_xpm_file_to_image(game->win.mlx, "./sprites/moon.xpm", &game->rc.texwidth, &game->rc.texheight);
 }

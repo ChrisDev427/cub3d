@@ -64,28 +64,31 @@ static void ft_dda_algo(t_game *game)
         if (game->mapcpy[game->rc.map_y][game->rc.map_x] == '1')
             game->rc.hit = 1;
     }
-      int size_line;
-    int endian;
-    int bits_per_pixel;
-    char *res;
-	 res = mlx_get_data_addr(game->image.game_img.img, &bits_per_pixel,
-	 		   &size_line, &endian);
-    printf("res =            [%s]\n", res);
-    printf("endian =         [%d]\n", endian);
-    printf("bpp =            [%d]\n", bits_per_pixel);
-    printf("sizeline =       [%d]\n", size_line);
-	if (game->rc.map_x > game->ipos_x)
-		game->rc.color = WALLS_COLOR_2;
-	else
-		game->rc.color = 0x345622;
-	if (game->rc.side == 1)
-	{
-		if (game->rc.map_y > game->ipos_y)
-			game->rc.color = WALLS_COLOR_1;
-		else
-			game->rc.color = WALLS_COLOR_3;
+    // int size_line;
+    // int endian;
+    // int bits_per_pixel;
+    // char *res;
+	// res = mlx_get_data_addr(game->image.north.img, &bits_per_pixel,
+	//  		&size_line, &endian);
+    // printf("res =            [%s]\n", res);
+    // printf("endian =         [%d]\n", endian);
+    // printf("bpp =            [%d]\n", bits_per_pixel);
+    // printf("sizeline =       [%d]\n", size_line);
 
-	}
+	// game->rc.color = *(unsigned int*)res;
+
+	// if (game->rc.map_x > game->ipos_x)
+	// 	game->rc.color = WALLS_COLOR_2;
+	// else
+	// 	game->rc.color = 0x345622;
+	// if (game->rc.side == 1)
+	// {
+	// 	if (game->rc.map_y > game->ipos_y)
+	// 		game->rc.color = WALLS_COLOR_1;
+	// 	else
+	// 		game->rc.color = WALLS_COLOR_3;
+
+	// }
 }
 
 
@@ -142,7 +145,11 @@ void ft_raycasting(t_game *game)
 	//   	texX = game->rc.texwidth - texX - 1;
     //   if(game->rc.side == 1 && game->rc.ray_dir_y < 0)
 	//   	texX = game->rc.texwidth - texX - 1;
-        ft_vertical_draw(game, game->rc.draw_start, game->rc.draw_end, game->rc.color);
+    	//printf("endian =         [%d]\n", game->image.north.endian);
+    	//printf("bpp =            [%d]\n", game->image.north.bits_per_pixel);
+    	//printf("sizeline =       [%d]\n", game->image.north.bits_per_pixel);
+		//unsigned int pixel = img_data[game->rc.draw_start * (game->image.north.line_length / 4) + game->rc.ray_x / 64];
+        //ft_vertical_draw(game, game->rc.draw_start, game->rc.draw_end, pixel);
 
     game->rc.ray_x++;
     }
