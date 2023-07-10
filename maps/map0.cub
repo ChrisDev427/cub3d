@@ -1,11 +1,11 @@
-NO ./tex/xpm/space_no.xpmq
-SO ./tex/xpm/space_so.xpmw
+NO ./tex/xpm/space_no.xpm
+SO ./tex/xpm/space_so.xpm
 
 
-WE ./tex/xpm/space_we.xpmq
+WE ./tex/xpm/space_we.xpm
 
 
-EA ./tex/xpm/space_ea.xpmw
+EA ./tex/xpm/space_ea.xpm
 F 70,70,70
 
 

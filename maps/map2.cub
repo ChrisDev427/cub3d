@@ -1,11 +1,11 @@
-NO ./path_to_the_north_texture
-SO ./path_to_the_south_texture
+NO ./tex/xpm/space_no.xpm
+SO ./tex/xpm/space_so.xpm
 
 
-WE ./path_to_the_west_texture
+WE ./tex/xpm/space_we.xpm
 
 
-EA ./path_to_the_east_texture
+EA ./tex/xpm/space_ea.xpm
 F 80,80,80
 
 

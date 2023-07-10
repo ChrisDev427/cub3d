@@ -102,6 +102,10 @@ void ft_raycasting(t_game *game)
         game->rc.draw_end = game->rc.line_height / 2 + SCREEN_HEIGHT / 2;
         if(game->rc.draw_end >= SCREEN_HEIGHT)
             game->rc.draw_end = SCREEN_HEIGHT - 1;
+        game->rc.ratio = 500.00 / (game->rc.draw_end - game->rc.draw_start);
+        if (game->rc.ray_x == 0)
+            ft_print_specs(game);
+        
         ft_vertical_draw(game, game->rc.draw_start, game->rc.draw_end, game->rc.color);
     game->rc.ray_x++;
     }

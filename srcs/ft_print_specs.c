@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_specs.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chris <chris@student.42.fr>                +#+  +:+       +#+        */
+/*   By: chmassa <chmassa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 08:01:35 by chmassa           #+#    #+#             */
-/*   Updated: 2023/07/08 18:07:41 by chris            ###   ########.fr       */
+/*   Updated: 2023/07/10 12:05:31 by chmassa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,12 @@ void    ft_print_specs(t_game *game)
         printf("--------------------------------------------------------------\n");
         printf("side_dist_x =    [%f]\n", game->rc.side_dist_x);
         printf("side_dist_y =    [%f]\n", game->rc.side_dist_y);
+        printf("draw_start =     [%d]\n", game->rc.draw_start);
+        printf("draw_end =       [%d]\n", game->rc.draw_end);
+        printf("size to print =  [%d]\n", game->rc.draw_end - game->rc.draw_start);
+        printf("ratio =  [%f]\n", game->rc.ratio);
+        
+       
         printf("--------------------------------------------------------------\n");
         printf("ray_x =          [%d]\n", game->rc.ray_x);
         printf("camera_x =       [%f]\n", game->rc.camera_x);
