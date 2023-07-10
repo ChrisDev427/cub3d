@@ -6,7 +6,7 @@
 /*   By: chris <chris@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 11:09:45 by chmassa           #+#    #+#             */
-/*   Updated: 2023/07/06 16:03:04 by chris            ###   ########.fr       */
+/*   Updated: 2023/07/08 22:01:52 by chris            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,11 +45,11 @@ static int	check_element(char **tab)
 	char	*s;
 
 	y = 0;
-	x = 0;
 	position_founded = 0;
 	s = "10NWSE ";
 	while (tab[y])
 	{
+        x = 0;
         while (tab[y][x])
         {
 			if (tab[y][x] == 'N' || tab[y][x] == 'S'
@@ -59,7 +59,6 @@ static int	check_element(char **tab)
                 return (1);
             x++;
         }
-        x = 0;
 		y++;
 	}
 	if (position_founded != 1)

@@ -6,7 +6,7 @@
 /*   By: axfernan <axfernan@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 15:00:12 by chmassa           #+#    #+#             */
-/*   Updated: 2023/07/08 10:21:37 by axfernan         ###   ########.fr       */
+/*   Updated: 2023/07/10 09:40:30 by axfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ void    ft_get_colors(t_game *game);
 int     ft_set_map_cpy(t_game *game);
 void    ft_enlarge_map(t_game *game);
 void	ft_check_ext(char *file);
+void    ft_init_textures(t_game *game);
 //-----------------------------------------------------------------------------
 //******** game functions *****************************************************
 //-----------------------------------------------------------------------------

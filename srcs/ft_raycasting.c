@@ -44,53 +44,39 @@ static void ft_step_sidedist(t_game *game)
 
 static void ft_dda_algo(t_game *game)
 {
-    //perform DDA
     game->rc.hit = 0;
     while (game->rc.hit == 0)
     {
-        //jump to next map square, either in x-direction, or in y-direction
         if (game->rc.side_dist_x < game->rc.side_dist_y)
         {
-          game->rc.side_dist_x += game->rc.delta_dist_x;
-          game->rc.map_x += game->rc.step_x;
-          game->rc.side = 0;
+            game->rc.side_dist_x += game->rc.delta_dist_x;
+            game->rc.map_x += game->rc.step_x;
+            if (game->rc.map_x > game->ipos_x)
+                game->rc.side = 0;
+            else
+                game->rc.side = 3;
         }
         else
         {
-          game->rc.side_dist_y += game->rc.delta_dist_y;
-          game->rc.map_y += game->rc.step_y;
-          game->rc.side = 1;
+            game->rc.side_dist_y += game->rc.delta_dist_y;
+            game->rc.map_y += game->rc.step_y;
+            if (game->rc.map_y > game->ipos_y)
+                game->rc.side = 2;
+            else
+                game->rc.side = 1;
         }
         if (game->mapcpy[game->rc.map_y][game->rc.map_x] == '1')
             game->rc.hit = 1;
     }
-    // int size_line;
-    // int endian;
-    // int bits_per_pixel;
-    // char *res;
-	// res = mlx_get_data_addr(game->image.north.img, &bits_per_pixel,
-	//  		&size_line, &endian);
-    // printf("res =            [%s]\n", res);
-    // printf("endian =         [%d]\n", endian);
-    // printf("bpp =            [%d]\n", bits_per_pixel);
-    // printf("sizeline =       [%d]\n", size_line);
-
-	// game->rc.color = *(unsigned int*)res;
-
-	// if (game->rc.map_x > game->ipos_x)
-	// 	game->rc.color = WALLS_COLOR_2;
-	// else
-	// 	game->rc.color = 0x345622;
-	// if (game->rc.side == 1)
-	// {
-	// 	if (game->rc.map_y > game->ipos_y)
-	// 		game->rc.color = WALLS_COLOR_1;
-	// 	else
-	// 		game->rc.color = WALLS_COLOR_3;
-
-	// }
+    if (game->rc.side == 0)
+	    game->rc.color = WALLS_WEST;
+	else if (game->rc.side == 1)
+		game->rc.color = WALLS_NORTH;
+    else if (game->rc.side == 3)
+		game->rc.color = WALLS_EAST;
+    else if (game->rc.side == 2)
+		game->rc.color = WALLS_SOUTH;
 }
-
 
 void ft_raycasting(t_game *game)
 {
@@ -105,14 +91,12 @@ void ft_raycasting(t_game *game)
         ft_loop_init(game);
         ft_step_sidedist(game);
         ft_dda_algo(game);
-
-
 //Calculate distance projected on camera direction (Euclidean distance would give fisheye effect!)
-        if (game->rc.side == 0)
+        if (game->rc.side == 0 || game->rc.side == 3)
             game->rc.perp_wall_dist = (game->rc.side_dist_x - game->rc.delta_dist_x);
-        else
+        else if (game->rc.side == 2 || game->rc.side == 1)
             game->rc.perp_wall_dist = (game->rc.side_dist_y - game->rc.delta_dist_y);
-        if (game->rc.ray_x == SCREEN_WIDTH /2)
+        if (game->rc.ray_x == SCREEN_WIDTH / 2)
             game->rc.ray_dist =  game->rc.perp_wall_dist * 20;
 		game->needle_length = game->rc.perp_wall_dist * 20;
         if (game->needle_length > MP_WIDTH / 3)
@@ -128,29 +112,8 @@ void ft_raycasting(t_game *game)
         if(game->rc.draw_end >= SCREEN_HEIGHT)
             game->rc.draw_end = SCREEN_HEIGHT - 1;
 
-	// 	//texturing calculations
-    //   int texNum = game->mapcpy[game->rc.map_y][game->rc.map_x] - 1; //1 subtracted from it so that texture 0 can be used!
 
-    //   //calculate value of wallX
-    //   double wallX; //where exactly the wall was hit
-    //   if (game->rc.side == 0)
-	//   	wallX = game->fpos_x + game->rc.perp_wall_dist * game->rc.ray_dir_y;
-    //   else
-	//   	wallX = game->fpos_x + game->rc.perp_wall_dist * game->rc.ray_dir_x;
-    //   wallX -= floor((wallX));
-
-    //   //x coordinate on the texture
-    //   int texX = (int)(wallX * (double)game->rc.texwidth);
-    //   if(game->rc.side == 0 && game->rc.ray_dir_x > 0)
-	//   	texX = game->rc.texwidth - texX - 1;
-    //   if(game->rc.side == 1 && game->rc.ray_dir_y < 0)
-	//   	texX = game->rc.texwidth - texX - 1;
-    	//printf("endian =         [%d]\n", game->image.north.endian);
-    	//printf("bpp =            [%d]\n", game->image.north.bits_per_pixel);
-    	//printf("sizeline =       [%d]\n", game->image.north.bits_per_pixel);
-		//unsigned int pixel = img_data[game->rc.draw_start * (game->image.north.line_length / 4) + game->rc.ray_x / 64];
-        //ft_vertical_draw(game, game->rc.draw_start, game->rc.draw_end, pixel);
-
+        ft_vertical_draw(game, game->rc.draw_start, game->rc.draw_end, game->rc.color);
     game->rc.ray_x++;
     }
 }
