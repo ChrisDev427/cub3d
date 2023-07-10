@@ -64,8 +64,16 @@ static void ft_dda_algo(t_game *game)
         if (game->mapcpy[game->rc.map_y][game->rc.map_x] == '1')
             game->rc.hit = 1;
     }
-	// game->rc.color = mlx_get_data_addr(game->sprite.north, int *bits_per_pixel,
-	// 		   int *size_line, int *endian);
+      int size_line;
+    int endian;
+    int bits_per_pixel;
+    char *res;
+	 res = mlx_get_data_addr(game->image.game_img.img, &bits_per_pixel,
+	 		   &size_line, &endian);
+    printf("res =            [%s]\n", res);
+    printf("endian =         [%d]\n", endian);
+    printf("bpp =            [%d]\n", bits_per_pixel);
+    printf("sizeline =       [%d]\n", size_line);
 	if (game->rc.map_x > game->ipos_x)
 		game->rc.color = WALLS_COLOR_2;
 	else

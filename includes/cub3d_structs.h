@@ -6,7 +6,7 @@
 /*   By: axfernan <axfernan@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 15:00:12 by chmassa           #+#    #+#             */
-/*   Updated: 2023/07/08 14:29:00 by axfernan         ###   ########.fr       */
+/*   Updated: 2023/07/08 22:26:18 by axfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,15 +76,13 @@ typedef struct s_images
 	t_img minimap_img;
 	t_img game_img;
 	t_img title_img;
+	t_img south;
+	t_img north;
+	t_img east;
+	t_img west;
 }				t_images;
 
-typedef struct s_sprites
-{
-	void *south;
-	void *north;
-	void *east;
-	void *west;
-}	t_sprites;
+
 
 typedef struct s_raycasting
 {
@@ -169,6 +167,5 @@ typedef struct s_game
 	t_mp_data		mp_data;
 	t_images		image;
 	t_raycasting	rc;
-	t_sprites		sprite;
 }				t_game;
 #endif
