@@ -6,7 +6,7 @@
 /*   By: chmassa <chmassa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 15:00:12 by chmassa           #+#    #+#             */
-/*   Updated: 2023/07/12 16:52:05 by chmassa          ###   ########.fr       */
+/*   Updated: 2023/07/12 18:31:32 by chmassa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,8 @@ typedef struct s_img
 	int		line_length;
 	int		endian;
 	int 	pixel_offset;
+	int		size_x;
+	int		size_y;
 	// void	*img_minimap_border;
 }				t_img;
 

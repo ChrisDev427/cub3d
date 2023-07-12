@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_player_moves.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chris <chris@student.42.fr>                +#+  +:+       +#+        */
+/*   By: chmassa <chmassa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 15:32:40 by chmassa           #+#    #+#             */
-/*   Updated: 2023/07/06 13:15:29 by chris            ###   ########.fr       */
+/*   Updated: 2023/07/12 18:55:44 by chmassa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,49 +56,49 @@ static void    ft_go_back(t_game *game)
 static void    ft_go_left(t_game *game)   // we keep the debug with 'puts function' just in case we need to modify again
 {
     if (game->rc.dir_x >= 0 && game->rc.dir_y < 0)
-    {puts("AAA");
+    {//puts("AAA");
         if(game->mapcpy[(int)(game->fpos_y - 0.4)][(int)(game->fpos_x - 0.5)] != '1'
             && game->mapcpy[(int)(game->fpos_y + 0.4)][(int)(game->fpos_x - 0.5)] != '1')
             game->fpos_x += (game->rc.dir_x -1) * game->rc.move_speed;
     }
     if (game->rc.dir_y < 0 && game->rc.dir_x >= 0)
-    {puts("BBB");
+    {//puts("BBB");
         if(game->mapcpy[(int)(game->fpos_y - 0.5)][(int)(game->fpos_x - 0.4)] != '1'
             && game->mapcpy[(int)(game->fpos_y - 0.5)][(int)(game->fpos_x + 0.4)] != '1')
             game->fpos_y -= (game->rc.dir_y +1) * game->rc.move_speed;
     }
     if (game->rc.dir_x < 0 && game->rc.dir_y < 0)
-    {puts("CCC");
+    {//puts("CCC");
         if(game->mapcpy[(int)(game->fpos_y - 0.4)][(int)(game->fpos_x - 0.5)] != '1'
             && game->mapcpy[(int)(game->fpos_y + 0.4)][(int)(game->fpos_x - 0.5)] != '1')
             game->fpos_x -= (game->rc.dir_x +1) * game->rc.move_speed;
     }
     if (game->rc.dir_y < 0 && game->rc.dir_x < 0)
-    {puts("DDD");
+    {//puts("DDD");
         if(game->mapcpy[(int)(game->fpos_y + 0.5)][(int)(game->fpos_x - 0.4)] != '1'
             && game->mapcpy[(int)(game->fpos_y + 0.5)][(int)(game->fpos_x + 0.4)] != '1')
             game->fpos_y += (game->rc.dir_y +1) * game->rc.move_speed;
     }
     if (game->rc.dir_x < 0 && game->rc.dir_y >= 0)
-    {puts("EEE");
+    {//puts("EEE");
         if(game->mapcpy[(int)(game->fpos_y - 0.4)][(int)(game->fpos_x - 0.5)] != '1'
             && game->mapcpy[(int)(game->fpos_y + 0.4)][(int)(game->fpos_x + 0.5)] != '1')
             game->fpos_x += (game->rc.dir_x +1) * game->rc.move_speed;
     }
     if (game->rc.dir_y >= 0 && game->rc.dir_x < 0)
-    {puts("FFF");
+    {//puts("FFF");
         if(game->mapcpy[(int)(game->fpos_y + 0.5)][(int)(game->fpos_x - 0.4)] != '1'
             && game->mapcpy[(int)(game->fpos_y + 0.5)][(int)(game->fpos_x + 0.4)] != '1')
             game->fpos_y -= (game->rc.dir_y -1) * game->rc.move_speed;
     }
     if (game->rc.dir_x >= 0 && game->rc.dir_y >= 0)
-    {puts("GGG");
+    {//puts("GGG");
         if(game->mapcpy[(int)(game->fpos_y - 0.4)][(int)(game->fpos_x + 0.5)] != '1'
             && game->mapcpy[(int)(game->fpos_y + 0.4)][(int)(game->fpos_x + 0.5)] != '1')
             game->fpos_x -= (game->rc.dir_x -1) * game->rc.move_speed;
     }
     if (game->rc.dir_y >= 0 && game->rc.dir_x >= 0)
-    {puts("HHH");
+    {//puts("HHH");
         if(game->mapcpy[(int)(game->fpos_y - 0.5)][(int)(game->fpos_x - 0.4)] != '1'
             && game->mapcpy[(int)(game->fpos_y - 0.5)][(int)(game->fpos_x + 0.4)] != '1')
             game->fpos_y += (game->rc.dir_y -1) * game->rc.move_speed;
@@ -107,49 +107,49 @@ static void    ft_go_left(t_game *game)   // we keep the debug with 'puts functi
 static void    ft_go_right(t_game *game)   // we keep the debug with 'puts function' just in case we need to modify again
 {
     if (game->rc.dir_x >= 0 && game->rc.dir_y < 0)
-    {puts("AAA");
+    {//puts("AAA");
         if(game->mapcpy[(int)(game->fpos_y - 0.4)][(int)(game->fpos_x + 0.5)] != '1'
             && game->mapcpy[(int)(game->fpos_y + 0.4)][(int)(game->fpos_x + 0.5)] != '1')
             game->fpos_x -= (game->rc.dir_x -1) * game->rc.move_speed;
     }
     if (game->rc.dir_y < 0 && game->rc.dir_x >= 0)
-    {puts("BBB");
+    {//puts("BBB");
         if(game->mapcpy[(int)(game->fpos_y + 0.5)][(int)(game->fpos_x - 0.4)] != '1'
             && game->mapcpy[(int)(game->fpos_y + 0.5)][(int)(game->fpos_x + 0.4)] != '1')
             game->fpos_y += (game->rc.dir_y +1) * game->rc.move_speed;
     }
     if (game->rc.dir_x < 0 && game->rc.dir_y < 0)
-    {puts("CCC");
+    {//puts("CCC");
         if(game->mapcpy[(int)(game->fpos_y - 0.4)][(int)(game->fpos_x + 0.5)] != '1'
             && game->mapcpy[(int)(game->fpos_y + 0.4)][(int)(game->fpos_x + 0.5)] != '1')
             game->fpos_x += (game->rc.dir_x +1) * game->rc.move_speed;
     }
     if (game->rc.dir_y < 0 && game->rc.dir_x < 0)
-    {puts("DDD");
+    {//puts("DDD");
         if(game->mapcpy[(int)(game->fpos_y - 0.5)][(int)(game->fpos_x - 0.4)] != '1'
             && game->mapcpy[(int)(game->fpos_y + 0.5)][(int)(game->fpos_x + 0.4)] != '1')
             game->fpos_y -= (game->rc.dir_y +1) * game->rc.move_speed;
     }
     if (game->rc.dir_x < 0 && game->rc.dir_y >= 0)
-    {puts("EEE");
+    {//puts("EEE");
         if(game->mapcpy[(int)(game->fpos_y - 0.4)][(int)(game->fpos_x - 0.5)] != '1'
             && game->mapcpy[(int)(game->fpos_y + 0.4)][(int)(game->fpos_x + 0.5)] != '1')
             game->fpos_x -= (game->rc.dir_x +1) * game->rc.move_speed; 
     }
     if (game->rc.dir_y >= 0 && game->rc.dir_x < 0)
-    {puts("FFF");
+    {//puts("FFF");
         if(game->mapcpy[(int)(game->fpos_y - 0.5)][(int)(game->fpos_x - 0.4)] != '1'
             && game->mapcpy[(int)(game->fpos_y - 0.5)][(int)(game->fpos_x + 0.4)] != '1')
             game->fpos_y += (game->rc.dir_y -1) * game->rc.move_speed;
     }
     if (game->rc.dir_x >= 0 && game->rc.dir_y >= 0)
-    {puts("GGG");
+    {//puts("GGG");
         if(game->mapcpy[(int)(game->fpos_y - 0.4)][(int)(game->fpos_x + 0.5)] != '1'
             && game->mapcpy[(int)(game->fpos_y + 0.4)][(int)(game->fpos_x + 0.5)] != '1')
             game->fpos_x += (game->rc.dir_x -1) * game->rc.move_speed;
     }
     if (game->rc.dir_y >= 0 && game->rc.dir_x >= 0)
-    {puts("HHH");
+    {//puts("HHH");
         if(game->mapcpy[(int)(game->fpos_y + 0.5)][(int)(game->fpos_x - 0.4)] != '1'
             && game->mapcpy[(int)(game->fpos_y + 0.5)][(int)(game->fpos_x + 0.4)] != '1')
             game->fpos_y -= (game->rc.dir_y -1) * game->rc.move_speed;

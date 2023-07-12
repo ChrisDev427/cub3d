@@ -6,7 +6,7 @@
 /*   By: chmassa <chmassa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 17:33:19 by chmassa           #+#    #+#             */
-/*   Updated: 2023/07/10 16:22:29 by chmassa          ###   ########.fr       */
+/*   Updated: 2023/07/12 19:43:10 by chmassa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,6 @@ int    ft_run(t_game *game)
     mlx_put_image_to_window(game->win.mlx, game->win.win, game->image.game_img.img, 0, 0);
 	mlx_put_image_to_window(game->win.mlx, game->win.win, game->image.minimap_img.img, MP_POS_HEIGHT, MP_POS_WIDTH);
     mlx_put_image_to_window(game->win.mlx, game->win.win, game->image.title_img.img, 0, SCREEN_HEIGHT - 35);
-	mlx_string_put(game->win.mlx, game->win.win, 10, SCREEN_HEIGHT - 15, 0x00CF10, "chmassa/axfernan cub3D_42_project june 2023");
+	mlx_string_put(game->win.mlx, game->win.win, 10, SCREEN_HEIGHT - 25, 0x00CF10, "chmassa/axfernan cub3D_42_project june 2023");
     return (0);
 }

@@ -1,15 +1,12 @@
-NO ./tex/xpm/space_no.xpm
-SO ./tex/xpm/space_so.xpm
+NO ./tex/xpm/et.xpm
+SO ./tex/xpm/ice1.xpm
 
 
-WE ./tex/xpm/space_we.xpm
+WE ./tex/xpm/ice2.xpm
 
 
-EA ./tex/xpm/space_ea.xpm
+EA ./tex/xpm/cat.xpm
 F 70,70,70
-
-
-
 
 
 C 137,228,255
