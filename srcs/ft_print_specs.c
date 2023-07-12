@@ -6,7 +6,7 @@
 /*   By: chmassa <chmassa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 08:01:35 by chmassa           #+#    #+#             */
-/*   Updated: 2023/07/10 12:05:31 by chmassa          ###   ########.fr       */
+/*   Updated: 2023/07/12 09:52:57 by chmassa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,8 @@ void    ft_print_specs(t_game *game)
         printf("draw_end =       [%d]\n", game->rc.draw_end);
         printf("size to print =  [%d]\n", game->rc.draw_end - game->rc.draw_start);
         printf("ratio =  [%f]\n", game->rc.ratio);
+        printf("wallx =  [%f]\n", game->rc.wallx);
+        
         
        
         printf("--------------------------------------------------------------\n");

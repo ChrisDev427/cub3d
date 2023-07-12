@@ -58,8 +58,8 @@ void	ft_mini_map(t_game *game)
 {
 	ft_print_back_ground(game);
 	ft_print_minimap(game);
-	if (game->rc.ray_dist < 135)
-		ft_draw_axis(game, 0 , game->rc.ray_dist); 
+	// if (game->rc.ray_dist < 135)
+	// 	ft_draw_axis(game, 0 , game->rc.ray_dist); 
 	ft_draw_axis(game, -M_PI /4, 30);
 	ft_draw_axis(game, -M_PI /4 * -1, 30);
 	ft_draw_player(game, (MP_HEIGHT / 2 ) -10, (MP_WIDTH / 2 ) -10, game->mp_data.mp_player_color);

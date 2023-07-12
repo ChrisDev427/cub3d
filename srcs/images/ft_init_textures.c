@@ -6,7 +6,7 @@
 /*   By: chmassa <chmassa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/08 22:11:00 by chris             #+#    #+#             */
-/*   Updated: 2023/07/10 11:42:21 by chmassa          ###   ########.fr       */
+/*   Updated: 2023/07/12 16:34:19 by chmassa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void    ft_init_textures(t_game *game)
         game->image.tex[i].addr = mlx_get_data_addr(game->image.tex[i].img,
             &game->image.tex[i].bits_per_pixel, &game->image.tex[i].line_length,
                 &game->image.tex[i].endian);
-    // printf("bpp = %d - lenght = %d - endian %d\n", game->image.tex[i].bits_per_pixel, game->image.tex[i].line_length, game->image.tex[i].endian);
+        game->image.img_data[i] = (unsigned int*)game->image.tex[i].addr;
         i++;
     }
 }

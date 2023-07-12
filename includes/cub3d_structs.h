@@ -6,7 +6,7 @@
 /*   By: chmassa <chmassa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 15:00:12 by chmassa           #+#    #+#             */
-/*   Updated: 2023/07/10 12:04:11 by chmassa          ###   ########.fr       */
+/*   Updated: 2023/07/12 16:52:05 by chmassa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,7 @@ typedef struct s_images
 	t_img game_img;
 	t_img title_img;
 	t_img tex[4];
+	unsigned int	*img_data[4];
 
 	// t_img north_img;
 	// t_img south_img;
@@ -118,6 +119,12 @@ typedef struct s_raycasting
 	double	move_speed;
 
 	double	ratio;
+	double	wallx;
+	int		y_draw;
+    double  tex_y;
+	int		tex;
+
+	
 
 
 }				t_raycasting;

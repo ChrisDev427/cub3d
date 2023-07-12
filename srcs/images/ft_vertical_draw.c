@@ -6,54 +6,40 @@
 /*   By: chmassa <chmassa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 10:43:46 by chmassa           #+#    #+#             */
-/*   Updated: 2023/07/10 17:16:34 by chmassa          ###   ########.fr       */
+/*   Updated: 2023/07/12 16:55:45 by chmassa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
 
-// void    ft_vertical_draw(t_game *game, int start, int end, int color)
-// {
-//     int y = 0;
-//     while (y < SCREEN_HEIGHT)
-//     {
-//         if (y < start)
-//             ft_my_mlx_pixel_put(&game->image.game_img , game->rc.ray_x, y, game->data.ce_color);
-//         if (y >= start && y <= end)
-//         {
-
-//             ft_my_mlx_pixel_put(&game->image.game_img, game->rc.ray_x, start, color);
-//             start++;
-//         }
-//         if (y > end)
-//             ft_my_mlx_pixel_put(&game->image.game_img, game->rc.ray_x, y, game->data.fl_color);
-//         y++;
-//     }
-// }
-
-void    ft_vertical_draw(t_game *game, int start, int end, int color)
+static void ft_draw_tex(t_game *game)
 {
-    int y = 0;
-    int yb = 0;
-    unsigned int *img_data = (unsigned int*)game->image.tex[0].addr;
-    while (y < SCREEN_HEIGHT)
+    
+    int     color;
+    int x = game->rc.wallx * 500;
+   
+    color = game->image.img_data[game->rc.tex][(int)nearbyint(game->rc.tex_y) * game->image.tex[game->rc.tex].line_length /4 + x];
+    ft_my_mlx_pixel_put(&game->image.game_img, game->rc.ray_x, game->rc.y_draw, color);
+    game->rc.tex_y += game->rc.ratio;
+}
+
+
+void    ft_vertical_draw(t_game *game)
+{
+    game->rc.y_draw = 0;
+    if (game->rc.draw_start < 0)
+        game->rc.tex_y = abs(game->rc.draw_start) * game->rc.ratio;
+    else
+        game->rc.tex_y = 0;
+    while (game->rc.y_draw < SCREEN_HEIGHT)
     {
-        if (y < start)
-            ft_my_mlx_pixel_put(&game->image.game_img , game->rc.ray_x, y, game->data.ce_color);
-        if (y >= start && y <= end)
-        {
-            int x = game->rc.ray_x * game->rc.ratio + (game->rc.map_x * game->rc.map_y) ;
-            int y2 = yb * game->rc.ratio;
-            color = img_data[y2 * game->image.tex[0].line_length /4 + x];
-            ft_my_mlx_pixel_put(&game->image.game_img, game->rc.ray_x, start, color);
-            start++;
-            yb++;
-        }
-        if (y > end)
-            ft_my_mlx_pixel_put(&game->image.game_img, game->rc.ray_x, y, game->data.fl_color);
-        y++;
-        
+        if (game->rc.y_draw < game->rc.draw_start)
+            ft_my_mlx_pixel_put(&game->image.game_img , game->rc.ray_x, game->rc.y_draw, game->data.ce_color);
+        if (game->rc.y_draw >= game->rc.draw_start && game->rc.y_draw <= game->rc.draw_end)
+            ft_draw_tex(game);
+        if (game->rc.y_draw > game->rc.draw_end)
+            ft_my_mlx_pixel_put(&game->image.game_img, game->rc.ray_x, game->rc.y_draw, game->data.fl_color);
+        game->rc.y_draw++;
     }
 }
 
-    
