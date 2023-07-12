@@ -112,8 +112,15 @@ void ft_raycasting(t_game *game)
         if(game->rc.draw_end >= SCREEN_HEIGHT)
             game->rc.draw_end = SCREEN_HEIGHT - 1;
 
+         //texturing calculations
+     // int texNum = worldMap[mapX][mapY] - 1; //1 subtracted from it so that texture 0 can be used!
 
-        ft_vertical_draw(game, game->rc.draw_start, game->rc.draw_end, game->rc.color);
+      //calculate value of wallX
+
+
+
+
+        ft_vertical_draw(game, game->rc.draw_start, game->rc.draw_end);
     game->rc.ray_x++;
     }
 }

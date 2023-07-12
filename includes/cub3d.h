@@ -6,7 +6,7 @@
 /*   By: axfernan <axfernan@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 15:00:12 by chmassa           #+#    #+#             */
-/*   Updated: 2023/07/10 09:40:30 by axfernan         ###   ########.fr       */
+/*   Updated: 2023/07/11 15:18:07 by axfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	rotate_axis(t_game *game);
 void    ft_raycasting(t_game *game);
 void    ft_rotate_right(t_game *game);
 void    ft_rotate_left(t_game *game);
-void    ft_vertical_draw(t_game *game, int start, int end, int color);
+void    ft_vertical_draw(t_game *game, int start, int end);
 
 //-----------------------------------------------------------------------------
 //******** events functions ***************************************************
