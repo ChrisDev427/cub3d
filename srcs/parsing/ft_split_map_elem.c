@@ -6,7 +6,7 @@
 /*   By: chmassa <chmassa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 11:50:57 by chmassa           #+#    #+#             */
-/*   Updated: 2023/07/13 11:26:18 by chmassa          ###   ########.fr       */
+/*   Updated: 2023/07/13 11:35:23 by chmassa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,9 @@ void	ft_split_map_elem(t_game *game)
 
     i = 0;
     elem_nb = 0;
+    game->elem = malloc(sizeof(char *) * 7);
+    if (!game->elem)
+        return ;
     while (game->map[i])
     {
         if (ft_token_match(game->map[i]))

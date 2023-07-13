@@ -6,7 +6,7 @@
 /*   By: chmassa <chmassa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 11:00:09 by chmassa           #+#    #+#             */
-/*   Updated: 2023/07/13 11:25:50 by chmassa          ###   ########.fr       */
+/*   Updated: 2023/07/13 11:35:31 by chmassa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ int	main(int argc, char **argv)
 
 	if (argc == 2)
 	{
-		ft_init(&game);
 		ft_check_ext(argv[1]);
 
 		game.map = ft_get_map(argv[1], game.map);
@@ -28,6 +27,7 @@ int	main(int argc, char **argv)
     	// ft_print_strs_array(game.map);
 		ft_check_map(&game);
 		ft_get_colors(&game);
+		ft_init(&game);
 		ft_init_textures(&game);
 		ft_position_direction(&game);
 		ft_init_images(&game);

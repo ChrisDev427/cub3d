@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_init.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chris <chris@student.42.fr>                +#+  +:+       +#+        */
+/*   By: chmassa <chmassa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 11:44:10 by chmassa           #+#    #+#             */
-/*   Updated: 2023/07/08 22:59:51 by chris            ###   ########.fr       */
+/*   Updated: 2023/07/13 11:35:17 by chmassa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 
 void    ft_init(t_game *game)
 {
-    game->elem = malloc(sizeof(char *) * 7);
-    if (!game->elem)
-        return ;
+    // game->elem = malloc(sizeof(char *) * 7);
+    // if (!game->elem)
+    //     return ;
     game->win.mlx = mlx_init();
     game->win.win = mlx_new_window(game->win.mlx, SCREEN_WIDTH, SCREEN_HEIGHT, "cub3D");
 	game->data.frame = 0;
