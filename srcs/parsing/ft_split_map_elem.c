@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split_map_elem.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chris <chris@student.42.fr>                +#+  +:+       +#+        */
+/*   By: chmassa <chmassa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 11:50:57 by chmassa           #+#    #+#             */
-/*   Updated: 2023/07/08 23:00:05 by chris            ###   ########.fr       */
+/*   Updated: 2023/07/13 11:24:14 by chmassa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,24 @@ static int  ft_token_match(char *s)
 
     return (0);
 }
-
+static void  ft_check_order(t_game *game)
+{
+    if (game->elem[0][0] != 'N' && game->elem[0][1] != 'O')
+        ft_error(game, "map: invalid element order", NULL);
+    if (game->elem[1][0] != 'S' && game->elem[1][1] != 'O')
+        ft_error(game, "map: invalid element order", NULL);
+    if (game->elem[2][0] != 'W' && game->elem[2][1] != 'E')
+        ft_error(game, "map: invalid element order", NULL);
+    if (game->elem[3][0] != 'E' && game->elem[3][1] != 'A')
+        ft_error(game, "map: invalid element order", NULL);
+    if (game->elem[4][0] != 'F')
+        ft_error(game, "map: invalid element order", NULL);
+    if (game->elem[5][0] != 'C')
+    {
+        puts("AAAAAA");
+        ft_error(game, "map: invalid element order", NULL);
+    }
+}
 void	ft_split_map_elem(t_game *game)
 {
     int     i;
@@ -49,8 +66,11 @@ void	ft_split_map_elem(t_game *game)
         i++;
     }
     game->elem[elem_nb] = NULL;
+    ft_print_strs_array(game->elem);
+
     if (elem_nb != 6)
         ft_error(game, "map: invalid elements\n", NULL);
+    ft_check_order(game);
     ft_trim_map(game, i + 1);
 	ft_set_map_cpy(game);
 }
