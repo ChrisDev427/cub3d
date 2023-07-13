@@ -6,7 +6,7 @@
 /*   By: chmassa <chmassa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/08 22:11:00 by chris             #+#    #+#             */
-/*   Updated: 2023/07/12 16:34:19 by chmassa          ###   ########.fr       */
+/*   Updated: 2023/07/13 09:43:04 by chmassa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 
 void    ft_init_textures(t_game *game)
 {
-    int width = 500;
-    int height = 500;
     int i;
 
     i = 0;
@@ -23,9 +21,11 @@ void    ft_init_textures(t_game *game)
     {
         game->elem[i] = &game->elem[i][ft_str_chr(game->elem[i], '.')];
         game->image.tex[i].img = mlx_xpm_file_to_image(game->win.mlx,
-            game->elem[i], &width, &height);
+            game->elem[i], &game->rc.tex_size_w, &game->rc.tex_size_h);
         if (!game->image.tex[i].img)
             ft_error(game, game->elem[i], " not valid texture file");
+        if (game->rc.tex_size_w != game->rc.tex_size_h)
+            ft_error(game, game->elem[i], " texture size must be squared");
         game->image.tex[i].addr = mlx_get_data_addr(game->image.tex[i].img,
             &game->image.tex[i].bits_per_pixel, &game->image.tex[i].line_length,
                 &game->image.tex[i].endian);
