@@ -6,7 +6,7 @@
 /*   By: chmassa <chmassa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 11:50:57 by chmassa           #+#    #+#             */
-/*   Updated: 2023/07/13 11:24:14 by chmassa          ###   ########.fr       */
+/*   Updated: 2023/07/13 11:26:18 by chmassa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,7 @@ static void  ft_check_order(t_game *game)
     if (game->elem[4][0] != 'F')
         ft_error(game, "map: invalid element order", NULL);
     if (game->elem[5][0] != 'C')
-    {
-        puts("AAAAAA");
         ft_error(game, "map: invalid element order", NULL);
-    }
 }
 void	ft_split_map_elem(t_game *game)
 {
@@ -66,8 +63,6 @@ void	ft_split_map_elem(t_game *game)
         i++;
     }
     game->elem[elem_nb] = NULL;
-    ft_print_strs_array(game->elem);
-
     if (elem_nb != 6)
         ft_error(game, "map: invalid elements\n", NULL);
     ft_check_order(game);

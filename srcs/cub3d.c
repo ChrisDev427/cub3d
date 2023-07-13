@@ -6,7 +6,7 @@
 /*   By: chmassa <chmassa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 11:00:09 by chmassa           #+#    #+#             */
-/*   Updated: 2023/07/13 10:51:37 by chmassa          ###   ########.fr       */
+/*   Updated: 2023/07/13 11:25:50 by chmassa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ int	main(int argc, char **argv)
 		ft_split_map_elem(&game);
 		// ft_print_strs_array(game.map);
     	// ft_print_strs_array(game.map);
-		exit(0);
 		ft_check_map(&game);
 		ft_get_colors(&game);
 		ft_init_textures(&game);
