@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_raycasting.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chris <chris@student.42.fr>                +#+  +:+       +#+        */
+/*   By: chmassa <chmassa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 09:59:43 by chmassa           #+#    #+#             */
-/*   Updated: 2023/07/13 17:53:03 by chris            ###   ########.fr       */
+/*   Updated: 2023/07/14 12:15:50 by chmassa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,9 +68,9 @@ static void	ft_dda_algo(t_game *game)
 			game->rc.map_x += game->rc.step_x;
 			game->rc.side = 0;
 			if (game->rc.map_x > game->ipos_x)
-				game->rc.tex = 0;
+				game->rc.tex = 3;
 			else
-				game->rc.tex = 1;
+				game->rc.tex = 2;
 		}
 		else
 		{
@@ -78,9 +78,9 @@ static void	ft_dda_algo(t_game *game)
 			game->rc.map_y += game->rc.step_y;
 			game->rc.side = 1;
 			if (game->rc.map_y > game->ipos_y)
-				game->rc.tex = 2;
+				game->rc.tex = 1;
 			else
-				game->rc.tex = 3;
+				game->rc.tex = 0;
 		}
 		if (game->mapcpy[game->rc.map_y][game->rc.map_x] == '1')
 			game->rc.hit = 1;
@@ -115,14 +115,12 @@ void	ft_raycasting(t_game *game)
 		ft_dda_algo(game);
 		ft_side_set(game);
 		game->rc.wallx -= floor(game->rc.wallx);
-		if (game->rc.ray_x == SCREEN_WIDTH / 2)
-			game->rc.ray_dist = game->rc.perp_wall_dist * 20;
 		game->rc.line_height = (int)(SCREEN_HEIGHT / game->rc.perp_wall_dist);
 		game->rc.draw_start = -game->rc.line_height / 2 + SCREEN_HEIGHT / 2;
 		game->rc.draw_end = game->rc.line_height / 2 + SCREEN_HEIGHT / 2;
 		game->rc.ratio = (float)game->rc.tex_size_h
 			/ (game->rc.draw_end - game->rc.draw_start);
 		ft_vertical_draw(game);
-	game->rc.ray_x++;
+		game->rc.ray_x++;
 	}
 }

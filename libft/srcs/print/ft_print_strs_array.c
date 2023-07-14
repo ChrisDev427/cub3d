@@ -6,7 +6,7 @@
 /*   By: chmassa <chmassa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 16:32:05 by chmassa           #+#    #+#             */
-/*   Updated: 2023/07/13 10:50:43 by chmassa          ###   ########.fr       */
+/*   Updated: 2023/07/14 12:19:51 by chmassa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,10 @@ void	ft_print_strs_array(char **strs)
 		return ;
 	while (strs[i])
 	{
-		printf("tab %d = ", i);
 		while (strs[i][j])
 		{
 			write (1, &strs[i][j], 1);
-		j++;
+			j++;
 		}
 		ft_putchar('\n');
 		i++;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chmassa <chrisdev427@gmail.com>            +#+  +:+       +#+        */
+/*   By: chmassa <chmassa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/22 10:42:12 by chmassa           #+#    #+#             */
-/*   Updated: 2022/11/16 10:40:08 by chmassa          ###   ########.fr       */
+/*   Updated: 2023/07/14 12:19:22 by chmassa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	{
 		if (str[i] == (char)c)
 			return ((void *)(str + i));
-	i++;
+		i++;
 	}
 	return (NULL);
 }

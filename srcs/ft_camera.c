@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_camera.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chris <chris@student.42.fr>                +#+  +:+       +#+        */
+/*   By: chmassa <chmassa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 17:19:10 by chmassa           #+#    #+#             */
-/*   Updated: 2023/07/13 17:34:18 by chris            ###   ########.fr       */
+/*   Updated: 2023/07/14 12:25:50 by chmassa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,14 +52,14 @@ void	ft_camera(t_game *game)
 	{
 		game->rad += game->rc.rot_speed;
 		if (game->rad > M_PI)
-		game->rad = -M_PI;
+			game->rad = -M_PI;
 		ft_rotate_right(game);
 	}
 	if (game->camera[1] == 'r')
 	{
 		game->rad -= game->rc.rot_speed;
 		if (game->rad < -M_PI)
-		game->rad = M_PI;
+			game->rad = M_PI;
 		ft_rotate_left(game);
 	}
 }

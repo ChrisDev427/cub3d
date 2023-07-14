@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chris <chris@student.42.fr>                +#+  +:+       +#+        */
+/*   By: chmassa <chmassa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 15:00:12 by chmassa           #+#    #+#             */
-/*   Updated: 2023/07/13 17:58:14 by chris            ###   ########.fr       */
+/*   Updated: 2023/07/14 12:29:15 by chmassa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,21 +23,17 @@
 # include <unistd.h>
 # include <math.h>
 # include <limits.h>
-
 //-----------------------------------------------------------------------------
 //******** parsing functions **************************************************
 //-----------------------------------------------------------------------------
 void	ft_open(char *file, int *fd);
 char	**ft_get_map(char *file, char **tab);
-// void    ft_get_map(char *file, t_game *game);
 void	ft_split_map_elem(t_game *game);
 void	ft_check_map(t_game *game);
 void	ft_error(t_game *game, char *s1, char *s2);
-// void	ft_window(t_game *game);
 void	ft_init(t_game *game);
 void	ft_init_images(t_game *game);
 void	ft_get_colors(t_game *game);
-// void	ft_minimap_size(t_game *game);
 int		ft_set_map_cpy(t_game *game);
 void	ft_enlarge_map(t_game *game);
 void	ft_check_ext(char *file);
@@ -55,7 +51,6 @@ void	ft_rotate_right(t_game *game);
 void	ft_rotate_left(t_game *game);
 void	ft_vertical_draw(t_game *game);
 void	ft_vertical_draw_tex(t_game *game, int start, int end, int color);
-
 //-----------------------------------------------------------------------------
 //******** events functions ***************************************************
 //-----------------------------------------------------------------------------
@@ -67,6 +62,8 @@ void	ft_camera(t_game *game);
 void	ft_title(t_game *game);
 void	ft_player_moves(t_game *game);
 void	ft_speed(t_game *game);
+void	ft_go_right(t_game *game);
+void	ft_go_left(t_game *game);
 //-----------------------------------------------------------------------------
 //******** minimap functions **************************************************
 //-----------------------------------------------------------------------------

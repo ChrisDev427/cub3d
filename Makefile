@@ -20,6 +20,8 @@ SRCS =  srcs/cub3d.c \
 		srcs/ft_run.c \
 		srcs/ft_raycasting.c \
 		srcs/ft_camera.c \
+		srcs/ft_go_left.c \
+		srcs/ft_go_right.c \
 		srcs/ft_speed.c \
 		srcs/parsing/ft_init.c \
 		srcs/parsing/ft_get_colors.c \

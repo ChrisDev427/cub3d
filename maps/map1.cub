@@ -1,11 +1,11 @@
-NO ./tex/xpm/thewall2.xpm
-SO ./tex/xpm/thewall2.xpm
+NO ./tex/xpm/texture1.xpm
+SO ./tex/xpm/texture2.xpm
 
 
-WE ./tex/xpm/thewall2.xpm
+WE ./tex/xpm/texture3.xpm
 
 
-EA ./tex/xpm/thewall2.xpm
+EA ./tex/xpm/texture4.xpm
 F 80,80,80
 
 

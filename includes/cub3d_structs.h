@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_structs.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chris <chris@student.42.fr>                +#+  +:+       +#+        */
+/*   By: chmassa <chmassa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 15:00:12 by chmassa           #+#    #+#             */
-/*   Updated: 2023/07/13 18:05:18 by chris            ###   ########.fr       */
+/*   Updated: 2023/07/14 12:31:12 by chmassa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,16 @@ typedef struct s_window
 	int		x;
 	int		y;
 }				t_window;
+
+typedef struct s_rev_pix
+{
+	int		i;
+	int		x;
+	int		y;
+	int		src_i;
+	int		dest_i;
+	char	*rev_data;
+}				t_rev_pix;
 
 typedef struct s_data
 {
@@ -105,46 +115,44 @@ typedef struct s_raycasting
 
 typedef struct s_game
 {
-//---- parsing --------------------
-	int		fd;
-	char	**map;
-	char	**elem;
-	char	*elem_token[7];
-	int		map_nb_lines;
-	int		map_lines_len;
-	char	**maptmp;
-	char	**mapcpy;
-//---- moves ---------------------
-	int		moves[4];
-	int		camera[2];
-	int		slow;
-	int		fast;
-	char	*state;
-	float	rad;
-	double	fpos_x;
-	double	fpos_y;
-	int		ipos_x;
-	int		ipos_y;
-	int		ppos_x;
-	int		ppos_y;
-//--- axis data ------------------
-	int		i;
-	int		start_needle_x;
-	int		start_needle_y;
-	int		end_needle_x;
-	int		end_needle_y;
-	int		dx;
-	int		dy;
-	float	pos_x;
-	float	pos_y;
-	float	x_increment;
-	float	y_increment;
-	int		steps;
-	int		needle_length;
+	int				fd;
+	char			**map;
+	char			**elem;
+	char			*elem_token[7];
+	int				map_nb_lines;
+	int				map_lines_len;
+	char			**maptmp;
+	char			**mapcpy;
+	int				moves[4];
+	int				camera[2];
+	int				slow;
+	int				fast;
+	char			*state;
+	float			rad;
+	double			fpos_x;
+	double			fpos_y;
+	int				ipos_x;
+	int				ipos_y;
+	int				ppos_x;
+	int				ppos_y;
+	int				i;
+	int				start_needle_x;
+	int				start_needle_y;
+	int				end_needle_x;
+	int				end_needle_y;
+	int				dx;
+	int				dy;
+	float			pos_x;
+	float			pos_y;
+	float			x_increment;
+	float			y_increment;
+	int				steps;
+	int				needle_length;
 	t_window		win;
 	t_data			data;
 	t_mp_data		mp;
 	t_images		image;
 	t_raycasting	rc;
+	t_rev_pix		rev;
 }				t_game;
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstdel_all.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chmassa <chrisdev427@gmail.com>            +#+  +:+       +#+        */
+/*   By: chmassa <chmassa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 12:07:14 by chmassa           #+#    #+#             */
-/*   Updated: 2023/03/27 17:55:44 by chmassa          ###   ########.fr       */
+/*   Updated: 2023/07/14 12:18:33 by chmassa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	ft_lstdel_all(t_list **lst)
 	if (!(*lst))
 		return ;
 	while (*lst)
-	{		
+	{
 		free((*lst)->str);
 		tmp = *lst;
 		*lst = (*lst)->next;

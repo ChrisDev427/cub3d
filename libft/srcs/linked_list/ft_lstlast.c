@@ -6,7 +6,7 @@
 /*   By: chmassa <chmassa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 17:20:33 by chmassa           #+#    #+#             */
-/*   Updated: 2023/04/14 13:51:01 by chmassa          ###   ########.fr       */
+/*   Updated: 2023/07/14 12:19:02 by chmassa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ t_list	*ft_lstlast(t_list *lst)
 	{
 		if (lst->next == NULL)
 			return (lst);
-	lst = lst->next;
+		lst = lst->next;
 	}
 	return (NULL);
 }

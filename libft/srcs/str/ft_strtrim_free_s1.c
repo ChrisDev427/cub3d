@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim_free_s1.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chmassa <chrisdev427@gmail.com>            +#+  +:+       +#+        */
+/*   By: chmassa <chmassa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 10:03:58 by chmassa           #+#    #+#             */
-/*   Updated: 2023/03/15 11:41:59 by chmassa          ###   ########.fr       */
+/*   Updated: 2023/07/14 12:26:45 by chmassa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static size_t	str_start(char const *s1, char const *set)
 			i++;
 			j = -1;
 		}
-	j++;
+		j++;
 	}
 	return (i);
 }

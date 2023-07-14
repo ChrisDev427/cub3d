@@ -1,11 +1,11 @@
-NO ./tex/xpm/et.xpm
-SO ./tex/xpm/ice1.xpm
+NO ./tex/xpm/space1.xpm
+SO ./tex/xpm/space2.xpm
 
 
-WE ./tex/xpm/ice2.xpm
+WE ./tex/xpm/space3.xpm
 
 
-EA ./tex/xpm/cat.xpm
+EA ./tex/xpm/space4.xpm
 F 70,70,70
 
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chmassa <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: chmassa <chmassa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 07:47:33 by chmassa           #+#    #+#             */
-/*   Updated: 2022/11/09 11:47:24 by chmassa          ###   ########.fr       */
+/*   Updated: 2023/07/14 12:27:18 by chmassa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	*ft_strrchr(const char *s, int c)
 		if (s[s_len] == (char) c)
 			return ((char *)(s + s_len));
 		else
-		s_len--;
+			s_len--;
 	}
 	return (NULL);
 }

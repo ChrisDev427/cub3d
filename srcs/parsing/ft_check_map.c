@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_check_map.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chris <chris@student.42.fr>                +#+  +:+       +#+        */
+/*   By: chmassa <chmassa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 11:09:45 by chmassa           #+#    #+#             */
-/*   Updated: 2023/07/13 17:17:53 by chris            ###   ########.fr       */
+/*   Updated: 2023/07/14 12:16:45 by chmassa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ static int	check_element(char **tab)
 		{
 			if (tab[y][x] == 'N' || tab[y][x] == 'S'
 				|| tab[y][x] == 'E' || tab[y][x] == 'W')
-					position_founded++;
+				position_founded++;
 			if (ft_found_char(s, tab[y][x]) == 0)
 				return (1);
 			x++;

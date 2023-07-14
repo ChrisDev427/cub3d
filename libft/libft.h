@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chris <chris@student.42.fr>                +#+  +:+       +#+        */
+/*   By: chmassa <chmassa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 19:21:09 by chmassa           #+#    #+#             */
-/*   Updated: 2023/07/13 17:56:18 by chris            ###   ########.fr       */
+/*   Updated: 2023/07/14 12:32:11 by chmassa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,7 +116,7 @@ void				ft_sort_int_tab(int *tab, size_t size);
 int					ft_nb_digit(long int nb);
 int					ft_strtab_size(char **tab);
 char				**ft_strtab_dup(char **tab);
-int ft_biggest_str_in_tab(char **tab);
+int					ft_biggest_str_in_tab(char **tab);
 //----------------------------------------------------------------------
 //------ ft_printf -----------------------------------------------------
 //----------------------------------------------------------------------
