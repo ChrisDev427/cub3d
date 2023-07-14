@@ -4,8 +4,8 @@
 NAME = cub3D
 
 LIBFT = libft/
-CC = gcc 
-CFLAGS = -Wall -Wextra -Werror
+CC = gcc -ffast-math
+CFLAGS = -Wall -Wextra -Werror -O3 #-fsanitize=address
 MLX_PATH =  -L /usr/local/lib/
 OPENGL = -framework OpenGL
 APPKIT = -framework AppKit
@@ -13,31 +13,34 @@ SRCS =  srcs/cub3d.c \
 		srcs/ft_quit.c \
 		srcs/ft_title.c \
 		srcs/ft_error.c \
+		srcs/ft_print_specs.c \
 		srcs/ft_key.c \
-		srcs/ft_moves.c \
-		srcs/ft_window.c \
-		srcs/ft_player_position.c \
+		srcs/ft_player_moves.c \
+		srcs/ft_position_direction.c \
 		srcs/ft_run.c \
+		srcs/ft_raycasting.c \
 		srcs/ft_camera.c \
-		srcs/ft_print_floor_ceiling.c \
+		srcs/ft_go_left.c \
+		srcs/ft_go_right.c \
+		srcs/ft_speed.c \
 		srcs/parsing/ft_init.c \
 		srcs/parsing/ft_get_colors.c \
 		srcs/parsing/ft_get_map.c \
 		srcs/parsing/ft_set_map_cpy.c \
 		srcs/parsing/ft_split_map_elem.c \
 		srcs/parsing/ft_check_map.c \
-		srcs/parsing/ft_open.c \
+		srcs/parsing/ft_check_ext.c \
+		srcs/parsing/ft_enlarge_map.c \
+		srcs/images/ft_init_textures.c \
+		srcs/images/ft_vertical_draw.c \
 		srcs/images/ft_init_images.c \
-		srcs/images/ft_my_mlx_pixel_put.c \
-		srcs/minimap/ft_mini_map.c \
-		srcs/minimap/ft_mini_map_utils.c
-
+		srcs/images/ft_my_pixel_put.c \
+		srcs/minimap/ft_minimap.c \
+		srcs/minimap/ft_minimap_print_utils.c \
+		srcs/minimap/ft_minimap_init.c
 
 OBJECT_FILES = $(SRCS:.c=.o)
-
-
 HEADER = -I ./includes
-
 all: $(NAME) 
 .c.o:
 	@$(CC) $(CFLAGS) $(HEADER) -c $< -o $(<:.c=.o)
@@ -53,12 +56,13 @@ $(NAME): $(OBJECT_FILES)
 	@echo "$(GREEN)<<<<< $(NAME) created ! ... >>>>>\n$(DEFAULT)"
 #------------------------------------------------------------------------------
 clean: 
-	@rm -rf $(OBJECT_FILES) $(OBJECT_BONUS)
+	@rm -rf $(OBJECT_FILES)
+	@$(MAKE) clean -C $(LIBFT)
 	@echo "$(GREEN)<<<<< clean from $(NAME) done ! >>>>>\n$(DEFAULT)"
 #	@$(MAKE) clean -C $(LIBFT)
 #------------------------------------------------------------------------------
 fclean: clean
-	@rm -rf $(NAME) $(NAME_BONUS)
+	@rm -rf $(NAME)
 	@$(MAKE) fclean -C $(LIBFT)
 	@echo "$(GREEN)<<<<< fclean from $(NAME) done ! >>>>>\n$(DEFAULT)"
 #------------------------------------------------------------------------------
@@ -75,3 +79,4 @@ DEFAULT = \033[0m
 #DEBUG
 # -fsanitize=address
 # valgrind --leak-check=full
+# find . -type f -name "*.o" -delete

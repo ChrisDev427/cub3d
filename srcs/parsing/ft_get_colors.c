@@ -6,23 +6,22 @@
 /*   By: chmassa <chmassa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 17:21:40 by chmassa           #+#    #+#             */
-/*   Updated: 2023/06/02 14:17:21 by chmassa          ###   ########.fr       */
+/*   Updated: 2023/07/14 19:02:12 by chmassa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
 
-static void ft_lexer(t_game *game, char *s)
+static void	ft_lexer(t_game *game, char *s)
 {
-	int i;
-	int nb_comma;
+	int	i;
+	int	nb_comma;
 
 	i = 0;
 	nb_comma = 0;
-	while(s[i])
+	while (s[i])
 	{
-		if ((s[i] == '-')
-			|| (s[i] == '+' && s[i-1] != ',' && s[i-1] != ' '))
+		if ((s[i] == '+' && s[i - 1] != ',' && s[i - 1] != ' '))
 			ft_error(game, "wrong color argument: ", s);
 		if (!ft_isdigit(s[i]) && s[i] != ',' && s[i] != ' ' && s[i]
 			!= 'F' && s[i] != 'C' && s[i] != '+')
@@ -34,22 +33,26 @@ static void ft_lexer(t_game *game, char *s)
 	if (nb_comma != 2)
 		ft_error(game, "wrong color argument: ", s);
 }
-static void    ft_atoi_color(t_game *game, int *tab, char *s)
+
+static void	ft_atoi_color(t_game *game, char type, char *s)
 {
-	int i;
-	int byte;
-	
+	int	i;
+	int	byte;
+
 	i = 0;
-	tab[0] = 0;
 	byte = 1;
 	ft_lexer(game, s);
-
 	while (s[i])
 	{
 		if (s[i] >= '0' && s[i] <= '9')
-		{  
-			tab[byte] = ft_atoi(s+i);
-			if (tab[byte] > 255)
+		{
+			if (type == 'C')
+				game->data.ceiling[byte] = ft_atoi(s + i);
+			if (type == 'F')
+				game->data.floor[byte] = ft_atoi(s + i);
+			if ((game->data.ceiling[byte] < 0 || game->data.ceiling[byte]
+					> 255) || (game->data.floor[byte] < 0
+					|| game->data.ceiling[byte] > 255))
 				ft_error(game, "wrong color argument: ", s);
 			byte++;
 			while (ft_isdigit(s[i]))
@@ -58,29 +61,22 @@ static void    ft_atoi_color(t_game *game, int *tab, char *s)
 		else
 			i++;
 	}
+	if (byte < 4)
+		ft_error(game, "color argument is missing\n", NULL);
 }
 
-int ft_color_to_int(int *tab_color)
+int	ft_color_to_int(int *tab_color)
 {
-   return (tab_color[3] + tab_color[2] * 256 + tab_color[1] * 256 * 256
-          + tab_color[0] * 256 * 256 * 256);
-	
-	// return (tab_color[3] | tab_color[2] << 8 | tab_color[1] << 16 | tab_color[0] << 24); //same as above, but with bitshift
+	return (tab_color[3] + tab_color[2] * 256 + tab_color[1] * 256 * 256
+		+ tab_color[0] * 256 * 256 * 256);
 }
 
-void    ft_get_colors(t_game *game)
+void	ft_get_colors(t_game *game)
 {
-	int i;
-
-	i = 0;
-	while (game->data.elements[i])
-	{
-		if (game->data.elements[i][0] == 'C')
-			ft_atoi_color(game, game->data.ceiling, game->data.elements[i]);
-		if (game->data.elements[i][0] == 'F')
-			ft_atoi_color(game, game->data.floor, game->data.elements[i]);
-		i++;
-	}
+	game->data.ceiling[0] = 0;
+	game->data.floor[0] = 0;
+	ft_atoi_color(game, 'C', game->elem[5]);
+	ft_atoi_color(game, 'F', game->elem[4]);
 	game->data.ce_color = ft_color_to_int(game->data.ceiling);
 	game->data.fl_color = ft_color_to_int(game->data.floor);
 }

@@ -1,0 +1,87 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_position_direction.c                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: chris <chris@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/30 19:11:44 by chmassa           #+#    #+#             */
+/*   Updated: 2023/07/13 17:51:58 by chris            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "cub3d.h"
+
+static void	ft_position(t_game *game, int x, int y)
+{
+	game->ipos_y = y;
+	game->ipos_x = x;
+	game->ppos_y = (y * 20) + 10;
+	game->ppos_x = (x * 20) + 10;
+	game->fpos_y = y + 0.5;
+	game->fpos_x = x + 0.5;
+	game->mapcpy[y][x] = '0';
+}
+
+static void	ft_direction_ns(t_game *game, char dir)
+{
+	if (dir == 'N')
+	{
+		game->rad = M_PI_2;
+		game->rc.dir_x = 0;
+		game->rc.dir_y = -1;
+		game->rc.plane_x = -0.66;
+		game->rc.plane_y = 0;
+	}
+	if (dir == 'S')
+	{
+		game->rad = -M_PI_2;
+		game->rc.dir_x = 0;
+		game->rc.dir_y = 1;
+		game->rc.plane_x = 0.66;
+		game->rc.plane_y = 0;
+	}
+}
+
+static void	ft_direction_ew(t_game *game, char dir)
+{
+	if (dir == 'E')
+	{
+		game->rad = 0;
+		game->rc.dir_x = 1;
+		game->rc.dir_y = 0;
+		game->rc.plane_x = 0;
+		game->rc.plane_y = -0.66;
+	}
+	if (dir == 'W')
+	{
+		game->rad = M_PI;
+		game->rc.dir_x = -1;
+		game->rc.dir_y = 0;
+		game->rc.plane_x = 0;
+		game->rc.plane_y = 0.66;
+	}
+}
+
+void	ft_position_direction(t_game *game)
+{
+	int	y;
+	int	x;
+
+	y = 0;
+	while (game->mapcpy[y])
+	{
+		x = 0;
+		while (game->mapcpy[y][x++])
+		{
+			if (game->mapcpy[y][x] == 'N' || game->mapcpy[y][x] == 'S'
+				|| game->mapcpy[y][x] == 'E' || game->mapcpy[y][x] == 'W')
+			{
+				ft_direction_ns(game, game->mapcpy[y][x]);
+				ft_direction_ew(game, game->mapcpy[y][x]);
+				ft_position(game, x, y);
+			}
+		}
+		y++;
+	}
+}

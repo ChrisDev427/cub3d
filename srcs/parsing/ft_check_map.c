@@ -6,7 +6,7 @@
 /*   By: chmassa <chmassa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 11:09:45 by chmassa           #+#    #+#             */
-/*   Updated: 2023/06/02 14:17:16 by chmassa          ###   ########.fr       */
+/*   Updated: 2023/07/14 12:16:45 by chmassa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,23 +18,20 @@ static int	walls_is_surrounding(char **tab)
 	int	x;
 
 	y = 0;
-	x = 0;
 	while (tab[y])
 	{
-		if (tab[y][0] != '1' && tab[y][0] != ' ')
-				return (1);
-        while (tab[y][x])
+		x = 0;
+		while (tab[y][x])
 		{
 			if (tab[y][x] == '0')
 			{
 				if (tab[y +1] == NULL || tab[y][x +1] == ' '
 					|| tab[y][x +1] == '\0' || tab[y][x -1] == ' '
 						|| tab[y +1][x] == ' ' || tab[y -1][x] == ' ')
-						return (1);
+					return (1);
 			}
-            x++;
+			x++;
 		}
-		x = 0;
 		y++;
 	}
 	return (0);
@@ -48,21 +45,20 @@ static int	check_element(char **tab)
 	char	*s;
 
 	y = 0;
-	x = 0;
 	position_founded = 0;
 	s = "10NWSE ";
 	while (tab[y])
 	{
-        while (tab[y][x])
-        {
+		x = 0;
+		while (tab[y][x])
+		{
 			if (tab[y][x] == 'N' || tab[y][x] == 'S'
 				|| tab[y][x] == 'E' || tab[y][x] == 'W')
-					position_founded++;
+				position_founded++;
 			if (ft_found_char(s, tab[y][x]) == 0)
-                return (1);
-            x++;
-        }
-        x = 0;
+				return (1);
+			x++;
+		}
 		y++;
 	}
 	if (position_founded != 1)
@@ -72,8 +68,8 @@ static int	check_element(char **tab)
 
 void	ft_check_map(t_game *game)
 {
-	if (check_element(game->parse.map) == 1)
-		ft_error(game, "map must contain: 0 - 1 and one of the position/direction -> N - W - S - E\n", NULL);
-	if (walls_is_surrounding(game->parse.map) == 1)
+	if (check_element(game->map) == 1)
+		ft_error(game, "map must contain only: 0-1-N-W-S-E\n", NULL);
+	if (walls_is_surrounding(game->map) == 1)
 		ft_error(game, "map must be sourrounded by walls\n", NULL);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_strs_array.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chmassa <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: chmassa <chmassa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 16:32:05 by chmassa           #+#    #+#             */
-/*   Updated: 2022/11/27 19:18:09 by chmassa          ###   ########.fr       */
+/*   Updated: 2023/07/14 12:19:51 by chmassa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	ft_print_strs_array(char **strs)
 		while (strs[i][j])
 		{
 			write (1, &strs[i][j], 1);
-		j++;
+			j++;
 		}
 		ft_putchar('\n');
 		i++;

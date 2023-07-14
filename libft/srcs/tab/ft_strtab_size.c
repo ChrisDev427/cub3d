@@ -3,23 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtab_size.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chmassa <chmassa@student.42.fr>            +#+  +:+       +#+        */
+/*   By: chris <chris@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 14:40:48 by chmassa           #+#    #+#             */
-/*   Updated: 2023/05/29 14:41:19 by chmassa          ###   ########.fr       */
+/*   Updated: 2023/07/13 17:54:19 by chris            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int  ft_strtab_size(char **tab)
+int	ft_strtab_size(char **tab)
 {
-    int i;
+	int	i;
 
-    if (!tab)
-        return (0);
-    i = 0;
-    while (tab[i])
-        i++;
-    return (i);
+	if (!tab)
+		return (0);
+	i = 0;
+	while (tab[i])
+		i++;
+	return (i);
 }

@@ -6,56 +6,76 @@
 /*   By: chmassa <chmassa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 11:50:57 by chmassa           #+#    #+#             */
-/*   Updated: 2023/06/05 12:52:09 by chmassa          ###   ########.fr       */
+/*   Updated: 2023/07/14 17:23:37 by chmassa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
 
-static void ft_trim_map(t_game *game, int i)
+static void	ft_trim_map(t_game *game, int i)
 {
-    while (strcmp(game->parse.map[i], "") == 0)
-        i++;
-    game->parse.map = &game->parse.map[i];
-    i = 0;
-    while (game->parse.map[i] && strcmp(game->parse.map[i], "") != 0)
-        i++;
-    game->parse.map[i] = NULL;
-} 
-
-static int  ft_token_match(char *s)
-{
-    if ((s[0] == 'N' && s[1] == 'O') || (s[0] == 'W' && s[1] == 'E')
-        || (s[0] == 'S' && s[1] == 'O') || (s[0] == 'E' && s[1] == 'A')
-            || (s[0] == 'F' || s[0] == 'C'))
-            return (1);
-
-    return (0);
+	while (strcmp(game->map[i], "") == 0)
+		i++;
+	game->map = &game->map[i];
 }
+
+static int	ft_token_match(char *s)
+{
+	if ((s[0] == 'N' && s[1] == 'O') || (s[0] == 'W' && s[1] == 'E')
+		|| (s[0] == 'S' && s[1] == 'O') || (s[0] == 'E' && s[1] == 'A')
+		|| (s[0] == 'F' || s[0] == 'C'))
+		return (1);
+	return (0);
+}
+
+static void	ft_ordering(t_game *game)
+{
+	int		i;
+	int		elem;
+	char	*tok;
+
+	i = 0;
+	elem = 0;
+	tok = "NSWEFC";
+	while (game->elem_tmp[i])
+	{
+		if (game->elem_tmp[i][0] == tok[elem])
+		{
+			game->elem[elem] = ft_strdup(game->elem_tmp[i]);
+			elem++;
+			i = 0;
+		}
+		else
+			i++;
+	}
+	free_str_tab(game->elem_tmp);
+}
+
 
 void	ft_split_map_elem(t_game *game)
 {
-    int     i;
-    int     j;
-	int		elem_nb;
-   
-    i = 0;
-    j = 0;
-    elem_nb = 0;
-    while (game->parse.map[i])
-    {
-        if (ft_token_match(game->parse.map[i]))
-        {
-            game->data.elements[elem_nb] = ft_strdup(game->parse.map[i]);
-            elem_nb++;
-        }
-        if (elem_nb == 6)
-            break ;
-        i++;
-    }
-    game->data.elements[elem_nb] = NULL;
-    if (elem_nb != 6)
-        ft_error(game, "map: invalid elements\n", NULL);
-    ft_trim_map(game, i + 1);
+	int	i;
+	int	elem_nb;
+
+	i = 0;
+	elem_nb = 0;
+	while (game->map[i])
+	{
+		if (ft_token_match(game->map[i]))
+		{
+			game->elem_tmp[elem_nb] = ft_strdup(game->map[i]);
+			elem_nb++;
+		}
+		if (game->map[i][0] == ' ' || game->map[i][0] == '1')
+			ft_error(game, "map: elements missing", NULL);
+		if (elem_nb == 6)
+			break ;
+		i++;
+	}
+	game->elem_tmp[elem_nb] = NULL;
+	if (elem_nb != 6)
+		ft_error(game, "map: invalid elements", NULL);
+	ft_ordering(game);
+	ft_trim_map(game, i + 1);
 	ft_set_map_cpy(game);
 }

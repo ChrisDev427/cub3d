@@ -6,7 +6,7 @@
 /*   By: chmassa <chmassa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 13:47:01 by chmassa           #+#    #+#             */
-/*   Updated: 2023/05/26 11:20:32 by chmassa          ###   ########.fr       */
+/*   Updated: 2023/07/14 14:38:24 by chmassa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,8 @@
 
 int	ft_quit(t_game *game)
 {
-	game = NULL;
-	// mlx_destroy_window(game->win.mlx_ptr, game->win.win_ptr);
-	// free_str_tab(game->parse.map);
+	mlx_destroy_window(game->win.mlx, game->win.win);
+	free_str_tab(game->mapcpy);
 	exit(EXIT_SUCCESS);
 	return (0);
 }
