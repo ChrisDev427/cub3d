@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_go_right.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chmassa <chmassa@student.42.fr>            +#+  +:+       +#+        */
+/*   By: chris <chris@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 11:44:52 by chmassa           #+#    #+#             */
-/*   Updated: 2023/07/14 12:16:20 by chmassa          ###   ########.fr       */
+/*   Updated: 2023/07/14 20:30:30 by chris            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static void	ft_moves_b(t_game *game)
 		if (game->mapcpy[(int)(game->fpos_y - 0.4)][(int)(game->fpos_x - 0.5)]
 			!= '1' && game->mapcpy[(int)(game->fpos_y + 0.4)][(int)(game->fpos_x
 				- 0.5)] != '1')
-			game->fpos_x -= (game->rc.dir_x +1) * game->rc.move_speed; 
+			game->fpos_x -= (game->rc.dir_x +1) * game->rc.move_speed;
 	if (game->rc.dir_y >= 0 && game->rc.dir_x < 0)
 		if (game->mapcpy[(int)(game->fpos_y - 0.5)][(int)(game->fpos_x - 0.4)]
 			!= '1' && game->mapcpy[(int)(game->fpos_y - 0.5)][(int)(game->fpos_x

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split_map_elem.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chmassa <chmassa@student.42.fr>            +#+  +:+       +#+        */
+/*   By: chris <chris@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 11:50:57 by chmassa           #+#    #+#             */
-/*   Updated: 2023/07/14 17:23:37 by chmassa          ###   ########.fr       */
+/*   Updated: 2023/07/14 20:30:14 by chris            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,6 @@ static void	ft_ordering(t_game *game)
 	}
 	free_str_tab(game->elem_tmp);
 }
-
 
 void	ft_split_map_elem(t_game *game)
 {

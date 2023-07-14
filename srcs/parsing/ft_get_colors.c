@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_get_colors.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chmassa <chmassa@student.42.fr>            +#+  +:+       +#+        */
+/*   By: chris <chris@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 17:21:40 by chmassa           #+#    #+#             */
-/*   Updated: 2023/07/14 19:02:12 by chmassa          ###   ########.fr       */
+/*   Updated: 2023/07/14 20:26:39 by chris            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static void	ft_lexer(t_game *game, char *s)
 		ft_error(game, "wrong color argument: ", s);
 }
 
-static void	ft_atoi_color(t_game *game, char type, char *s)
+static void	ft_atoi_color(t_game *game, int *tab, char *s)
 {
 	int	i;
 	int	byte;
@@ -46,13 +46,8 @@ static void	ft_atoi_color(t_game *game, char type, char *s)
 	{
 		if (s[i] >= '0' && s[i] <= '9')
 		{
-			if (type == 'C')
-				game->data.ceiling[byte] = ft_atoi(s + i);
-			if (type == 'F')
-				game->data.floor[byte] = ft_atoi(s + i);
-			if ((game->data.ceiling[byte] < 0 || game->data.ceiling[byte]
-					> 255) || (game->data.floor[byte] < 0
-					|| game->data.ceiling[byte] > 255))
+			tab[byte] = ft_atoi(s + i);
+			if (tab[byte] < 0 || tab[byte] > 255)
 				ft_error(game, "wrong color argument: ", s);
 			byte++;
 			while (ft_isdigit(s[i]))
@@ -75,8 +70,8 @@ void	ft_get_colors(t_game *game)
 {
 	game->data.ceiling[0] = 0;
 	game->data.floor[0] = 0;
-	ft_atoi_color(game, 'C', game->elem[5]);
-	ft_atoi_color(game, 'F', game->elem[4]);
+	ft_atoi_color(game, game->data.ceiling, game->elem[5]);
+	ft_atoi_color(game, game->data.floor, game->elem[4]);
 	game->data.ce_color = ft_color_to_int(game->data.ceiling);
 	game->data.fl_color = ft_color_to_int(game->data.floor);
 }

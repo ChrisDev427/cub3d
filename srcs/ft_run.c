@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_run.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chmassa <chmassa@student.42.fr>            +#+  +:+       +#+        */
+/*   By: chris <chris@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 17:33:19 by chmassa           #+#    #+#             */
-/*   Updated: 2023/07/14 16:06:59 by chmassa          ###   ########.fr       */
+/*   Updated: 2023/07/14 20:30:25 by chris            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	ft_run(t_game *game)
 	ft_raycasting(game);
 	ft_speed(game);
 	ft_player_moves(game);
-	// ft_print_specs(game);
+	ft_print_specs(game);
 	ft_mini_map(game);
 	mlx_put_image_to_window(game->win.mlx, game->win.win,
 		game->image.game_img.img, 0, 0);

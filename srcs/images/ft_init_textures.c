@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_init_textures.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chmassa <chmassa@student.42.fr>            +#+  +:+       +#+        */
+/*   By: chris <chris@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/08 22:11:00 by chris             #+#    #+#             */
-/*   Updated: 2023/07/14 18:41:48 by chmassa          ###   ########.fr       */
+/*   Updated: 2023/07/14 20:29:22 by chris            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,8 @@ static void	ft_rev(t_game *game, int tex)
 static void	ft_reverse_pixels(t_game *game, int tex)
 {
 	game->rev.y = 0;
-	// game->rev.rev_data = (char *)malloc(game->image.tex[tex].line_length
-	// 		* game->rc.tex_size_h);
-	game->rev.rev_data = ft_calloc(game->image.tex[tex].line_length, game->rc.tex_size_h);
+	game->rev.rev_data = ft_calloc(game->image.tex[tex].line_length,
+			game->rc.tex_size_h);
 	while (game->rev.y < game->rc.tex_size_h)
 	{
 		game->rev.x = 0;
