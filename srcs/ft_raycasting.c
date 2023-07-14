@@ -3,25 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   ft_raycasting.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chmassa <chmassa@student.42.fr>            +#+  +:+       +#+        */
+/*   By: chris <chris@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 09:59:43 by chmassa           #+#    #+#             */
-/*   Updated: 2023/07/13 10:00:34 by chmassa          ###   ########.fr       */
+/*   Updated: 2023/07/13 17:53:03 by chris            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "cub3d.h"
 
-static void ft_loop_init(t_game *game)
+static void	ft_loop_init(t_game *game)
 {
 	game->rc.map_x = (int)game->fpos_x;
 	game->rc.map_y = (int)game->fpos_y;
-	game->rc.camera_x = 2 * game->rc.ray_x / (double)SCREEN_WIDTH - 1; 
+	game->rc.camera_x = 2 * game->rc.ray_x / (double)SCREEN_WIDTH - 1;
 	game->rc.ray_dir_x = game->rc.dir_x - game->rc.plane_x * game->rc.camera_x;
 	game->rc.ray_dir_y = game->rc.dir_y - game->rc.plane_y * game->rc.camera_x;
 	game->rc.hit = 0;
-
 	if (game->rc.ray_dir_x == 0)
 		game->rc.delta_dist_x = __DBL_MAX__;
 	else
@@ -31,7 +29,8 @@ static void ft_loop_init(t_game *game)
 	else
 		game->rc.delta_dist_y = fabs(1 / game->rc.ray_dir_y);
 }
-static void ft_step_sidedist(t_game *game)
+
+static void	ft_step_sidedist(t_game *game)
 {
 	if (game->rc.ray_dir_x < 0)
 	{
@@ -58,7 +57,8 @@ static void ft_step_sidedist(t_game *game)
 			* game->rc.delta_dist_y;
 	}
 }
-static void ft_dda_algo(t_game *game)
+
+static void	ft_dda_algo(t_game *game)
 {
 	while (game->rc.hit == 0)
 	{
@@ -86,25 +86,26 @@ static void ft_dda_algo(t_game *game)
 			game->rc.hit = 1;
 	}
 }
+
 static void	ft_side_set(t_game *game)
 {
 	if (game->rc.side == 0)
 	{
 		game->rc.perp_wall_dist = (game->rc.side_dist_x
-			- game->rc.delta_dist_x);
+				- game->rc.delta_dist_x);
 		game->rc.wallx = game->fpos_y + game->rc.perp_wall_dist
 			* game->rc.ray_dir_y;
 	}
 	else
 	{
 		game->rc.perp_wall_dist = (game->rc.side_dist_y
-			- game->rc.delta_dist_y);
+				- game->rc.delta_dist_y);
 		game->rc.wallx = game->fpos_x + game->rc.perp_wall_dist
 			* game->rc.ray_dir_x;
 	}
 }
 
-void ft_raycasting(t_game *game)
+void	ft_raycasting(t_game *game)
 {
 	game->rc.ray_x = 0;
 	while (game->rc.ray_x < SCREEN_WIDTH)
@@ -114,8 +115,8 @@ void ft_raycasting(t_game *game)
 		ft_dda_algo(game);
 		ft_side_set(game);
 		game->rc.wallx -= floor(game->rc.wallx);
-		if (game->rc.ray_x == SCREEN_WIDTH /2)
-			game->rc.ray_dist =  game->rc.perp_wall_dist * 20;
+		if (game->rc.ray_x == SCREEN_WIDTH / 2)
+			game->rc.ray_dist = game->rc.perp_wall_dist * 20;
 		game->rc.line_height = (int)(SCREEN_HEIGHT / game->rc.perp_wall_dist);
 		game->rc.draw_start = -game->rc.line_height / 2 + SCREEN_HEIGHT / 2;
 		game->rc.draw_end = game->rc.line_height / 2 + SCREEN_HEIGHT / 2;

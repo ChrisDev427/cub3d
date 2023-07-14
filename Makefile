@@ -32,17 +32,13 @@ SRCS =  srcs/cub3d.c \
 		srcs/images/ft_init_textures.c \
 		srcs/images/ft_vertical_draw.c \
 		srcs/images/ft_init_images.c \
-		srcs/images/ft_my_mlx_pixel_put.c \
+		srcs/images/ft_my_pixel_put.c \
 		srcs/minimap/ft_minimap.c \
 		srcs/minimap/ft_minimap_print_utils.c \
 		srcs/minimap/ft_minimap_init.c
 
-
 OBJECT_FILES = $(SRCS:.c=.o)
-
-
 HEADER = -I ./includes
-
 all: $(NAME) 
 .c.o:
 	@$(CC) $(CFLAGS) $(HEADER) -c $< -o $(<:.c=.o)

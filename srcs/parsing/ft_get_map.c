@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_get_map.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chmassa <chmassa@student.42.fr>            +#+  +:+       +#+        */
+/*   By: chris <chris@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 17:19:20 by chmassa           #+#    #+#             */
-/*   Updated: 2023/07/13 10:53:06 by chmassa          ###   ########.fr       */
+/*   Updated: 2023/07/13 17:49:52 by chris            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,20 +31,20 @@ static int	ft_count_lines(int fd)
 
 static void	ft_fill(char *dst, char *src)
 {
-    int i;
+	int	i;
 
-    i = 0;
+	i = 0;
 	while (src[i])
 	{
-        if (src[i] == '\n')
-        {
-		    dst[i] = '\0';
-            break ;
-        }
+		if (src[i] == '\n')
+		{
+			dst[i] = '\0';
+			break ;
+		}
 		dst[i] = src[i];
 		i++;
 	}
-	dst[i]= '\0';
+	dst[i] = '\0';
 }
 
 static char	**ft_get(char **tab, int fd)
@@ -66,18 +66,18 @@ static char	**ft_get(char **tab, int fd)
 		i++;
 		free(src);
 	}
-    return (tab);
+	return (tab);
 }
 
-char    **ft_get_map(char *file, char **tab)
+char	**ft_get_map(char *file, char **tab)
 {
-	int		map_lines;
-    int     fd;
+	int	map_lines;
+	int	fd;
 
 	fd = open(file, O_RDONLY);
 	map_lines = ft_count_lines(fd);
 	tab = malloc(sizeof(char *) * (map_lines + 1));
 	fd = open(file, O_RDONLY);
 	ft_get(tab, fd);
-    return (tab);
+	return (tab);
 }

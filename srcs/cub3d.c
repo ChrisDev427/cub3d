@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chmassa <chmassa@student.42.fr>            +#+  +:+       +#+        */
+/*   By: chris <chris@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 11:00:09 by chmassa           #+#    #+#             */
-/*   Updated: 2023/07/13 11:35:31 by chmassa          ###   ########.fr       */
+/*   Updated: 2023/07/13 17:30:18 by chris            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,11 @@ int	main(int argc, char **argv)
 {
 	t_game	game;
 
-
 	if (argc == 2)
 	{
 		ft_check_ext(argv[1]);
-
 		game.map = ft_get_map(argv[1], game.map);
 		ft_split_map_elem(&game);
-		// ft_print_strs_array(game.map);
-    	// ft_print_strs_array(game.map);
 		ft_check_map(&game);
 		ft_get_colors(&game);
 		ft_init(&game);
@@ -32,14 +28,10 @@ int	main(int argc, char **argv)
 		ft_position_direction(&game);
 		ft_init_images(&game);
 		ft_title(&game);
-    	// ft_print_strs_array(game.maptmp);
-		// puts("--------------------------------------------------------------------");
 		mlx_key_hook(game.win.win, ft_keypress, &game);
 		mlx_hook(game.win.win, 2, 0, ft_keypress, &game);
 		mlx_hook(game.win.win, 3, 0, ft_keyrelease, &game);
 		mlx_hook(game.win.win, 17, 0, ft_quit, &game);
-
-
 		mlx_loop_hook(game.win.mlx, ft_run, &game);
 		mlx_loop(game.win.mlx);
 	}

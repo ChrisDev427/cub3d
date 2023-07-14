@@ -6,12 +6,11 @@
 /*   By: chris <chris@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 17:01:52 by chmassa           #+#    #+#             */
-/*   Updated: 2023/07/07 09:56:06 by chris            ###   ########.fr       */
+/*   Updated: 2023/07/13 17:34:55 by chris            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-
 
 int	ft_keyrelease(int key, t_game *game)
 {
@@ -31,15 +30,11 @@ int	ft_keyrelease(int key, t_game *game)
 		game->slow = '0';
 	if (key == 125)
 		game->fast = '0';
-
 	return (0);
 }
 
 int	ft_keypress(int key, t_game *game)
 {
-	// if (key == 36)
-	// 	game->start_game = 1;
-	// printf("key -> %d\n", key);
 	if (key == 53)
 		ft_quit(game);
 	if (key == 13)

@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_structs.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chmassa <chmassa@student.42.fr>            +#+  +:+       +#+        */
+/*   By: chris <chris@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 15:00:12 by chmassa           #+#    #+#             */
-/*   Updated: 2023/07/13 11:23:24 by chmassa          ###   ########.fr       */
+/*   Updated: 2023/07/13 18:05:18 by chris            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUB3D_STRUCT_H
-# define CUB3D_STRUCT_H
+#ifndef CUB3D_STRUCTS_H
+# define CUB3D_STRUCTS_H
 
 typedef struct s_window
 {
@@ -21,20 +21,8 @@ typedef struct s_window
 	int		y;
 }				t_window;
 
-// typedef struct s_parsing
-// {
-// 	int		fd;
-// 	char	**map;
-// 	char	*elem_token[7];
-// 	int		map_nb_lines;
-// 	int		map_lines_len;
-// 	char	**maptmp;
-// 	char	**mapcpy;
-// }				t_parsing;
-
 typedef struct s_data
 {
-	// char	**elem;
 	int		ceiling[4];
 	int		floor[4];
 	int		fl_color;
@@ -46,15 +34,14 @@ typedef struct s_data
 
 typedef struct s_mp_data
 {
-	//--- minimap data  ------------
-	int		mini_map_bg[4];
-	int		mini_map_walls[4];
-	int		mini_map_overmap[4];
-	int		mini_map_player[4];
-	int		mp_bg_color;
-	int		mp_walls_color;
-	int		mp_overmap_color;
-	int		mp_player_color;
+	int		mp_bg[4];
+	int		mp_walls[4];
+	int		mp_overmap[4];
+	int		mp_player[4];
+	int		bg_cl;
+	int		walls_cl;
+	int		over_cl;
+	int		pl_cl;
 }				t_mp_data;
 
 typedef struct s_img
@@ -64,23 +51,17 @@ typedef struct s_img
 	int		bits_per_pixel;
 	int		line_length;
 	int		endian;
-	int 	pixel_offset;
-	// void	*img_minimap_border;
+	int		pixel_offset;
 }				t_img;
-
 
 typedef struct s_images
 {
-	t_img minimap_img;
-	t_img game_img;
-	t_img title_img;
-	t_img tex[4];
-	unsigned int	*img_data[4];
+	t_img			minimap;
+	t_img			game_img;
+	t_img			title;
+	t_img			tex[4];
 
-	// t_img north_img;
-	// t_img south_img;
-	// t_img east_img;
-	// t_img west_img;
+	unsigned int	*img_data[4];
 }				t_images;
 
 typedef struct s_raycasting
@@ -89,46 +70,37 @@ typedef struct s_raycasting
 	double	dir_y;
 	double	plane_x;
 	double	plane_y;
-	
 	double	time;
 	double	oldtime;
-
-	double camera_x;
-    double ray_dir_x;
-    double ray_dir_y;
-
+	double	camera_x;
+	double	ray_dir_x;
+	double	ray_dir_y;
 	double	delta_dist_x;
 	double	delta_dist_y;
 	double	side_dist_x;
 	double	side_dist_y;
-
 	double	perp_wall_dist;
 	int		ray_dist;
 	int		ray_x;
 	int		step_x;
-    int		step_y;
+	int		step_y;
 	int		map_x;
 	int		map_y;
-    int		hit; //was there a wall hit?
-    int		side; //was a NS or a EW wall hit?
+	int		hit;
+	int		side;
 	int		line_height;
 	int		draw_start;
 	int		draw_end;
 	int		color;
 	double	rot_speed;
 	double	move_speed;
-
 	double	ratio;
 	double	wallx;
 	int		y_draw;
-    double  tex_y;
+	double	tex_y;
 	int		tex;
 	int		tex_size_w;
 	int		tex_size_h;
-
-	
-
-
 }				t_raycasting;
 
 typedef struct s_game
@@ -167,13 +139,11 @@ typedef struct s_game
 	float	pos_y;
 	float	x_increment;
 	float	y_increment;
-	int 	steps;
+	int		steps;
 	int		needle_length;
-	
-
 	t_window		win;
 	t_data			data;
-	t_mp_data		mp_data;
+	t_mp_data		mp;
 	t_images		image;
 	t_raycasting	rc;
 }				t_game;

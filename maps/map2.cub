@@ -1,11 +1,11 @@
-NO ./tex/xpm/space_no.xpm
-SO ./tex/xpm/space_so.xpm
+NO ./tex/xpm/pink3.xpm
+SO ./tex/xpm/pink4.xpm
 
 
-WE ./tex/xpm/space_we.xpm
+WE ./tex/xpm/pink1.xpm
 
 
-EA ./tex/xpm/space_ea.xpm
+EA ./tex/xpm/pink2.xpm
 F 80,80,80
 
 

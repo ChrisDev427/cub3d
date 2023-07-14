@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chmassa <chmassa@student.42.fr>            +#+  +:+       +#+        */
+/*   By: chris <chris@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 19:21:09 by chmassa           #+#    #+#             */
-/*   Updated: 2023/06/05 11:14:02 by chmassa          ###   ########.fr       */
+/*   Updated: 2023/07/13 17:56:18 by chris            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -155,5 +155,4 @@ void				ft_lstdel_current(t_list **lst);
 void				ft_lstprint(t_list *lst);
 void				ft_lstprint_from_head(t_list *lst);
 void				ft_lstprint_from_tail(t_list *lst);
-
 #endif
