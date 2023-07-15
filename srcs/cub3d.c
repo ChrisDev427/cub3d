@@ -6,7 +6,7 @@
 /*   By: chmassa <chmassa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 11:00:09 by chmassa           #+#    #+#             */
-/*   Updated: 2023/07/14 17:23:08 by chmassa          ###   ########.fr       */
+/*   Updated: 2023/07/15 07:43:18 by chmassa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ int	main(int argc, char **argv)
 		ft_init_textures(&game);
 		ft_position_direction(&game);
 		ft_init_images(&game);
-		ft_title(&game);
 		mlx_key_hook(game.win.win, ft_keypress, &game);
 		mlx_hook(game.win.win, 2, 0, ft_keypress, &game);
 		mlx_hook(game.win.win, 3, 0, ft_keyrelease, &game);

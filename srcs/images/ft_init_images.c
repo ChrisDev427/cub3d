@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_init_images.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chris <chris@student.42.fr>                +#+  +:+       +#+        */
+/*   By: chmassa <chmassa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 16:07:07 by chmassa           #+#    #+#             */
-/*   Updated: 2023/07/13 16:49:59 by chris            ###   ########.fr       */
+/*   Updated: 2023/07/15 07:43:32 by chmassa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,4 @@ void	ft_init_images(t_game *game)
 	game->image.minimap.addr = mlx_get_data_addr(game->image.minimap.img,
 			&game->image.minimap.bits_per_pixel,
 			&game->image.minimap.line_length, &game->image.minimap.endian);
-	game->image.title.img = mlx_new_image(game->win.mlx, SCREEN_WIDTH, 40);
-	game->image.title.addr = mlx_get_data_addr(game->image.title.img,
-			&game->image.title.bits_per_pixel,
-			&game->image.title.line_length, &game->image.title.endian);
 }

@@ -2,7 +2,7 @@
 
 SO ./tex/xpm/south.xpm
 
-F   70,  158  ,70
+F   50,  50  ,50
 
 NO./tex/xpm/north.xpm
 
@@ -12,7 +12,7 @@ NO./tex/xpm/north.xpm
 
 WE ./tex/xpm/west.xpm
 
-C137, 58,  255
+C0, 187,  243
 
 
 
