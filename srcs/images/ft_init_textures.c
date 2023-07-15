@@ -6,7 +6,7 @@
 /*   By: chmassa <chmassa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/08 22:11:00 by chris             #+#    #+#             */
-/*   Updated: 2023/07/15 09:14:56 by chmassa          ###   ########.fr       */
+/*   Updated: 2023/07/15 12:39:16 by chmassa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,6 @@ void	ft_init_textures(t_game *game)
 	i = 0;
 	while (i < 4)
 	{
-		game->elem[i] = &game->elem[i][ft_str_chr(game->elem[i], '.')];
 		game->image.tex[i].img = mlx_xpm_file_to_image(game->win.mlx,
 				game->elem[i], &game->rc.tex_size_w, &game->rc.tex_size_h);
 		if (!game->image.tex[i].img)

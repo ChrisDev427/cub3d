@@ -6,7 +6,7 @@
 /*   By: chmassa <chmassa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 17:19:20 by chmassa           #+#    #+#             */
-/*   Updated: 2023/07/14 17:21:30 by chmassa          ###   ########.fr       */
+/*   Updated: 2023/07/15 09:29:14 by chmassa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,8 @@ char	**ft_get_map(t_game *game, char *file, char **tab)
 	int	fd;
 
 	fd = open(file, O_RDONLY);
+	if (fd < 0)
+		ft_error(game, "map: map file permission denied", NULL);
 	map_lines = ft_count_lines(fd);
 	tab = malloc(sizeof(char *) * (map_lines + 1));
 	if (!tab)

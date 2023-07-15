@@ -22,5 +22,6 @@ void	ft_error(t_game *game, char *s1, char *s2)
 		ft_putstr_fd(s2, 2);
 		ft_putstr_fd("\n", 2);
 	}
+	free_str_tab(game->mapcpy);
 	exit (EXIT_FAILURE);
 }

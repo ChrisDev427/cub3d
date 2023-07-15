@@ -6,7 +6,7 @@
 /*   By: chmassa <chmassa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 11:09:45 by chmassa           #+#    #+#             */
-/*   Updated: 2023/07/14 12:16:45 by chmassa          ###   ########.fr       */
+/*   Updated: 2023/07/15 12:23:14 by chmassa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ static int	walls_is_surrounding(char **tab)
 		{
 			if (tab[y][x] == '0')
 			{
-				if (tab[y +1] == NULL || tab[y][x +1] == ' '
-					|| tab[y][x +1] == '\0' || tab[y][x -1] == ' '
-						|| tab[y +1][x] == ' ' || tab[y -1][x] == ' ')
+				if (tab[y + 1][x] == '\0' || tab[y +1] == NULL || tab[y][x +1]
+					== ' ' || tab[y][x +1] == '\0' || tab[y][x -1] == ' '
+					|| tab[y +1][x] == ' ' || tab[y -1][x] == ' ')
 					return (1);
 			}
 			x++;

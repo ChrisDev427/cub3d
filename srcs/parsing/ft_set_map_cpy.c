@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_set_map_cpy.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chris <chris@student.42.fr>                +#+  +:+       +#+        */
+/*   By: chmassa <chmassa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 09:31:36 by chmassa           #+#    #+#             */
-/*   Updated: 2023/07/13 17:28:57 by chris            ###   ########.fr       */
+/*   Updated: 2023/07/15 12:56:30 by chmassa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,28 @@ static void	ft_fill_tab(t_game *game)
 	game->maptmp[y] = 0;
 }
 
+static void	ft_check_valid_path(t_game *game)
+{
+	int	i;
+	int	fd;
+
+	i = 0;
+	while (i < 4)
+	{
+		fd = open(game->elem[i], O_RDONLY);
+		if (fd < 0)
+			ft_error(game, "texture does not exist\n", NULL);
+		close(fd);
+		i++;
+	}
+}
+
 int	ft_set_map_cpy(t_game *game)
 {
 	int	i;
 
 	i = 0;
+	ft_check_valid_path(game);
 	game->map_nb_lines = ft_strtab_size(game->map);
 	game->map_lines_len = ft_biggest_str_in_tab(game->map);
 	game->maptmp = malloc(sizeof(char *) * (game->map_nb_lines + 1));

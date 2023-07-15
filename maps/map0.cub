@@ -1,26 +1,26 @@
 
+F      50,7,50
 
-SO ./tex/xpm/south.xpm
-
-F   50,  50  ,50
-
-NO./tex/xpm/north.xpm
-
-
-
-
-
-WE ./tex/xpm/west.xpm
-
-C0, 187,  243
+SO    ./tex/xpm/south.xpm
 
 
 
 
 
 
+
+WE               ./tex/xpm/west.xpm
 
 EA ./tex/xpm/east.xpm
+
+
+NO ./tex/xpm/north.xpm
+
+C 0, 187,      255
+
+
+
+
 111111111111111111111
 100000000000000000111
 100000000000000000001
@@ -43,3 +43,5 @@ EA ./tex/xpm/east.xpm
 100000000000000000001
 100000000000000000001
 111111111111111111111
+
+

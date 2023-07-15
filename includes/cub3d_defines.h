@@ -6,7 +6,7 @@
 /*   By: chmassa <chmassa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 15:00:12 by chmassa           #+#    #+#             */
-/*   Updated: 2023/07/15 08:46:23 by chmassa          ###   ########.fr       */
+/*   Updated: 2023/07/15 12:26:20 by chmassa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 # define WALLS_WEST 0xF7FF00
 //-- speed --------------------------------------
 # define MOVE_SPEED 0.1
-# define ROT_SPEED 0.01
+# define ROT_SPEED 0.02
 
 //-- minimap back ground color ------------------
 # define BG_COL_A 200
@@ -51,6 +51,6 @@
 # define MP_HEIGHT 240
 //-- minimap position -------------------------------
 # define MP_POS_WIDTH 30
-# define MP_POS_HEIGHT (SCREEN_HEIGHT -MP_HEIGHT -30)
+# define MP_POS_HEIGHT 30
 
 #endif
