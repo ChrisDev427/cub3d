@@ -6,7 +6,7 @@
 /*   By: chmassa <chmassa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 15:00:12 by chmassa           #+#    #+#             */
-/*   Updated: 2023/07/14 17:18:56 by chmassa          ###   ########.fr       */
+/*   Updated: 2023/07/15 13:34:04 by chmassa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,6 @@ int		ft_keypress(int key, t_game *game);
 int		ft_keyrelease(int key, t_game *game);
 int		ft_run(t_game *game);
 void	ft_camera(t_game *game);
-void	ft_title(t_game *game);
 void	ft_player_moves(t_game *game);
 void	ft_speed(t_game *game);
 void	ft_go_right(t_game *game);

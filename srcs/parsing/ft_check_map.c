@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_check_map.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chmassa <chmassa@student.42.fr>            +#+  +:+       +#+        */
+/*   By: axfernan <axfernan@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 11:09:45 by chmassa           #+#    #+#             */
-/*   Updated: 2023/07/15 12:23:14 by chmassa          ###   ########.fr       */
+/*   Updated: 2023/07/16 00:18:53 by axfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ static int	walls_is_surrounding(char **tab)
 			{
 				if (tab[y + 1][x] == '\0' || tab[y +1] == NULL || tab[y][x +1]
 					== ' ' || tab[y][x +1] == '\0' || tab[y][x -1] == ' '
-					|| tab[y +1][x] == ' ' || tab[y -1][x] == ' ')
+					|| tab[y +1][x] == ' ' || tab[y -1][x] == ' '
+					|| tab[y][0] == '0')
 					return (1);
 			}
 			x++;
@@ -69,7 +70,7 @@ static int	check_element(char **tab)
 void	ft_check_map(t_game *game)
 {
 	if (check_element(game->map) == 1)
-		ft_error(game, "map must contain only: 0-1-N-W-S-E\n", NULL);
+		ft_error(game, "map: bad arguments\n", NULL);
 	if (walls_is_surrounding(game->map) == 1)
-		ft_error(game, "map must be sourrounded by walls\n", NULL);
+		ft_error(game, "map must be surrounded by walls\n", NULL);
 }

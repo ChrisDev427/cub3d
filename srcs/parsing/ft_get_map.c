@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_get_map.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chmassa <chmassa@student.42.fr>            +#+  +:+       +#+        */
+/*   By: axfernan <axfernan@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 17:19:20 by chmassa           #+#    #+#             */
-/*   Updated: 2023/07/15 09:29:14 by chmassa          ###   ########.fr       */
+/*   Updated: 2023/07/16 00:17:25 by axfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,7 @@ char	**ft_get_map(t_game *game, char *file, char **tab)
 	tab = malloc(sizeof(char *) * (map_lines + 1));
 	if (!tab)
 		return (NULL);
+	close(fd);
 	fd = open(file, O_RDONLY);
 	ft_get(tab, fd);
 	game->elem = malloc(sizeof(char *) * 7);
@@ -89,5 +90,6 @@ char	**ft_get_map(t_game *game, char *file, char **tab)
 	game->elem_tmp = malloc(sizeof(char *) * 7);
 	if (!game->elem_tmp)
 		return (NULL);
+	close(fd);
 	return (tab);
 }

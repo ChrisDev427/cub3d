@@ -11,7 +11,6 @@ OPENGL = -framework OpenGL
 APPKIT = -framework AppKit
 SRCS =  srcs/cub3d.c \
 		srcs/ft_quit.c \
-		srcs/ft_title.c \
 		srcs/ft_error.c \
 		srcs/ft_print_specs.c \
 		srcs/ft_key.c \

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split_map_elem.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chmassa <chmassa@student.42.fr>            +#+  +:+       +#+        */
+/*   By: axfernan <axfernan@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 11:50:57 by chmassa           #+#    #+#             */
-/*   Updated: 2023/07/15 12:48:24 by chmassa          ###   ########.fr       */
+/*   Updated: 2023/07/16 00:16:09 by axfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,10 @@
 
 static void	ft_trim_map(t_game *game, int i)
 {
-	while (strcmp(game->map[i], "") == 0)
+	while (game->map[i] && strcmp(game->map[i], "") == 0)
 		i++;
+	if (!game->map[i])
+		ft_error(game, "map : missing\n", NULL);
 	game->map = &game->map[i];
 }
 
@@ -29,16 +31,14 @@ static int	ft_token_match(char *s)
 	return (0);
 }
 
-static void	ft_ordering(t_game *game)
+static void	ft_ordering(t_game *game, char *tok)
 {
 	int		i;
 	int		elem;
-	char	*tok;
 	int		j;
 
 	i = 0;
 	elem = 0;
-	tok = "NSWEFC";
 	while (game->elem_tmp[i])
 	{
 		if (game->elem_tmp[i][0] == tok[elem])
@@ -56,33 +56,35 @@ static void	ft_ordering(t_game *game)
 		else
 			i++;
 	}
+	if (elem != i)
+		ft_error(game, "map: bad arguments\n", NULL);
 }
 
 void	ft_split_map_elem(t_game *game)
 {
 	int	i;
-	int	elem_nb;
 
-	i = 0;
-	elem_nb = 0;
-	while (game->map[i])
+	i = -1;
+	game->elem_nb = 0;
+	while (game->map[++i])
 	{
 		if (ft_token_match(game->map[i]))
 		{
-			game->elem_tmp[elem_nb] = ft_strdup(game->map[i]);
-			elem_nb++;
+			game->elem_tmp[game->elem_nb] = ft_strdup(game->map[i]);
+			game->elem_nb++;
 		}
+		else if (ft_token_match(game->map[i]) == 0
+			&& ft_strlen(game->map[i]) > 0)
+			ft_error(game, "map: bad arguments\n", NULL);
 		if (game->map[i][0] == ' ' || game->map[i][0] == '1')
 			ft_error(game, "map: elements missing\n", NULL);
-		if (elem_nb == 6)
+		if (game->elem_nb == 6)
 			break ;
-		i++;
 	}
-	game->elem_tmp[elem_nb] = NULL;
-	if (elem_nb != 6)
+	game->elem_tmp[game->elem_nb] = NULL;
+	if (game->elem_nb != 6)
 		ft_error(game, "map: invalid elements\n", NULL);
-	ft_ordering(game);
-	free_str_tab(game->elem_tmp);
+	ft_ordering(game, "NSWEFC");
 	ft_trim_map(game, i + 1);
-	ft_set_map_cpy(game);
+	free_str_tab(game->elem_tmp);
 }

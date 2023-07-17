@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_get_colors.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chris <chris@student.42.fr>                +#+  +:+       +#+        */
+/*   By: axfernan <axfernan@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 17:21:40 by chmassa           #+#    #+#             */
-/*   Updated: 2023/07/14 20:26:39 by chris            ###   ########.fr       */
+/*   Updated: 2023/07/15 20:43:46 by axfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,19 +19,21 @@ static void	ft_lexer(t_game *game, char *s)
 
 	i = 0;
 	nb_comma = 0;
+	if (ft_strlen(s) > 11)
+		ft_error(game, "wrong color argument\n", NULL);
 	while (s[i])
 	{
 		if ((s[i] == '+' && s[i - 1] != ',' && s[i - 1] != ' '))
-			ft_error(game, "wrong color argument: ", s);
+			ft_error(game, "wrong color argument\n", NULL);
 		if (!ft_isdigit(s[i]) && s[i] != ',' && s[i] != ' ' && s[i]
 			!= 'F' && s[i] != 'C' && s[i] != '+')
-			ft_error(game, "wrong color argument: ", s);
+			ft_error(game, "wrong color argument\n", NULL);
 		if (s[i] == ',')
 			nb_comma++;
 		i++;
 	}
 	if (nb_comma != 2)
-		ft_error(game, "wrong color argument: ", s);
+		ft_error(game, "wrong color argument\n", NULL);
 }
 
 static void	ft_atoi_color(t_game *game, int *tab, char *s)
@@ -48,7 +50,7 @@ static void	ft_atoi_color(t_game *game, int *tab, char *s)
 		{
 			tab[byte] = ft_atoi(s + i);
 			if (tab[byte] < 0 || tab[byte] > 255)
-				ft_error(game, "wrong color argument: ", s);
+				ft_error(game, "wrong color argument\n", NULL);
 			byte++;
 			while (ft_isdigit(s[i]))
 				i++;
