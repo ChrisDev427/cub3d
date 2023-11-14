@@ -1,26 +1,19 @@
 
+SO         ./tex/xpm/hd2.xpm
+NO              ./tex/xpm/hd1.xpm
 
 
+C            137,28,255
 
-NO ./tex/xpm/hd1.xpm
-
-
-
-SO ./tex/xpm/hd2.xpm
+WE            ./tex/xpm/hd3.xpm
 
 
-WE ./tex/xpm/hd3.xpm
+EA    ./tex/xpm/hd4.xpm
+
+F     70,70,70
 
 
-EA ./tex/xpm/hd4.xpm
-
-
-F 70,70,70
-C 137,228,255
-
-
-
-
+          111
 111111111111111111111
 100000000000000000111
 100000000000000000001

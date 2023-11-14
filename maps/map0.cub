@@ -7,8 +7,7 @@ C      123,145,213
 
 
 SO    ./tex/xpm/south.xpm
-
-WE    ./tex/xpm/west.xpm
+WE       ./tex/xpm/west.xpm
 
 
 EA ./tex/xpm/east.xpm
