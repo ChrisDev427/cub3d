@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_defines.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chmassa <chmassa@student.42.fr>            +#+  +:+       +#+        */
+/*   By: chris <chris@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 15:00:12 by chmassa           #+#    #+#             */
-/*   Updated: 2023/07/15 12:26:20 by chmassa          ###   ########.fr       */
+/*   Updated: 2024/03/06 12:11:34 by chris            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@
 # define WALLS_EAST 0xFF0000
 # define WALLS_WEST 0xF7FF00
 //-- speed --------------------------------------
-# define MOVE_SPEED 0.1
-# define ROT_SPEED 0.02
+# define MOVE_SPEED 0.035
+# define ROT_SPEED 0.008
 
 //-- minimap back ground color ------------------
 # define BG_COL_A 200
